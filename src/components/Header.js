@@ -10,5 +10,5 @@ export default function Header() {
       <a>DeckBuilder</a>
       <a>Login/SignUp</a>
     </header>
-  )
+  );
 }
