@@ -106,6 +106,8 @@ export default class SearchForm extends PureComponent {
             cardTypes={cardTypes}
             cardSubtypes={cardSubtypes}
             handleChange={this.handleChange}
+            selectedType={selectedType}
+            selectedSubtype={selectedSubtype}
           />
         </ErrorBoundary>
         <button>Search Cards</button>
