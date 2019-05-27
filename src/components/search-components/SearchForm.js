@@ -5,8 +5,12 @@ import CardColors from './CardColors';
 import ErrorBoundary from '../../utilities/ErrorBoundary';
 import GameFormats from './GameFormats';
 import CardSets from './CardSets';
-import setData from '../../../data/setData';
 import CardText from './CardText';
+import CardTypes from './CardTypes';
+
+import setData from '../../../data/setData';
+import typesData from '../../../data/typesData';
+import subtypesData from '../../../data/subtypesData';
 
 export default class SearchForm extends PureComponent {
   state = {
@@ -24,8 +28,12 @@ export default class SearchForm extends PureComponent {
     penny: false,
     vintage: false,
     availSets: [],
-    selectedSet: '',
-    cardText: ''
+    selectedSet: '$DEFAULT$',
+    cardText: '',
+    cardTypes: [],
+    cardSubtypes: [],
+    selectedType: '$DEFAULT$',
+    selectedSubtype: '$DEFAULT$'
   }
 
   handleChange = ({ target }) => {
@@ -38,6 +46,8 @@ export default class SearchForm extends PureComponent {
 
   componentDidMount() {
     this.setState({ availSets: setData.sets });
+    this.setState({ cardTypes: typesData.types });
+    this.setState({ cardSubtypes: subtypesData.subtypes });
   }
 
   render() {
@@ -57,7 +67,11 @@ export default class SearchForm extends PureComponent {
       duel,
       availSets,
       selectedSet,
-      cardText
+      cardText,
+      cardTypes,
+      cardSubtypes,
+      selectedType,
+      selectedSubtype
     } = this.state;
     const cardColors = { black, white, red, blue, green };
     const gameFormats = { commander, modern, standard, vintage, penny, duel };
@@ -83,8 +97,16 @@ export default class SearchForm extends PureComponent {
           selectedSet={selectedSet}
           handleChange={this.handleChange}
         />
+        <CardText 
+          cardText={cardText}
+          handleChange={this.handleChange}
+        />
         <ErrorBoundary>
-          <CardText cardText={cardText} handleChange={this.handleChange} />
+          <CardTypes
+            cardTypes={cardTypes}
+            cardSubtypes={cardSubtypes}
+            handleChange={this.handleChange}
+          />
         </ErrorBoundary>
         <button>Search Cards</button>
       </form>
