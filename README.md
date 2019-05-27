@@ -29,5 +29,6 @@ Buy Decks
 
 
 NOTES: 
-Searching for Blue/White cards exclusively rather than blue cards, white cards, and blue/white cards means searching by color identity, not by color 
+-Searching for Blue/White cards exclusively rather than blue cards, white cards, and blue/white cards means searching by color identity, not by color
+-Possiblity of getting high res images from scryfall api -- images are per card however and rate limiting might make it an impossibility. 
 
