@@ -6,6 +6,7 @@ import ErrorBoundary from '../../utilities/ErrorBoundary';
 import GameFormats from './GameFormats';
 import CardSets from './CardSets';
 import setData from '../../../data/setData';
+import CardText from './CardText';
 
 export default class SearchForm extends PureComponent {
   state = {
@@ -23,7 +24,8 @@ export default class SearchForm extends PureComponent {
     penny: false,
     vintage: false,
     availSets: [],
-    selectedSet: ''
+    selectedSet: '',
+    cardText: ''
   }
 
   handleChange = ({ target }) => {
@@ -54,7 +56,8 @@ export default class SearchForm extends PureComponent {
       penny,
       duel,
       availSets,
-      selectedSet
+      selectedSet,
+      cardText
     } = this.state;
     const cardColors = { black, white, red, blue, green };
     const gameFormats = { commander, modern, standard, vintage, penny, duel };
@@ -75,8 +78,13 @@ export default class SearchForm extends PureComponent {
           gameFormats={gameFormats}
           handleCheckboxChange={this.handleCheckboxChange}
         />
+        <CardSets
+          availSets={availSets}
+          selectedSet={selectedSet}
+          handleChange={this.handleChange}
+        />
         <ErrorBoundary>
-          <CardSets availSets={availSets} selectedSet={selectedSet} handleChange={this.handleChange} />
+          <CardText cardText={cardText} handleChange={this.handleChange} />
         </ErrorBoundary>
         <button>Search Cards</button>
       </form>
