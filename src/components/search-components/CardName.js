@@ -7,6 +7,7 @@ function CardName({ cardName, handleChange }) {
       <h3>Search By CardName: </h3>
       <input 
         type="text"
+        name="cardName"
         placeholder="Search By Card Name"
         value={cardName}
         onChange={handleChange}
