@@ -23,7 +23,7 @@ describe('Card Search Actions Tests', () => {
     };
 
     expect(newSearch(searchState)).toEqual({
-      type: 'NEW_SEARCH',
+      type: 'NEW_SEARCH_OPTIONS',
       payload: {
         cardName: 'Animar',
         black: false,

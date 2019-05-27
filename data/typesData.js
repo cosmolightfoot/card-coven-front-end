@@ -17,7 +17,6 @@ export default {
     'Sorcery',
     'Summon',
     'Tribal',
-    'Vanguard',
-    'You’ll'
+    'Vanguard'
   ]
 };

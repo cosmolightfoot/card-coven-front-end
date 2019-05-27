@@ -1,8 +1,8 @@
-export const NEW_SEARCH = 'NEW_SEARCH';
+export const NEW_SEARCH_OPTIONS = 'NEW_SEARCH_OPTIONS';
 
 export function newSearch(searchState) {
   return {
-    type: NEW_SEARCH,
+    type: NEW_SEARCH_OPTIONS,
     payload: {
       ...searchState
     }
