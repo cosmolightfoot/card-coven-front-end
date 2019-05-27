@@ -12,8 +12,8 @@ function CardColors({ cardColors, handleChange, handleCheckboxChange, exclusivit
       <label>Red<input type="checkbox" name="red" checked={red} onChange={handleCheckboxChange} /></label>
       <label>Black<input type="checkbox" name="black" checked={black} onChange={handleCheckboxChange} /></label>
       <select value={exclusivity} name="exclusivity" onChange={handleChange}>
-        <option value={'and'}>And</option>
-        <option value={'or'}>Or</option>
+        <option value={'$AND$'}>And</option>
+        <option value={'$OR$'} >Or</option>
       </select>
     </fieldset>
   );
