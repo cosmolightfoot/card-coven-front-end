@@ -4,7 +4,8 @@ import CardName from './CardName.js';
 import CardColors from './CardColors';
 import ErrorBoundary from '../../utilities/ErrorBoundary';
 import GameFormats from './GameFormats';
-
+import CardSets from './CardSets';
+import setData from '../../../data/setData';
 
 export default class SearchForm extends PureComponent {
   state = {
@@ -20,7 +21,9 @@ export default class SearchForm extends PureComponent {
     standard: false,
     duel: false,
     penny: false,
-    vintage: false
+    vintage: false,
+    availSets: [],
+    selectedSet: ''
   }
 
   handleChange = ({ target }) => {
@@ -29,6 +32,10 @@ export default class SearchForm extends PureComponent {
 
   handleCheckboxChange = ({ target }) => {
     this.setState({ [target.name]: target.checked });
+  }
+
+  componentDidMount() {
+    this.setState({ availSets: setData.sets });
   }
 
   render() {
@@ -45,11 +52,13 @@ export default class SearchForm extends PureComponent {
       standard,
       vintage,
       penny,
-      duel
+      duel,
+      availSets,
+      selectedSet
     } = this.state;
     const cardColors = { black, white, red, blue, green };
     const gameFormats = { commander, modern, standard, vintage, penny, duel };
-
+  
     return (
       <form>
         <CardName
@@ -62,11 +71,12 @@ export default class SearchForm extends PureComponent {
           exclusivity={exclusivity}  
           handleCheckboxChange={this.handleCheckboxChange}
         />
+        <GameFormats 
+          gameFormats={gameFormats}
+          handleCheckboxChange={this.handleCheckboxChange}
+        />
         <ErrorBoundary>
-          <GameFormats 
-            gameFormats={gameFormats}
-            handleCheckboxChange={this.handleCheckboxChange}
-          />
+          <CardSets availSets={availSets} selectedSet={selectedSet} handleChange={this.handleChange} />
         </ErrorBoundary>
         <button>Search Cards</button>
       </form>
