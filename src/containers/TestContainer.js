@@ -4,6 +4,7 @@ import SearchForm from '../components/search-components/SearchForm';
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(searchOptions) {
+    console.log(searchOptions);
     dispatch(newSearch(searchOptions));
   }
 });

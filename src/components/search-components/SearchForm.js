@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import CardName from './CardName.js';
 import CardColors from './CardColors';
-import ErrorBoundary from '../../utilities/ErrorBoundary';
+// import ErrorBoundary from '../../utilities/ErrorBoundary';
 import GameFormats from './GameFormats';
 import CardSets from './CardSets';
 import CardText from './CardText';
@@ -36,12 +36,63 @@ export default class SearchForm extends PureComponent {
     selectedSubtype: '$DEFAULT$'
   }
 
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired
+  }
+
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
 
   handleCheckboxChange = ({ target }) => {
     this.setState({ [target.name]: target.checked });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const searchOptions = {
+      cardName: this.state.cardName,
+      black: this.state.black,
+      white: this.state.white,
+      green: this.state.green,
+      red: this.state.red,
+      blue: this.state.blue,
+      exclusivity: this.state.exclusivity,
+      commander: this.state.commander,
+      modern: this.state.modern,
+      standard: this.state.standard,
+      vintage: this.state.vintage,
+      penny: this.state.penny,
+      duel: this.state.duel,
+      selectedSet: this.state.selectedSet,
+      cardText: this.state.cardText,
+      selectedType: this.state.selectedType,
+      selectedSubtype: this.state.selectedSubtype
+    };
+    this.props.onSubmit(searchOptions);
+    this.setState({
+      cardName: '',
+      black: false,
+      white: false,
+      blue: false,
+      red: false,
+      green: false,
+      exclusivity: '$OR$',
+      commander: false,
+      modern: false,
+      standard: false,
+      duel: false,
+      penny: false,
+      vintage: false,
+      availSets: [],
+      selectedSet: '$DEFAULT$',
+      cardText: '',
+      cardTypes: [],
+      cardSubtypes: [],
+      selectedType: '$DEFAULT$',
+      selectedSubtype: '$DEFAULT$'
+    });
+
   }
 
   componentDidMount() {
@@ -51,8 +102,8 @@ export default class SearchForm extends PureComponent {
   }
 
   render() {
-    const { cardName } = this.state;
     const {
+      cardName,
       black,
       white,
       green,
@@ -75,9 +126,10 @@ export default class SearchForm extends PureComponent {
     } = this.state;
     const cardColors = { black, white, red, blue, green };
     const gameFormats = { commander, modern, standard, vintage, penny, duel };
-  
+
     return (
-      <form>
+      <>
+      <form onSubmit={this.handleSubmit}>
         <CardName
           cardName={cardName}
           handleChange={this.handleChange}
@@ -101,17 +153,16 @@ export default class SearchForm extends PureComponent {
           cardText={cardText}
           handleChange={this.handleChange}
         />
-        <ErrorBoundary>
-          <CardTypes
-            cardTypes={cardTypes}
-            cardSubtypes={cardSubtypes}
-            handleChange={this.handleChange}
-            selectedType={selectedType}
-            selectedSubtype={selectedSubtype}
-          />
-        </ErrorBoundary>
+        <CardTypes
+          cardTypes={cardTypes}
+          cardSubtypes={cardSubtypes}
+          handleChange={this.handleChange}
+          selectedType={selectedType}
+          selectedSubtype={selectedSubtype}
+        />
         <button>Search Cards</button>
       </form>
+      </>
     );
   } 
 }
