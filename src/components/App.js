@@ -1,13 +1,12 @@
 import React from 'react';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Header';
-import SearchForm from './search-components/SearchForm';
-import TestContainer from '../containers/TestContainer'
+import SearchContainer from '../containers/search-containers/SearchContainer';
 export default function App() {
   return (
     <>
       <Header />
-      <TestContainer />
+      <SearchContainer />
     </>
   );
 }
