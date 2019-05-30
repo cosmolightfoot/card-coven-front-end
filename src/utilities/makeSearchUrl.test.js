@@ -9,9 +9,49 @@ describe('make search url test', () => {
 
 describe('colorToString test', () => {
   const allColorOr = {
-    black: true
-  }
+    black: true,
+    white: true, 
+    red: true,
+    blue: true,
+    green: true,
+    exclusivity: '$OR$'
+  };
+  const allColorAnd = {
+    black: true,
+    white: true, 
+    red: true,
+    blue: true,
+    green: true,
+    exclusivity: '$AND$'
+  };
+  const someColorsAnd = {
+    black: false,
+    white: true, 
+    red: true,
+    blue: true,
+    green: false,
+    exclusivity: '$AND$'
+  };
+
+  const oneColor = {
+    black: false,
+    white: false, 
+    red: true,
+    blue: false,
+    green: false,
+    exclusivity: '$AND$'
+  };
+
   it('returns a piped string on or exclusivity', () => {
-    expect(colorsToString())
+    expect(colorsToString(allColorOr)).toEqual('black|white|red|green|blue');
+  });
+  it('returns a comma\'d string on and exclusivity', () => {
+    expect(colorsToString(allColorAnd)).toEqual('black,white,red,green,blue');
+  });
+  it('excludes false colors', () => {
+    expect(colorsToString(someColorsAnd)).toEqual('white,red,blue');
+  });
+  it('works with one color', () => {
+    expect(colorsToString(oneColor)).toEqual('red');
   });
 });

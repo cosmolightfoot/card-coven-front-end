@@ -1,9 +1,15 @@
 import initSearchState from '../../data/initialSearchState';
 
 export function colorsToString({ black, white, red, green, blue, exclusivity }) {
-  if(exclusivity === '$OR$') return `${black ? 'black' : '' }|${white ? 'white' : '' }|${red ? 'red' : '' }|${green ? 'green' : '' }|${blue ? 'blue' : '' }`;
-  else return `${black ? 'black' : '' },${white ? 'white' : '' },${red ? 'red' : '' },${green ? 'green' : '' },${blue ? 'blue' : '' }`;
-} 
+  let colorString = '';
+  if(exclusivity === '$OR$') {
+    colorString = `${black ? 'black|' : '' }${white ? 'white|' : '' }${red ? 'red|' : '' }${green ? 'green|' : '' }${blue ? 'blue|' : '' }`;
+  } else {
+    colorString = `${black ? 'black,' : '' }${white ? 'white,' : '' }${red ? 'red,' : '' }${green ? 'green,' : '' }${blue ? 'blue,' : '' }`;
+  } 
+  const cleanedString = colorString.slice(0, -1);
+  return cleanedString;
+}
 
 export function makeSearchUrl(searchOptions) {
   const searchQuery = new URL('https://api.magicthegathering.io/v1/cards');
@@ -11,13 +17,7 @@ export function makeSearchUrl(searchOptions) {
   const {
     cardName,
     colors,
-    exclusivity,
-    commander,
-    modern,
-    standard,
-    vintage,
-    penny,
-    duel,
+    selectedFormat,
     selectedSet,
     cardText,
     selectedType,

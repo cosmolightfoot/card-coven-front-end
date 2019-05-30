@@ -66,25 +66,18 @@ export default class SearchForm extends PureComponent {
     this.props.onSubmit(searchOptions);
     this.setState({
       cardName: '',
-      colors: {
-        black: false,
-        white: false,
-        blue: false,
-        red: false,
-        green: false
-      },
+      black: false,
+      white: false,
+      blue: false,
+      red: false,
+      green: false,
       exclusivity: '$OR$',
-      commander: false,
-      modern: false,
-      standard: false,
-      duel: false,
-      penny: false,
-      vintage: false,
-      availSets: [],
+      availGameFormats: formatsData,
+      availSets: setData.sets,
       selectedSet: '$DEFAULT$',
       cardText: '',
-      cardTypes: [],
-      cardSubtypes: [],
+      cardTypes: typesData.types,
+      cardSubtypes: subtypesData.subtypes,
       selectedType: '$DEFAULT$',
       selectedSubtype: '$DEFAULT$'
     });
