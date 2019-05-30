@@ -4,14 +4,13 @@ import fetchCards from '../services/fetchCards';
 export const newSearch = (searchOptions) => (dispatch) => {
   
   return fetchCards(searchOptions)
-    .then(body => body.json())
-    .then(cards => {
-      console.log('IT FUCKING WORKED');
+    .then(results => {
+      console.log('RESULTS', results);
       dispatch({
         type: NEW_SEARCH_OPTIONS,
         payload: {
           searchOptions: searchOptions,
-          searchResults: cards.cards
+          searchResults: results.cards
         }
       });
     });
