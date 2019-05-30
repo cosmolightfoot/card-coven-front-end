@@ -11,6 +11,7 @@ import CardTypes from './CardTypes';
 import setData from '../../../data/setData';
 import typesData from '../../../data/typesData';
 import subtypesData from '../../../data/subtypesData';
+import formatsData from '../../../data/formatData';
 
 export default class SearchForm extends PureComponent {
   state = {
@@ -21,12 +22,8 @@ export default class SearchForm extends PureComponent {
     red: false,
     green: false,
     exclusivity: '$OR$',
-    commander: false,
-    modern: false,
-    standard: false,
-    duel: false,
-    penny: false,
-    vintage: false,
+    selectedFormat: '$DEFAULT$',
+    availGameFormats: [],
     availSets: [],
     selectedSet: '$DEFAULT$',
     cardText: '',
@@ -52,18 +49,15 @@ export default class SearchForm extends PureComponent {
     event.preventDefault();
     const searchOptions = {
       cardName: this.state.cardName,
-      black: this.state.black,
-      white: this.state.white,
-      green: this.state.green,
-      red: this.state.red,
-      blue: this.state.blue,
-      exclusivity: this.state.exclusivity,
-      commander: this.state.commander,
-      modern: this.state.modern,
-      standard: this.state.standard,
-      vintage: this.state.vintage,
-      penny: this.state.penny,
-      duel: this.state.duel,
+      colors: {
+        black: this.state.black,
+        white: this.state.white,
+        green: this.state.green,
+        red: this.state.red,
+        blue: this.state.blue,
+        exclusivity: this.state.exclusivity,
+      },
+      selectedFormat: this.state.selectedFormat,
       selectedSet: this.state.selectedSet,
       cardText: this.state.cardText,
       selectedType: this.state.selectedType,
@@ -72,11 +66,13 @@ export default class SearchForm extends PureComponent {
     this.props.onSubmit(searchOptions);
     this.setState({
       cardName: '',
-      black: false,
-      white: false,
-      blue: false,
-      red: false,
-      green: false,
+      colors: {
+        black: false,
+        white: false,
+        blue: false,
+        red: false,
+        green: false
+      },
       exclusivity: '$OR$',
       commander: false,
       modern: false,
@@ -99,6 +95,7 @@ export default class SearchForm extends PureComponent {
     this.setState({ availSets: setData.sets });
     this.setState({ cardTypes: typesData.types });
     this.setState({ cardSubtypes: subtypesData.subtypes });
+    this.setState({ availGameFormats: formatsData });
   }
 
   render() {
@@ -110,12 +107,8 @@ export default class SearchForm extends PureComponent {
       red,
       blue,
       exclusivity,
-      commander, 
-      modern,
-      standard,
-      vintage,
-      penny,
-      duel,
+      availGameFormats,
+      selectedFormat, 
       availSets,
       selectedSet,
       cardText,
@@ -125,7 +118,6 @@ export default class SearchForm extends PureComponent {
       selectedSubtype
     } = this.state;
     const cardColors = { black, white, red, blue, green };
-    const gameFormats = { commander, modern, standard, vintage, penny, duel };
 
     return (
       <>
@@ -141,8 +133,9 @@ export default class SearchForm extends PureComponent {
           handleCheckboxChange={this.handleCheckboxChange}
         />
         <GameFormats 
-          gameFormats={gameFormats}
-          handleCheckboxChange={this.handleCheckboxChange}
+          selectedFormat={selectedFormat}
+          availGameFormats={availGameFormats}
+          handleChange={this.handleChange}
         />
         <CardSets
           availSets={availSets}

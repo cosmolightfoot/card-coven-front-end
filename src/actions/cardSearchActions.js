@@ -1,9 +1,7 @@
 export const NEW_SEARCH_OPTIONS = 'NEW_SEARCH_OPTIONS';
 
-export const newSearch = (searchState) => (dispatch) => {
-  dispatch()
-
-
+export const newSearch = (searchOptions) => (dispatch) => {
+  
   return fetch('https://api.magicthegathering.io/v1/cards')
     .then(body => body.json())
     .then(cards => {
@@ -11,7 +9,7 @@ export const newSearch = (searchState) => (dispatch) => {
       dispatch({
         type: NEW_SEARCH_OPTIONS,
         payload: {
-          searchState: searchState,
+          searchOptions: searchOptions,
           searchResults: cards.cards
         }
       });

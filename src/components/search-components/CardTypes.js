@@ -13,15 +13,15 @@ function CardTypes({ selectedType, selectedSubtype, cardTypes, cardSubtypes, han
   return (
     <section>
       <select name="selectedType" value={selectedType} onChange={handleChange}>
-        <option value="$DEFAULT$">--Select a Card Type--</option>
+        <option value="$DEFAULT$">--Filter by Card Type--</option>
         {typesList}
       </select>
       <select name="selectedSubtype" value={selectedSubtype} onChange={handleChange}>
-        <option value="$DEFAULT$">--Select a Card Subtype--</option>
+        <option value="$DEFAULT$">--Filter by Card Subtype--</option>
         {subtypesList}
       </select>
     </section>
-  )
+  );
 }
 
 CardTypes.propTypes = {
