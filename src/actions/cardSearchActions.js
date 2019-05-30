@@ -1,8 +1,9 @@
 export const NEW_SEARCH_OPTIONS = 'NEW_SEARCH_OPTIONS';
+import fetchCards from '../services/fetchCards';
 
 export const newSearch = (searchOptions) => (dispatch) => {
   
-  return fetch('https://api.magicthegathering.io/v1/cards')
+  return fetchCards(searchOptions)
     .then(body => body.json())
     .then(cards => {
       console.log('IT FUCKING WORKED');
