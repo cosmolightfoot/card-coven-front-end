@@ -24,9 +24,20 @@ export function makeSearchUrl(searchOptions) {
     selectedSubtype
   } = searchOptions;
   
+  const colorQuery = colorsToString(colors);
+  cardName && searchQuery.searchParams.set('name', cardName);
+  colorQuery && searchQuery.searchParams.set('colors', colorQuery);
+  selectedFormat && searchQuery.searchParams.set('format', selectedFormat);
+  selectedSet && searchQuery.searchParams.set('sets', selectedSet);
+  cardText && searchQuery.searchParams.set('text', cardText);
+  selectedType && searchQuery.searchParams.set('types', selectedType);
+  selectedSubtype && searchQuery.searchParams.set('subtypes', selectedSubtype);
+
   
+   
+
   // console.log(searchQuery);
-  // return searchQuery;
+  return searchQuery;
   //return 'https://api.magicthegathering.io/v1/cards?name=animar&colors=(green,blue,red || green|blue|red)&sets=khans&formats=standard&text=destroy%20target%20creature&type=creature&subtypes=elemental
 
 
