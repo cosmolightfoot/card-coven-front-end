@@ -1,19 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import CardName from './CardName.js';
-import CardColors from './CardColors';
+import CardName from '../../components/search-components/CardName';
+import CardColors from '../../components/search-components/CardColors';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
-import GameFormats from './GameFormats';
-import CardSets from './CardSets';
-import CardText from './CardText';
-import CardTypes from './CardTypes';
+import GameFormats from '../../components/search-components/GameFormats';
+import CardSets from '../../components/search-components/CardSets';
+import CardText from '../../components/search-components/CardText';
+import CardTypes from '../../components/search-components/CardTypes';
 
 import setData from '../../../data/setData';
 import typesData from '../../../data/typesData';
 import subtypesData from '../../../data/subtypesData';
 import formatsData from '../../../data/formatData';
 
-export default class SearchForm extends PureComponent {
+import { connect } from 'react-redux';
+import { newSearch } from '../../actions/cardSearchActions';
+
+class SearchForm extends PureComponent {
   state = {
     cardName: '',
     black: false,
@@ -152,5 +155,16 @@ export default class SearchForm extends PureComponent {
     );
   } 
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit(searchOptions) {
+    dispatch(newSearch(searchOptions));
+  }
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SearchForm);
 
 
