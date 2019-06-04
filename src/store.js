@@ -12,7 +12,9 @@ const preloadedState = {
     currentSearchOptions: {},
     recentSearchOptions: [],
     currentSearchResults: [],
-    cardsOfInterest: []
+    cardsOfInterest: [],
+    currentPage: 1,
+    totalPages: 1 
   }
 };
 
