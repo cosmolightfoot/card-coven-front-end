@@ -7,7 +7,9 @@ export default function searchReducer(state = {}, action) {
         loading: false,
         currentSearchOptions: action.payload.searchOptions,
         recentSearchOptions: [...state.recentSearchOptions, action.payload.searchOptions],
-        currentSearchResults: action.payload.searchResults
+        currentSearchResults: action.payload.searchResults,
+        totalPages: action.payload.totalPages,
+        count: action.payload.count
       };
 
     case NEW_SEARCH_LOADING:
