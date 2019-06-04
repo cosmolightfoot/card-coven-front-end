@@ -8,5 +8,11 @@ export default function fetchCards(searchOptions) {
     .then(([ok, json]) => {
       if(!ok) throw 'Unable to Get Cards';
       return json;
+    })
+    .then(searchResults => {
+      return {
+        searchResults, 
+        searchOptions
+      };
     });
 }

@@ -4,10 +4,20 @@ export default function searchReducer(state = {}, action) {
   switch(action.type) {
     case NEW_SEARCH: 
       return { ...state,
-        currentSearchOptions: action.payload,
-        recentSearchOptions: [...state.recentSearchOptions, action.payload],
+        loading: false,
+        currentSearchOptions: action.payload.searchOptions,
+        recentSearchOptions: [...state.recentSearchOptions, action.payload.searchOptions],
         currentSearchResults: action.payload.searchResults
       };
+
+    case NEW_SEARCH_LOADING:
+      return { ...state, loading: true };
+
+    case NEW_SEARCH_FULFILLED: 
+      return { ...state, loading: false };
+
+    case NEW_SEARCH_ERROR: 
+      return { ...state, error: action.payload };
   
     default: 
       return state;
