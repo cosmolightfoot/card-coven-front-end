@@ -1,8 +1,8 @@
-import { NEW_SEARCH_OPTIONS } from '../actions/cardSearchActions';
+import { NEW_SEARCH, NEW_SEARCH_FULFILLED, NEW_SEARCH_LOADING, NEW_SEARCH_ERROR } from '../actions/cardSearchActions';
 
 export default function searchReducer(state = {}, action) {
   switch(action.type) {
-    case NEW_SEARCH_OPTIONS: 
+    case NEW_SEARCH: 
       return { ...state,
         currentSearchOptions: action.payload,
         recentSearchOptions: [...state.recentSearchOptions, action.payload],
