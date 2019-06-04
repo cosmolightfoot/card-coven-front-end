@@ -27,7 +27,7 @@ export function makeSearchUrl(searchOptions) {
   const colorQuery = colorsToString(colors);
   cardName && searchQuery.searchParams.set('name', cardName);
   colorQuery && searchQuery.searchParams.set('colors', colorQuery);
-  selectedFormat !== '$DEFAULT$' && searchQuery.searchParams.set('format', selectedFormat);
+  (selectedFormat !== '$DEFAULT$') && searchQuery.searchParams.set('format', selectedFormat);
   selectedSet !== '$DEFAULT$' && searchQuery.searchParams.set('sets', selectedSet);
   cardText && searchQuery.searchParams.set('text', cardText);
   selectedType !== '$DEFAULT$' && searchQuery.searchParams.set('types', selectedType);

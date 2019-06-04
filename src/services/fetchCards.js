@@ -6,7 +6,7 @@ export default function fetchCards(searchOptions) {
   return fetch(query)
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
-      if(!ok) throw 'Unable to Get Cards'
+      if(!ok) throw 'Unable to Get Cards';
 
       return json;
     });
