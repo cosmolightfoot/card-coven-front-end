@@ -14,7 +14,8 @@ const preloadedState = {
     currentSearchResults: [],
     cardsOfInterest: [],
     currentPage: 1,
-    totalPages: 1 
+    totalPages: 1,
+    noSearches: true 
   }
 };
 

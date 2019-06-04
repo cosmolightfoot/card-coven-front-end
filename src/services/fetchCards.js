@@ -7,7 +7,7 @@ export default function fetchCards(searchOptions) {
     .then(res => ([res.ok, res.json(), res.headers.get('total-count')]))
     .then(([ok, json, count]) => {
       if(!ok) throw 'Unable to Get Cards';
-      return [json, count];
+      return Promise.all([json, count]);
     })
     .then(([results, count]) => {
       return {

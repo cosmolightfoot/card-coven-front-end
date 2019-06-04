@@ -3,6 +3,7 @@ import SearchForm from './SearchForm';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Cards from '../../components/search-components/Cards';
+import { getSearchResults, getSearchCurrentPage, getSearchTotalPages, getSearchLoading, getSearchFulfilled, getSearchNoSearches } from '../../selectors/searchSelectors';
 
 class SearchContainer extends PureComponent {
   static propTypes = {
@@ -10,22 +11,31 @@ class SearchContainer extends PureComponent {
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
     loading: PropTypes.bool.isRequired,
-    fulfilled: PropTypes.bool.isRequired
+    fulfilled: PropTypes.bool.isRequired,
+    noSearches: PropTypes.bool.isRequired
   }
 
   render() {
+    const { searchResults, noSearches } = this.props;
     return (
       <main>
-        <Cards cardListData={this.props.searchResults} />
         <SearchForm />
+        <Cards cardListData={searchResults} noSearches={noSearches}  />
       </main>
     );
   }
 }
 
-const mapStateToProps = 
+const mapStateToProps = state => ({
+  searchResults: getSearchResults(state),
+  currentPage: getSearchCurrentPage(state),
+  totalPages: getSearchTotalPages(state),
+  loading: getSearchLoading(state),
+  fulfilled: getSearchFulfilled(state),
+  noSearches: getSearchNoSearches(state)
+});
 
 export default connect(
-
-)
+  mapStateToProps
+)(SearchContainer);
 
