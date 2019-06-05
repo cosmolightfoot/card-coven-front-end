@@ -20,7 +20,7 @@ class SearchContainer extends PureComponent {
     return (
       <main>
         <SearchForm />
-        <Cards cardListData={searchResults} noSearches={noSearches}  />
+        <Cards cardListData={searchResults || [] } noSearches={noSearches}  />
       </main>
     );
   }
