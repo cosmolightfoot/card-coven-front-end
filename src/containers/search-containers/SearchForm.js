@@ -42,6 +42,18 @@ export default class SearchForm extends PureComponent {
     this.setState({ [target.name]: target.value });
   }
 
+  handleArrayPush = ({ target }) => {
+    this.setState(state => ({
+      [target.name]: state[target.name].push(target.value)
+    }));
+  }
+
+  handleArrayDelete = ({ target }) => {
+    this.setState(state => ({
+      [target.name]: state[target.name].filter(entry => entry !== target.value)
+    }));
+  };
+
   handleCheckboxChange = ({ target }) => {
     this.setState({ [target.name]: target.checked });
   }

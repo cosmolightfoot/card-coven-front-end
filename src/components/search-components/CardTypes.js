@@ -9,7 +9,7 @@ function CardName({ typeLine, handleChange }) {
         <h3>Types:</h3>
       </header>
       <main>
-        <input value={typeLine} name="typeLine" onChange={handleChange} style={{ marginLeft: '12px' }} placeholder="Search by Card Type or Subtype" style={{width: '35%'}}></input>
+        <input value={typeLine} name="typeLine" onChange={handleChange} style={{ marginLeft: '12px', width: '50%', height: '1.5em' }} placeholder="Search by Card Type or Subtype" ></input>
       </main>
     </section>
   );

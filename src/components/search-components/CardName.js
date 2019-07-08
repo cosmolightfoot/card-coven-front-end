@@ -9,7 +9,7 @@ function CardName({ cardName, handleChange }) {
         <h3>Name:</h3>
       </header>
       <main>
-        <input value={cardName} name="cardName" onChange={handleChange} style={{ marginLeft: '12px' }}></input>
+        <input value={cardName} name="cardName" onChange={handleChange} style={{ marginLeft: '12px', width: '50%', height: '1.5em' }}></input>
       </main>
     </section>
   );
