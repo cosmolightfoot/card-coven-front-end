@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CardName from '../../components/search-components/CardName';
-// import CardColors from '../../components/search-components/CardColors';
+import CardColors from '../../components/search-components/CardColors';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
 // import GameFormats from '../../components/search-components/GameFormats';
 // import CardSets from '../../components/search-components/CardSets';
 // import CardText from '../../components/search-components/CardText';
 // import CardTypes from '../../components/search-components/CardTypes';
 
-import setData from '../../../data/setData';
-import formatsData from '../../../data/formatData';
+import setData from '../../data/setData';
+import formatsData from '../../data/formatData';
 
 import { connect } from 'react-redux';
 // import { newSearch } from '../../actions/cardSearchActions';
@@ -121,6 +121,12 @@ export default class SearchForm extends PureComponent {
         <CardName
           cardName={cardName}
           handleChange={this.handleChange}
+        />
+        <CardColors
+          cardColors={cardColors}
+          handleChange={this.handleChange}
+          exclusivity={exclusivity}  
+          handleCheckboxChange={this.handleCheckboxChange}
         />
         
         {/* <CardName
