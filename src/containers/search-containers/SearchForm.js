@@ -1,22 +1,20 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CardName from '../../components/search-components/CardName';
-import CardColors from '../../components/search-components/CardColors';
+// import CardColors from '../../components/search-components/CardColors';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
-import GameFormats from '../../components/search-components/GameFormats';
-import CardSets from '../../components/search-components/CardSets';
-import CardText from '../../components/search-components/CardText';
-import CardTypes from '../../components/search-components/CardTypes';
+// import GameFormats from '../../components/search-components/GameFormats';
+// import CardSets from '../../components/search-components/CardSets';
+// import CardText from '../../components/search-components/CardText';
+// import CardTypes from '../../components/search-components/CardTypes';
 
 import setData from '../../../data/setData';
-import typesData from '../../../data/typesData';
-import subtypesData from '../../../data/subtypesData';
 import formatsData from '../../../data/formatData';
 
 import { connect } from 'react-redux';
-import { newSearch } from '../../actions/cardSearchActions';
+// import { newSearch } from '../../actions/cardSearchActions';
 
-class SearchForm extends PureComponent {
+export default class SearchForm extends PureComponent {
   state = {
     cardName: '',
     black: false,
@@ -24,16 +22,16 @@ class SearchForm extends PureComponent {
     blue: false,
     red: false,
     green: false,
-    exclusivity: '$OR$',
-    selectedFormat: '$DEFAULT$',
-    availGameFormats: [],
+    exact: false,
+    exclude: false,
+    colorType: 'color',
+    reprintedAllowed: false,
+    layout: 'normal',
+    format: '',
     availSets: [],
-    selectedSet: '$DEFAULT$',
+    selectedSets: [],
     cardText: '',
-    cardTypes: [],
-    cardSubtypes: [],
-    selectedType: '$DEFAULT$',
-    selectedSubtype: '$DEFAULT$'
+    typeLine: ''
   }
 
   static propTypes = {
@@ -58,13 +56,16 @@ class SearchForm extends PureComponent {
         green: this.state.green,
         red: this.state.red,
         blue: this.state.blue,
-        exclusivity: this.state.exclusivity,
+        exact: this.state.exact,
+        exclude: this.state.exclude,
+        colorType: this.state.colorType
       },
-      selectedFormat: this.state.selectedFormat,
-      selectedSet: this.state.selectedSet,
+      format: this.state.format,
+      selectedSets: this.state.selectedSets,
       cardText: this.state.cardText,
-      selectedType: this.state.selectedType,
-      selectedSubtype: this.state.selectedSubtype
+      typeLine: this.state.typeLine,
+      layout: this.state.layout,
+      reprintedAllowed: this.state.reprintedAllowed
     };
     this.props.onSubmit(searchOptions);
     this.setState({
@@ -74,23 +75,22 @@ class SearchForm extends PureComponent {
       blue: false,
       red: false,
       green: false,
-      exclusivity: '$OR$',
-      availGameFormats: formatsData,
-      availSets: setData.sets,
-      selectedSet: '$DEFAULT$',
+      exact: false,
+      exclude: false,
+      colorType: 'color',
+      reprintedAllowed: false,
+      layout: 'normal',
+      format: '',
+      availSets: [],
+      selectedSets: [],
       cardText: '',
-      cardTypes: typesData.types,
-      cardSubtypes: subtypesData.subtypes,
-      selectedType: '$DEFAULT$',
-      selectedSubtype: '$DEFAULT$'
+      typeLine: ''
     });
 
   }
 
   componentDidMount() {
     this.setState({ availSets: setData.sets });
-    this.setState({ cardTypes: typesData.types });
-    this.setState({ cardSubtypes: subtypesData.subtypes });
     this.setState({ availGameFormats: formatsData });
   }
 
@@ -122,6 +122,11 @@ class SearchForm extends PureComponent {
           cardName={cardName}
           handleChange={this.handleChange}
         />
+        
+        {/* <CardName
+          cardName={cardName}
+          handleChange={this.handleChange}
+        />
         <CardColors
           cardColors={cardColors}
           handleChange={this.handleChange}
@@ -148,7 +153,7 @@ class SearchForm extends PureComponent {
           handleChange={this.handleChange}
           selectedType={selectedType}
           selectedSubtype={selectedSubtype}
-        />
+        /> */}
         <button>Search Cards</button>
       </form>
       </>
@@ -156,15 +161,15 @@ class SearchForm extends PureComponent {
   } 
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  onSubmit(searchOptions) {
-    dispatch(newSearch(searchOptions));
-  }
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   onSubmit(searchOptions) {
+//     dispatch(newSearch(searchOptions));
+//   }
+// });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(SearchForm);
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(SearchForm);
 
 

@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 
 function CardName({ cardName, handleChange }) {
   return (
-    <div>
-      <h3>Search By CardName: </h3>
-      <input 
-        type="text"
-        name="cardName"
-        placeholder="Search By Card Name"
-        value={cardName}
-        onChange={handleChange}
-      />
-    </div>
+    <section style={{ backgroundColor: 'pink'}}>
+      <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        <div style={{ width: '7px', height: '7px', backgroundColor: 'red', flexGrow: 0, marginRight: '5px' }}></div>
+        <h3>Name:</h3>
+      </header>
+      <main>
+        <input value={cardName} onChange={handleChange} style={{ marginLeft: '12px' }}></input>
+      </main>
+    </section>
   );
 }
 

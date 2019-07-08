@@ -1,8 +1,13 @@
 export default [
-  'commander', 
-  'modern',
   'standard',
+  'future',
+  'frontier',
+  'modern',
+  'legacy',
+  'pauper',
   'vintage',
   'penny',
-  'duel'
+  'commander',
+  'duel',
+  'oldschool'
 ];
