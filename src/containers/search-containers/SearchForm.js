@@ -24,7 +24,7 @@ export default class SearchForm extends PureComponent {
     green: false,
     exact: false,
     exclude: false,
-    colorType: 'color',
+    colorIdentity: false,
     reprintedAllowed: false,
     layout: 'normal',
     format: '',
@@ -58,7 +58,7 @@ export default class SearchForm extends PureComponent {
         blue: this.state.blue,
         exact: this.state.exact,
         exclude: this.state.exclude,
-        colorType: this.state.colorType
+        colorIdentity: this.state.colorIdentity
       },
       format: this.state.format,
       selectedSets: this.state.selectedSets,
@@ -77,7 +77,7 @@ export default class SearchForm extends PureComponent {
       green: false,
       exact: false,
       exclude: false,
-      colorType: 'color',
+      colorIdentity: 'color',
       reprintedAllowed: false,
       layout: 'normal',
       format: '',
@@ -102,7 +102,9 @@ export default class SearchForm extends PureComponent {
       green,
       red,
       blue,
-      exclusivity,
+      exclude,
+      exact,
+      colorIdentity,
       availGameFormats,
       selectedFormat, 
       availSets,
@@ -116,20 +118,22 @@ export default class SearchForm extends PureComponent {
     const cardColors = { black, white, red, blue, green };
 
     return (
-      <>
-      <form onSubmit={this.handleSubmit}>
-        <CardName
-          cardName={cardName}
-          handleChange={this.handleChange}
-        />
-        <CardColors
-          cardColors={cardColors}
-          handleChange={this.handleChange}
-          exclusivity={exclusivity}  
-          handleCheckboxChange={this.handleCheckboxChange}
-        />
+      <main style={{ alignSelf: 'center', width: '40vw' }}>
+        <form onSubmit={this.handleSubmit}>
+          <CardName
+            cardName={cardName}
+            handleChange={this.handleChange}
+          />
+          <CardColors
+            cardColors={cardColors}
+            exact={exact}
+            exclude={exclude}
+            colorIdentity={colorIdentity}
+            handleChange={this.handleChange}
+            handleCheckboxChange={this.handleCheckboxChange}
+          />
         
-        {/* <CardName
+          {/* <CardName
           cardName={cardName}
           handleChange={this.handleChange}
         />
@@ -160,9 +164,9 @@ export default class SearchForm extends PureComponent {
           selectedType={selectedType}
           selectedSubtype={selectedSubtype}
         /> */}
-        <button>Search Cards</button>
-      </form>
-      </>
+          <button>Search Cards</button>
+        </form>
+      </main>
     );
   } 
 }

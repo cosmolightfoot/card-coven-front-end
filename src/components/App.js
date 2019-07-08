@@ -6,9 +6,9 @@ import SearchForm from '../containers/search-containers/SearchForm';
 // import SearchForm from '../containers/search-containers/SearchForm';
 export default function App() {
   return (
-    <>
+    <section style={{ display: 'flex', flexDirection: 'column' }}>
       <Header />
       <SearchForm />
-    </>
+    </section>
   );
 }
