@@ -6,7 +6,7 @@ import CardColors from '../../components/search-components/CardColors';
 // import GameFormats from '../../components/search-components/GameFormats';
 // import CardSets from '../../components/search-components/CardSets';
 // import CardText from '../../components/search-components/CardText';
-// import CardTypes from '../../components/search-components/CardTypes';
+import CardTypes from '../../components/search-components/CardTypes';
 
 import setData from '../../data/setData';
 import formatsData from '../../data/formatData';
@@ -110,10 +110,7 @@ export default class SearchForm extends PureComponent {
       availSets,
       selectedSet,
       cardText,
-      cardTypes,
-      cardSubtypes,
-      selectedType,
-      selectedSubtype
+      typeLine
     } = this.state;
     const cardColors = { black, white, red, blue, green };
 
@@ -131,6 +128,10 @@ export default class SearchForm extends PureComponent {
             colorIdentity={colorIdentity}
             handleChange={this.handleChange}
             handleCheckboxChange={this.handleCheckboxChange}
+          />
+          <CardTypes 
+            typeLine={typeLine}
+            handleChange={this.handleChange}
           />
         
           {/* <CardName
