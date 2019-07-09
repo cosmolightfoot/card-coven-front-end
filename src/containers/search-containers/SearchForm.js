@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CardName from '../../components/search-components/CardName';
 import CardColors from '../../components/search-components/CardColors';
+import CardFormats from '../../components/search-components/CardFormats';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
-// import GameFormats from '../../components/search-components/GameFormats';
 // import CardSets from '../../components/search-components/CardSets';
 // import CardText from '../../components/search-components/CardText';
 import CardTypes from '../../components/search-components/CardTypes';
@@ -27,7 +27,9 @@ export default class SearchForm extends PureComponent {
     colorIdentity: false,
     reprintedAllowed: false,
     layout: 'normal',
-    format: '',
+    formats: [],
+    availGameFormats: [],
+    selectedFormat: '',
     availSets: [],
     selectedSets: [],
     cardText: '',
@@ -42,13 +44,18 @@ export default class SearchForm extends PureComponent {
     this.setState({ [target.name]: target.value });
   }
 
-  handleArrayPush = ({ target }) => {
-    this.setState(state => ({
-      [target.name]: state[target.name].push(target.value)
-    }));
+  handleFormatPush = ({ target }) => {
+    this.setState(state => {
+      console.log(target.name, state.formats, state.selectedFormat);
+      
+      return {
+        [target.name]: [...state[target.name], state.selectedFormat],
+        availGameFormats: [...state.availGameFormats.filter(format => format !== state.selectedFormat)],
+        selectedFormat: ''
+      };});
   }
 
-  handleArrayDelete = ({ target }) => {
+  handleFormatDelete = ({ target }) => {
     this.setState(state => ({
       [target.name]: state[target.name].filter(entry => entry !== target.value)
     }));
@@ -72,7 +79,7 @@ export default class SearchForm extends PureComponent {
         exclude: this.state.exclude,
         colorIdentity: this.state.colorIdentity
       },
-      format: this.state.format,
+      formats: this.state.formats,
       selectedSets: this.state.selectedSets,
       cardText: this.state.cardText,
       typeLine: this.state.typeLine,
@@ -92,7 +99,9 @@ export default class SearchForm extends PureComponent {
       colorIdentity: 'color',
       reprintedAllowed: false,
       layout: 'normal',
-      format: '',
+      formats: [],
+      availFormats: formatsData,
+      selectedFormat: [],
       availSets: [],
       selectedSets: [],
       cardText: '',
@@ -117,6 +126,7 @@ export default class SearchForm extends PureComponent {
       exclude,
       exact,
       colorIdentity,
+      formats,
       availGameFormats,
       selectedFormat, 
       availSets,
@@ -144,6 +154,14 @@ export default class SearchForm extends PureComponent {
           <CardTypes 
             typeLine={typeLine}
             handleChange={this.handleChange}
+          />
+          <CardFormats 
+            formats={formats}
+            availGameFormats={availGameFormats}
+            selectedFormat={selectedFormat}
+            handleChange={this.handleChange}
+            handleFormatPush={this.handleFormatPush}
+            handleFormatDelete={this.handleFormatDelete}
           />
         
           {/* <CardName
