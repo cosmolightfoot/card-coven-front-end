@@ -73,7 +73,7 @@ export default class SearchForm extends PureComponent {
 
   handleSetDelete = (set) => {
     this.setState(state => ({
-      sets: [...state.formats.filter(entry => entry !== set)],
+      sets: [...state.sets.filter(entry => entry !== set)],
       availSets: [...state.availSets, set]
     }));
   }
