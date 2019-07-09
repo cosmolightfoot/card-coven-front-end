@@ -37,27 +37,26 @@ export default class SearchForm extends PureComponent {
   }
 
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    
   }
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
 
-  handleFormatPush = ({ target }) => {
+  handleFormatPush = () => {
+    if(!this.state.selectedFormat) return;
     this.setState(state => {
-      console.log(target.name, state.formats, state.selectedFormat);
-      
       return {
-        [target.name]: [...state[target.name], state.selectedFormat],
+        ['formats']: [...state['formats'], state.selectedFormat],
         availGameFormats: [...state.availGameFormats.filter(format => format !== state.selectedFormat)],
         selectedFormat: ''
       };});
   }
 
-  handleFormatDelete = ({ target }) => {
+  handleFormatDelete = (format) => {
     this.setState(state => ({
-      [target.name]: state[target.name].filter(entry => entry !== target.value)
+      ['formats']: [...state.formats.filter(entry => entry !== format)]
     }));
   };
 
@@ -66,6 +65,7 @@ export default class SearchForm extends PureComponent {
   }
 
   handleSubmit = event => {
+    console.log('BAD');
     event.preventDefault();
     const searchOptions = {
       cardName: this.state.cardName,
