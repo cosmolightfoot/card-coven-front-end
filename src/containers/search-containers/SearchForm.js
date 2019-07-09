@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import CardName from '../../components/search-components/CardName';
 import CardColors from '../../components/search-components/CardColors';
 import CardFormats from '../../components/search-components/CardFormats';
+import CardLayout from '../../components/search-components/CardLayout';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
 import CardSets from '../../components/search-components/CardSets';
-// import CardText from '../../components/search-components/CardText';
+import CardText from '../../components/search-components/CardText';
 import CardTypes from '../../components/search-components/CardTypes';
-
+import layoutData from '../../data/layoutData';
 import setData from '../../data/setData';
 import formatsData from '../../data/formatData';
 
@@ -26,7 +27,8 @@ export default class SearchForm extends PureComponent {
     exclude: false,
     colorIdentity: false,
     reprintedAllowed: false,
-    layout: 'normal',
+    availLayouts: [],
+    layout: '',
     formats: [],
     availGameFormats: [],
     selectedFormat: '',
@@ -115,7 +117,7 @@ export default class SearchForm extends PureComponent {
       exclude: false,
       colorIdentity: 'color',
       reprintedAllowed: false,
-      layout: 'normal',
+      layout: '',
       formats: [],
       availFormats: formatsData,
       selectedFormat: [],
@@ -131,6 +133,7 @@ export default class SearchForm extends PureComponent {
   componentDidMount() {
     this.setState({ availSets: setData });
     this.setState({ availGameFormats: formatsData });
+    this.setState({availLayouts: layoutData });
   }
 
   render() {
@@ -151,6 +154,8 @@ export default class SearchForm extends PureComponent {
       availSets,
       selectedSet,
       cardText,
+      availLayouts,
+      layout,
       typeLine
     } = this.state;
     const cardColors = { black, white, red, blue, green };
@@ -190,6 +195,15 @@ export default class SearchForm extends PureComponent {
             handleSetPush={this.handleSetPush}
             handleSetDelete={this.handleSetDelete}
           />
+          <CardText 
+            cardText={cardText}
+            handleChange={this.handleChange}
+          />
+          <CardLayout
+            availLayouts={availLayouts}
+            layout={layout}
+            handleChange={this.handleChange}
+          />
         
           {/* <CardName
           cardName={cardName}
@@ -209,10 +223,6 @@ export default class SearchForm extends PureComponent {
         <CardSets
           availSets={availSets}
           selectedSet={selectedSet}
-          handleChange={this.handleChange}
-        />
-        <CardText 
-          cardText={cardText}
           handleChange={this.handleChange}
         />
         <CardTypes
