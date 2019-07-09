@@ -4,7 +4,7 @@ import CardName from '../../components/search-components/CardName';
 import CardColors from '../../components/search-components/CardColors';
 import CardFormats from '../../components/search-components/CardFormats';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
-// import CardSets from '../../components/search-components/CardSets';
+import CardSets from '../../components/search-components/CardSets';
 // import CardText from '../../components/search-components/CardText';
 import CardTypes from '../../components/search-components/CardTypes';
 
@@ -30,8 +30,9 @@ export default class SearchForm extends PureComponent {
     formats: [],
     availGameFormats: [],
     selectedFormat: '',
+    sets: [],
     availSets: [],
-    selectedSets: [],
+    selectedSet: '',
     cardText: '',
     typeLine: ''
   }
@@ -46,26 +47,42 @@ export default class SearchForm extends PureComponent {
 
   handleFormatPush = () => {
     if(!this.state.selectedFormat) return;
-    this.setState(state => {
-      return {
-        ['formats']: [...state['formats'], state.selectedFormat],
-        availGameFormats: [...state.availGameFormats.filter(format => format !== state.selectedFormat)],
-        selectedFormat: ''
-      };});
+    this.setState(state => ({
+      formats: [...state.formats, state.selectedFormat],
+      availGameFormats: [...state.availGameFormats.filter(format => format !== state.selectedFormat)],
+      selectedFormat: ''
+    }));
+  }
+
+  handleSetPush = () => {
+    if(!this.state.selectedSet) return;
+    this.setState(state => ({
+      sets: [...state.sets, state.selectedSet],
+      availSets: [...state.availSets.filter(set => set !== state.selectedSet)],
+      selectedSet: ''
+    }));
   }
 
   handleFormatDelete = (format) => {
     this.setState(state => ({
-      ['formats']: [...state.formats.filter(entry => entry !== format)]
-    }));
+      formats: [...state.formats.filter(entry => entry !== format)],
+      availGameFormats: [...state.availGameFormats, format]
+    })
+    );
   };
+
+  handleSetDelete = (set) => {
+    this.setState(state => ({
+      sets: [...state.formats.filter(entry => entry !== set)],
+      availSets: [...state.availSets, set]
+    }));
+  }
 
   handleCheckboxChange = ({ target }) => {
     this.setState({ [target.name]: target.checked });
   }
 
   handleSubmit = event => {
-    console.log('BAD');
     event.preventDefault();
     const searchOptions = {
       cardName: this.state.cardName,
@@ -80,7 +97,7 @@ export default class SearchForm extends PureComponent {
         colorIdentity: this.state.colorIdentity
       },
       formats: this.state.formats,
-      selectedSets: this.state.selectedSets,
+      sets: this.state.sets,
       cardText: this.state.cardText,
       typeLine: this.state.typeLine,
       layout: this.state.layout,
@@ -102,8 +119,9 @@ export default class SearchForm extends PureComponent {
       formats: [],
       availFormats: formatsData,
       selectedFormat: [],
+      sets: [],
+      selectedSet: '',
       availSets: [],
-      selectedSets: [],
       cardText: '',
       typeLine: ''
     });
@@ -111,7 +129,7 @@ export default class SearchForm extends PureComponent {
   }
 
   componentDidMount() {
-    this.setState({ availSets: setData.sets });
+    this.setState({ availSets: setData });
     this.setState({ availGameFormats: formatsData });
   }
 
@@ -128,7 +146,8 @@ export default class SearchForm extends PureComponent {
       colorIdentity,
       formats,
       availGameFormats,
-      selectedFormat, 
+      selectedFormat,
+      sets, 
       availSets,
       selectedSet,
       cardText,
@@ -162,6 +181,14 @@ export default class SearchForm extends PureComponent {
             handleChange={this.handleChange}
             handleFormatPush={this.handleFormatPush}
             handleFormatDelete={this.handleFormatDelete}
+          />
+          <CardSets
+            sets={sets}
+            selectedSet={selectedSet}
+            availSets={availSets}
+            handleChange={this.handleChange}
+            handleSetPush={this.handleSetPush}
+            handleSetDelete={this.handleSetDelete}
           />
         
           {/* <CardName
