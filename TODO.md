@@ -1,1 +1,3 @@
 -add capitalization to form tags
+-Refactor Search Tags to make more modular
+-Make search section headers into drop downs (higher order child components?)

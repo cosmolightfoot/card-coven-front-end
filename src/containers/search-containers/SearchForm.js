@@ -6,10 +6,12 @@ import CardFormats from '../../components/search-components/CardFormats';
 import CardLayout from '../../components/search-components/CardLayout';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
 import CardSets from '../../components/search-components/CardSets';
+import CardSort from '../../components/search-components/CardSort';
 import CardText from '../../components/search-components/CardText';
 import CardTypes from '../../components/search-components/CardTypes';
 import layoutData from '../../data/layoutData';
 import setData from '../../data/setData';
+import sortData from '../../data/sortData';
 import formatsData from '../../data/formatData';
 
 import { connect } from 'react-redux';
@@ -36,7 +38,11 @@ export default class SearchForm extends PureComponent {
     availSets: [],
     selectedSet: '',
     cardText: '',
-    typeLine: ''
+    typeLine: '',
+    sortFilters: [],
+    selectedFilter: '',
+    sortDirection: '1',
+    availSortFilters: []
   }
 
   static propTypes = {
@@ -63,6 +69,19 @@ export default class SearchForm extends PureComponent {
       availSets: [...state.availSets.filter(set => set !== state.selectedSet)],
       selectedSet: ''
     }));
+  }
+
+  handleSortPush = () => {
+    if(!this.state.selectedFilter) return;
+    this.setState(state => {
+      console.log(state.sortFilters, state.selectedFilter, state.sortDirection);
+      
+      return {
+        sortFilters: [...state.sortFilters, { filter: state.selectedFilter, direction: state.sortDirection }],
+        availSortFilters: [...state.availSortFilters.filter(filter => filter !== state.selectedFilter)],
+        selectedFilter: ''
+      };
+    });
   }
 
   handleFormatDelete = (format) => {
@@ -123,17 +142,24 @@ export default class SearchForm extends PureComponent {
       selectedFormat: [],
       sets: [],
       selectedSet: '',
-      availSets: [],
+      availSets: setData,
       cardText: '',
-      typeLine: ''
+      typeLine: '',
+      sortFilters: [],
+      selectedFilter: '',
+      sortDirection: 'ascending',
+      availSortFilters: sortData
     });
 
   }
 
   componentDidMount() {
-    this.setState({ availSets: setData });
-    this.setState({ availGameFormats: formatsData });
-    this.setState({availLayouts: layoutData });
+    this.setState({ 
+      availSets: setData,
+      availGameFormats: formatsData,
+      availLayouts: layoutData,
+      availSortFilters: sortData
+    });
   }
 
   render() {
@@ -156,7 +182,11 @@ export default class SearchForm extends PureComponent {
       cardText,
       availLayouts,
       layout,
-      typeLine
+      typeLine,
+      sortFilters,
+      selectedFilter,
+      sortDirection,
+      availSortFilters
     } = this.state;
     const cardColors = { black, white, red, blue, green };
 
@@ -204,34 +234,14 @@ export default class SearchForm extends PureComponent {
             layout={layout}
             handleChange={this.handleChange}
           />
-        
-          {/* <CardName
-          cardName={cardName}
-          handleChange={this.handleChange}
-        />
-        <CardColors
-          cardColors={cardColors}
-          handleChange={this.handleChange}
-          exclusivity={exclusivity}  
-          handleCheckboxChange={this.handleCheckboxChange}
-        />
-        <GameFormats 
-          selectedFormat={selectedFormat}
-          availGameFormats={availGameFormats}
-          handleChange={this.handleChange}
-        />
-        <CardSets
-          availSets={availSets}
-          selectedSet={selectedSet}
-          handleChange={this.handleChange}
-        />
-        <CardTypes
-          cardTypes={cardTypes}
-          cardSubtypes={cardSubtypes}
-          handleChange={this.handleChange}
-          selectedType={selectedType}
-          selectedSubtype={selectedSubtype}
-        /> */}
+          <CardSort
+            sortFilters={sortFilters}
+            sortDirection={sortDirection}
+            selectedFilter={selectedFilter}
+            availSortFilters={availSortFilters}
+            handleChange={this.handleChange}
+            handleSortPush={this.handleSortPush}
+          />
           <button>Search Cards</button>
         </form>
       </main>
