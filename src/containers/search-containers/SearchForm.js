@@ -73,15 +73,11 @@ export default class SearchForm extends PureComponent {
 
   handleSortPush = () => {
     if(!this.state.selectedFilter) return;
-    this.setState(state => {
-      console.log(state.sortFilters, state.selectedFilter, state.sortDirection);
-      
-      return {
-        sortFilters: [...state.sortFilters, { filter: state.selectedFilter, direction: state.sortDirection }],
-        availSortFilters: [...state.availSortFilters.filter(filter => filter !== state.selectedFilter)],
-        selectedFilter: ''
-      };
-    });
+    this.setState(state => ({
+      sortFilters: [...state.sortFilters, { filter: state.selectedFilter, direction: state.sortDirection }],
+      availSortFilters: [...state.availSortFilters.filter(filter => filter !== state.selectedFilter)],
+      selectedFilter: ''
+    }));
   }
 
   handleFormatDelete = (format) => {
@@ -98,6 +94,20 @@ export default class SearchForm extends PureComponent {
       availSets: [...state.availSets, set]
     }));
   }
+
+  handleSortDelete = (sortFilter) => {
+    this.setState(state => {
+      console.log('STATE', state.sortFilters, 'FILTER', sortFilter);
+      console.log('FILTERED', state.sortFilters.filter(entry => {
+        console.log('ENTRY', entry.filter === sortFilter);
+        return sortFilter !== entry.filter;
+      }));
+      return {
+        sortFilters: [...state.sortFilters.filter(entry => sortFilter !== entry)],
+        availSortFilters: [...state.availSortFilters, sortFilter.filter]
+      };
+    });
+  };
 
   handleCheckboxChange = ({ target }) => {
     this.setState({ [target.name]: target.checked });
@@ -241,6 +251,7 @@ export default class SearchForm extends PureComponent {
             availSortFilters={availSortFilters}
             handleChange={this.handleChange}
             handleSortPush={this.handleSortPush}
+            handleSortDelete={this.handleSortDelete}
           />
           <button>Search Cards</button>
         </form>

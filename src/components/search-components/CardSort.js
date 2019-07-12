@@ -10,7 +10,6 @@ function CardSort({ sortFilters, sortDirection, selectedFilter, handleChange, ha
   }
   );
   const taggedFiltersList = sortFilters.map((filter, i) => {
-    console.log(filter, 'IN MAP');
     const pattern = /(.*)\/(.*)/;
     const filterName = filter.filter.replace(pattern, '$2');
     let direction = '';
@@ -26,7 +25,7 @@ function CardSort({ sortFilters, sortDirection, selectedFilter, handleChange, ha
       <li key={i} style={{ display: 'flex', listStyleType: 'none', alignItems: 'center', flexGrow: 0, width: '50px%', height: '20px', padding: '3px' }}>
         {direction}
         <h5>{filterName}</h5>
-        <FaWindowClose size="15" />
+        <FaWindowClose size="15" onClick={() => handleSortDelete(filter)} />
       </li>
     );
   });
