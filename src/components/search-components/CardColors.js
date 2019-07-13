@@ -21,7 +21,7 @@ class CardColors extends PureComponent {
   }
     
   state = {
-    isHidden: true
+    isHidden: false
   }
 
   toggleHidden = () => {

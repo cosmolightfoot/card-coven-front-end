@@ -10,7 +10,7 @@ class CardName extends PureComponent {
   }
   
   state = {
-    isHidden: true
+    isHidden: false
   }
 
   toggleHidden = () => {
