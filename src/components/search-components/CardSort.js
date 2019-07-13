@@ -1,69 +1,57 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { FaPlusSquare, FaWindowClose, FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
+import FormHeader from './FormHeader';
+import SortField from './SortField';
 
-function CardSort({ sortFilters, sortDirection, selectedFilter, handleChange, handleSortPush, handleSortDelete, availSortFilters }) {
-  const filtersList = availSortFilters.map((filter, i) => {
-    const pattern = /(.*)\/(.*)/;
-    const filterName = filter.replace(pattern, '$2');
-    return (<option key={i} value={filter}>{filterName}</option>);
+class CardSort extends PureComponent {
+  static propTypes = {
+    sortFilters: PropTypes.array.isRequired,
+    selectedFilter: PropTypes.string.isRequired,
+    sortDirection: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleSortPush: PropTypes.func.isRequired,
+    handleSortDelete: PropTypes.func.isRequired,
+    availSortFilters: PropTypes.array.isRequired
   }
-  );
-  const taggedFiltersList = sortFilters.map((filter, i) => {
-    const pattern = /(.*)\/(.*)/;
-    const filterName = filter.filter.replace(pattern, '$2');
-    let direction = '';
-    switch(filter.direction) {
-      case '1': direction = <FaArrowCircleUp size="15" />;
-        break;
-      case '-1': direction = <FaArrowCircleDown size="15" />;
-        break;
-      default: direction = <FaArrowCircleUp size="15" />;
-        break;
-    }
-    return (
-      <li key={i} style={{ display: 'flex', listStyleType: 'none', alignItems: 'center', flexGrow: 0, width: '50px%', height: '20px', padding: '3px' }}>
-        {direction}
-        <h5>{filterName}</h5>
-        <FaWindowClose size="15" onClick={() => handleSortDelete(filter)} />
-      </li>
-    );
-  });
-  
-  return (
-    <section style={{ backgroundColor: 'rgb(144, 255, 144)', padding: '5px' }}>
-      <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
-        <div style={{ width: '7px', height: '7px', backgroundColor: 'red', flexGrow: 0, marginRight: '5px' }}></div>
-        <h3>Sort Results:</h3>
-      </header>
-      <main>
-        <ul style={{ width: '93%' }}>
-          {taggedFiltersList}
-        </ul>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <select value={selectedFilter} name="selectedFilter" onChange={handleChange}>
-            <option value="">--Sort Results--</option>
-            {filtersList}
-          </select>
-          <select value={sortDirection} name="sortDirection" onChange={handleChange}>
-            <option value="1">Ascending</option>
-            <option value="-1">Descending</option>
-          </select>
-          <FaPlusSquare name="sortFilters" size="23" onClick={handleSortPush} />
-        </div>
-      </main>
-    </section>
-  );
-}
 
-CardSort.propTypes = {
-  sortFilters: PropTypes.array.isRequired,
-  selectedFilter: PropTypes.string.isRequired,
-  sortDirection: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleSortPush: PropTypes.func.isRequired,
-  handleSortDelete: PropTypes.func.isRequired,
-  availSortFilters: PropTypes.array.isRequired
-};
+  state = {
+    isHidden: false
+  }
+  
+  toggleHidden = () => {
+    this.setState(state => {
+      if(state.isHidden) return { isHidden: false };
+      else return { isHidden: true };
+    });
+  }
+
+  render() {
+    const {
+      sortFilters, 
+      selectedFilter, 
+      sortDirection, 
+      handleChange, 
+      handleSortPush, 
+      handleSortDelete, 
+      availSortFilters 
+    } = this.props;
+    return (
+      <section style={{ backgroundColor: 'rgb(144, 255, 144)', padding: '5px' }}>
+        <FormHeader title="Sort Results" isHidden={this.state.isHidden} toggleHidden={this.toggleHidden} />
+        { this.state.isHidden ? null : 
+          <SortField 
+            sortFilters={sortFilters} 
+            selectedFilter={selectedFilter}
+            sortDirection={sortDirection}
+            handleChange={handleChange} 
+            handleSortPush={handleSortPush} 
+            handleSortDelete={handleSortDelete} 
+            availSortFilters={availSortFilters} 
+          />
+        }
+      </section>
+    );
+  }
+}
 
 export default CardSort;

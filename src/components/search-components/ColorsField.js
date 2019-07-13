@@ -58,7 +58,6 @@ ColorsField.propTypes = {
   exclude: PropTypes.bool.isRequired,
   exact: PropTypes.bool.isRequired,
   colorIdentity: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired,
   handleCheckboxChange: PropTypes.func.isRequired
 };
 

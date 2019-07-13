@@ -201,7 +201,7 @@ export default class SearchForm extends PureComponent {
     const cardColors = { black, white, red, blue, green };
 
     return (
-      <main style={{ alignSelf: 'flex-end', width: '20vw' }}>
+      <main style={{ alignSelf: 'flex-end', width: '40vw' }}>
         <form onSubmit={this.handleSubmit}>
           <CardName
             cardName={cardName}
@@ -219,6 +219,10 @@ export default class SearchForm extends PureComponent {
             typeLine={typeLine}
             handleChange={this.handleChange}
           />
+          <CardText 
+            cardText={cardText}
+            handleChange={this.handleChange}
+          />
           <CardFormats 
             formats={formats}
             availGameFormats={availGameFormats}
@@ -234,10 +238,6 @@ export default class SearchForm extends PureComponent {
             handleChange={this.handleChange}
             handleSetPush={this.handleSetPush}
             handleSetDelete={this.handleSetDelete}
-          />
-          <CardText 
-            cardText={cardText}
-            handleChange={this.handleChange}
           />
           <CardLayout
             availLayouts={availLayouts}

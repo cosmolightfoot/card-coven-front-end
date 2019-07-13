@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import FormHeader from './FormHeader';
+import TextField from './TextField';
 
-function CardText({ cardText, handleChange }) {
-  return (
-    <section style={{ backgroundColor: 'oldlace', padding: '5px' }}>
-      <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        <div style={{ width: '7px', height: '7px', backgroundColor: 'red', flexGrow: 0, marginRight: '5px' }}></div>
-        <h3>Text:</h3>
-      </header>
-      <main>
-        <input value={cardText} name="cardText" onChange={handleChange} style={{ marginLeft: '12px', width: '50%', height: '1.5em' }} placeholder="Search By Card Text"/>
-      </main>
-    </section>
-  );
+class CardText extends PureComponent {
+  static propTypes = {
+    cardText: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired  
+  }
+
+  state = {
+    isHidden: false
+  }
+
+  toggleHidden = () => {
+    this.setState(state => {
+      if(state.isHidden) return { isHidden: false };
+      else return { isHidden: true };
+    });
+  }
+
+  render() {
+    const { cardText, handleChange } = this.props;
+    return (
+      <section style={{ backgroundColor: 'oldlace', padding: '5px' }}>
+        <FormHeader title="Text" isHidden={this.state.isHidden} toggleHidden={this.toggleHidden} />
+        {this.state.isHidden ? null : <TextField cardText={cardText} handleChange={handleChange} />}
+      </section>
+    );
+  }
 }
-
-
-CardText.propTypes = {
-  cardText: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired
-};
 
 export default CardText;
