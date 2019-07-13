@@ -1,3 +1,4 @@
 -add capitalization to form tags
 -Refactor Search Tags to make more modular
--Make search section headers into drop downs (higher order child components?)
+-Make search section headers into drop downs (higher order child components?)(make components classbased and add an is hidden property to state + toggle + css)
+-Refactor Form to use Redux

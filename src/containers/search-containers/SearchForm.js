@@ -201,7 +201,7 @@ export default class SearchForm extends PureComponent {
     const cardColors = { black, white, red, blue, green };
 
     return (
-      <main style={{ alignSelf: 'center', width: '40vw' }}>
+      <main style={{ alignSelf: 'flex-end', width: '20vw' }}>
         <form onSubmit={this.handleSubmit}>
           <CardName
             cardName={cardName}
