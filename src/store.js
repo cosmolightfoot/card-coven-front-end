@@ -3,7 +3,6 @@ import {
   compose,
   applyMiddleware
 } from 'redux';
-// import thunk from 'redux-thunk';
 import reducers from './reducers/index';
 import { promiseMiddleware } from 'promise-middleware-redux';
 
@@ -11,11 +10,19 @@ const preloadedState = {
   searches: {
     currentSearchOptions: {},
     recentSearchOptions: [],
-    currentSearchResults: [],
-    currentPage: 1,
+    results: [],
+    currentPage: 0,
+    page: 0,
+    count: 0,
     totalPages: 1,
+    noSearches: true,
     loading: false,
-    fulfilled: false
+    fulfilled: false,
+    perPage: 50,
+    hasResults: false,
+    displaying: '0-0',
+    hasMore: false,
+    hasLess: false
   }
 };
 

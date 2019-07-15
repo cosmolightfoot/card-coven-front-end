@@ -19,6 +19,7 @@ export default function fetchCards(searchOptions) {
       totalPages,
       page,
       hasMore,
-      hasLess,
-    }));
+      hasLess
+    }))
+    .catch(err => console.log(err));
 }

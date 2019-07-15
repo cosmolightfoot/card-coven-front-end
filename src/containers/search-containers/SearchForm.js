@@ -16,9 +16,9 @@ import formatsData from '../../data/formatData';
 
 
 import { connect } from 'react-redux';
-// import { newSearch } from '../../actions/cardSearchActions';
+import { newSearch } from '../../actions/cardSearchActions';
 
-export default class SearchForm extends PureComponent {
+class SearchForm extends PureComponent {
   state = {
     cardName: '',
     black: false,
@@ -47,7 +47,7 @@ export default class SearchForm extends PureComponent {
   }
 
   static propTypes = {
-    
+    onSubmit: PropTypes.func.isRequired
   }
 
   handleChange = ({ target }) => {
@@ -116,6 +116,7 @@ export default class SearchForm extends PureComponent {
 
   handleSubmit = event => {
     event.preventDefault();
+    console.log('IT WORKED');
     const searchOptions = {
       cardName: this.state.cardName,
       colors: {
@@ -132,9 +133,11 @@ export default class SearchForm extends PureComponent {
       sets: this.state.sets,
       cardText: this.state.cardText,
       typeLine: this.state.typeLine,
+      sortFilters: this.state.sortFilters,
       layout: this.state.layout,
       reprintedAllowed: this.state.reprintedAllowed
     };
+    console.log(searchOptions);
     this.props.onSubmit(searchOptions);
     this.setState({
       cardName: '',
@@ -145,7 +148,7 @@ export default class SearchForm extends PureComponent {
       green: false,
       exact: false,
       exclude: false,
-      colorIdentity: 'color',
+      colorIdentity: false,
       reprintedAllowed: false,
       layout: '',
       formats: [],
@@ -158,7 +161,7 @@ export default class SearchForm extends PureComponent {
       typeLine: '',
       sortFilters: [],
       selectedFilter: '',
-      sortDirection: 'ascending',
+      sortDirection: '1',
       availSortFilters: sortData
     });
 
@@ -262,15 +265,15 @@ export default class SearchForm extends PureComponent {
   } 
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-//   onSubmit(searchOptions) {
-//     dispatch(newSearch(searchOptions));
-//   }
-// });
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit(searchOptions) {
+    dispatch(newSearch(searchOptions));
+  }
+});
 
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(SearchForm);
+export default connect(
+  null,
+  mapDispatchToProps
+)(SearchForm);
 
 
