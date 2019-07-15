@@ -7,6 +7,16 @@ export function colorsToString({ black, white, red, green, blue }) {
   return cleanedString;
 }
 
+function sortToString(filters) {
+  let filterString = '';
+  const pattern = /(.*)\/(.*)/;
+  filters.forEach(filter => {
+    const subString = `${filter.filter.replace(pattern, '$1')},${filter.direction}|`;
+    filterString += subString;
+  });
+  return filterString.slice(0, -1);
+}
+
 export function makeSearchUrl(searchOptions) {
   const baseUrl = process.env.API_URL || 'http://localhost:7891';
   const searchQuery = new URL(`${baseUrl}/api/v1/cards`);
@@ -35,10 +45,6 @@ export function makeSearchUrl(searchOptions) {
   formats.length > 0 && searchQuery.searchParams.set('formats', formats.join(','));
   sets.length > 0 && searchQuery.searchParams.set('sets', sets.join(','));
   layout && searchQuery.searchParams.set('layout', layout);
-  sortFilters.length > 0 && searchQuery.searchParams.set('layout', layout);
-  
-  // selectedType !== '$DEFAULT$' && searchQuery.searchParams.set('types', selectedType);
-  // selectedSubtype !== '$DEFAULT$' && searchQuery.searchParams.set('subtypes', selectedSubtype);
-  
+  sortFilters.length > 0 && searchQuery.searchParams.set('sort', sortToString(sortFilters));
   return searchQuery;
 }

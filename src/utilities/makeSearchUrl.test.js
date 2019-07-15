@@ -68,7 +68,7 @@ describe('make search url test', () => {
     expect(makeSearchUrl(initialSearchState).toString()).toEqual('http://localhost:7891/api/v1/cards');
   });
   it('returns a search url for a color query', () => {
-    expect(makeSearchUrl({...initialSearchState, ...allColors, exact: false, exclude: false }).toString()).toEqual('http://localhost:7891/api/v1/cards?colors=B%2CW%2CR%2CG%2CU&exact=no&exclude=no');
+    expect(makeSearchUrl({ ...initialSearchState, ...allColors, exact: false, exclude: false }).toString()).toEqual('http://localhost:7891/api/v1/cards?colors=B%2CW%2CR%2CG%2CU&exact=no&exclude=no');
   });
   it('returns a url with a color Identity query', () => {
     expect(makeSearchUrl({ ...initialSearchState, ...allColors, exact: true, exclude: true, colorIdentity: true }).toString()).toEqual('http://localhost:7891/api/v1/cards?color_identity=B%2CW%2CR%2CG%2CU&exact=yes&exclude=yes');
@@ -89,21 +89,18 @@ describe('make search url test', () => {
     expect(makeSearchUrl({ ...initialSearchState, layout: 'transform' }).toString()).toEqual('http://localhost:7891/api/v1/cards?layout=transform');
   });
   it('returns a url with a sets query', () => {
-    expect(makeSearchUrl({ ...initialSearchState, sortFilters: ['cmc/Converted Mana Cost']}).toString()).toEqual('http://localhost:7891/api/v1/cards?sets=Core+2020%2CKhans+of+Tarkir');
+    const sortFilters = [
+      {
+        filter: 'cmc/Converted Mana Cost',
+        direction: '-1'
+      },
+      {
+        filter: 'prices/Cost ($USD)',
+        direction: '1'
+      }
+    ];
+    expect(makeSearchUrl({ ...initialSearchState, sortFilters }).toString()).toEqual('http://localhost:7891/api/v1/cards?sort=cmc%2C-1%7Cprices%2C1');
   });
-  // it('returns a url with a card text query', () => {
-  //   expect(makeSearchUrl({ ...noColor, cardText: 'destroy target creature', ...defaultOptions }).toString()).toEqual('https://api.magicthegathering.io/v1/cards?text=destroy+target+creature');
-  // });
-  // it('returns a url with a card type query', () => {
-  //   expect(makeSearchUrl({ ...defaultOptions, selectedType: 'land', ...noColor }).toString()).toEqual('https://api.magicthegathering.io/v1/cards?types=land');
-  // });
-  // it('returns a url with a card subtype query', () => {
-  //   expect(makeSearchUrl({ ...defaultOptions, selectedSubtype: 'vampire', ...noColor }).toString()).toEqual('https://api.magicthegathering.io/v1/cards?subtypes=vampire');
-  // });
-  // it('returns a url with all queries', () => {
-  //   expect(decodeURIComponent(makeSearchUrl(allQuery).toString()))
-  //     .toEqual('https://api.magicthegathering.io/v1/cards?name=progenitor+hydra&colors=black,white,red,green,blue&format=standard&sets=core+2010&text=protection+from+everything&types=creature&subtypes=hydra');
-  // });
 });
 
 describe('colorToString test', () => {
