@@ -14,6 +14,7 @@ import setData from '../../data/setData';
 import sortData from '../../data/sortData';
 import formatsData from '../../data/formatData';
 
+
 import { connect } from 'react-redux';
 // import { newSearch } from '../../actions/cardSearchActions';
 
@@ -122,11 +123,11 @@ export default class SearchForm extends PureComponent {
         white: this.state.white,
         green: this.state.green,
         red: this.state.red,
-        blue: this.state.blue,
-        exact: this.state.exact,
-        exclude: this.state.exclude,
-        colorIdentity: this.state.colorIdentity
+        blue: this.state.blue
       },
+      exact: this.state.exact,
+      exclude: this.state.exclude,
+      colorIdentity: this.state.colorIdentity,
       formats: this.state.formats,
       sets: this.state.sets,
       cardText: this.state.cardText,
@@ -149,7 +150,7 @@ export default class SearchForm extends PureComponent {
       layout: '',
       formats: [],
       availFormats: formatsData,
-      selectedFormat: [],
+      selectedFormat: '',
       sets: [],
       selectedSet: '',
       availSets: setData,
@@ -254,6 +255,7 @@ export default class SearchForm extends PureComponent {
             handleSortDelete={this.handleSortDelete}
           />
           <button>Search Cards</button>
+          <h1>{process.env.API_URL}::</h1>
         </form>
       </main>
     );

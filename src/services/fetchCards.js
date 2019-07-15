@@ -4,17 +4,21 @@ export default function fetchCards(searchOptions) {
   const query = makeSearchUrl(searchOptions).toString();
   console.log(query);
   return fetch(query)
-    .then(res => ([res.ok, res.json(), res.headers.get('total-count')]))
-    .then(([ok, json, count]) => {
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
       if(!ok) throw 'Unable to Get Cards';
-      return Promise.all([json, count]);
+      return json;
     })
-    .then(([results, count]) => {
-      return {
-        searchResults: results,
-        searchOptions,
-        count, 
-        totalPages: Math.ceil(count / 100)
-      };
-    });
+    .then(({ results, totalCount, perPage, hasResults, displaying, totalPages, page, hasMore, hasLess }) => ({ 
+      results,
+      searchOptions,
+      totalCount,
+      perPage,
+      hasResults,
+      displaying,
+      totalPages,
+      page,
+      hasMore,
+      hasLess,
+    }));
 }

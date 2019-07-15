@@ -12,10 +12,8 @@ const preloadedState = {
     currentSearchOptions: {},
     recentSearchOptions: [],
     currentSearchResults: [],
-    cardsOfInterest: [],
     currentPage: 1,
     totalPages: 1,
-    noSearches: true,
     loading: false,
     fulfilled: false
   }
