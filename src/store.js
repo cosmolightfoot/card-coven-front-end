@@ -12,7 +12,6 @@ const preloadedState = {
     recentSearchOptions: [],
     results: [],
     currentPage: 0,
-    page: 0,
     count: 0,
     totalPages: 1,
     noSearches: true,

@@ -2,34 +2,48 @@ import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Cards from '../../components/search-components/Cards';
-import { getSearchResults, getSearchCurrentPage, getSearchTotalPages, getSearchLoading, getSearchFulfilled, getSearchNoSearches } from '../../selectors/searchSelectors';
+import Cards from '../../components/card-components/Cards';
+import { getSearchResults, getSearchCurrentPage, getSearchTotalPages, getSearchLoading, getSearchFulfilled, getSearchNoSearches, getSearchPerPage, getSearchHasResults, getSearchDisplaying, getSearchHasMore, getSearchHasLess, getSearchTotalCount } from '../../selectors/searchSelectors';
 
 class SearchContainer extends PureComponent {
   static propTypes = {
-    searchResults: PropTypes.array,
-    currentPage: PropTypes.number.isRequired,
-    totalPages: PropTypes.number.isRequired,
+    results: PropTypes.array,
+    currentPage: PropTypes.string.isRequired,
+    totalPages: PropTypes.string.isRequired,
+    perPage: PropTypes.string.isRequired,
+    hasResults: PropTypes.bool.isRequired,
+    displaying: PropTypes.string.isRequired,
+    hasMore: PropTypes.bool.isRequired,
+    hasLess: PropTypes.bool.isRequired,
+    totalCount: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     fulfilled: PropTypes.bool.isRequired,
     noSearches: PropTypes.bool.isRequired
   }
 
   render() {
-    const { searchResults, noSearches } = this.props;
+    const { results, noSearches, hasResults } = this.props;
     return (
       <main>
         <SearchForm />
-        <Cards cardListData={searchResults || [] } noSearches={noSearches}  />
+        {/* {noSearches ? (<h1>Use the Form Above to Search for Cards</h1>) : <Cards cardListData={results || [] }/>} */}
+        {/* {hasResults ? <Cards cardListData={results || [] }/> : (<h1>Your Search Returned No Results</h1>)} */}
+        <Cards cards={results || [] }/>
       </main>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  searchResults: getSearchResults(state),
+  results: getSearchResults(state),
   currentPage: getSearchCurrentPage(state),
   totalPages: getSearchTotalPages(state),
+  perPage: getSearchPerPage(state),
+  hasResults: getSearchHasResults(state),
+  displaying: getSearchDisplaying(state),
+  hasMore: getSearchHasMore(state),
+  hasLess: getSearchHasLess(state),
+  totalCount: getSearchTotalCount(state),
   loading: getSearchLoading(state),
   fulfilled: getSearchFulfilled(state),
   noSearches: getSearchNoSearches(state)

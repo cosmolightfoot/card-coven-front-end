@@ -5,7 +5,6 @@ const initState = {
   recentSearchOptions: [],
   results: [],
   currentPage: 0,
-  page: 0,
   count: 0,
   totalPages: 1,
   noSearches: true,
@@ -19,10 +18,8 @@ const initState = {
 };
 
 export default function searchReducer(state = initState, action) {
-  console.log('REDUCER', action.type, action.payload);
   switch(action.type) {
     case NEW_SEARCH: {
-      console.log('PAGE', action.payload.page);
       return { 
         ...state,
         loading: false,
