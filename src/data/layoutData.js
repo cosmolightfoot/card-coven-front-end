@@ -1,17 +1,17 @@
 export default [
   'normal',
-  'emblem',
-  'token',
+  // 'emblem',
+  // 'token',
   'leveler',
   'split',
-  'planar',
-  'double_faced_token',
+  // 'planar',
+  // 'double_faced_token',
   'flip',
   'transform',
   'saga',
-  'host',
-  'augment',
+  // 'host',
+  // 'augment',
   'meld',
-  'scheme',
-  'vanguard' 
+  // 'scheme',
+  // 'vanguard' 
 ];
