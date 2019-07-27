@@ -4,3 +4,4 @@ export const getTypeLine = state => getSearchFormState(state).typeLine;
 export const getCardText = state => getSearchFormState(state).cardText;
 export const getBlack = state => getSearchFormState(state).black;
 export const getWhite = state => getSearchFormState(state).white;
+export const getRed = state => getSearchFormState(state).red;
