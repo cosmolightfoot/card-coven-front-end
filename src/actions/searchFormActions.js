@@ -7,7 +7,8 @@ import {
   CHECK_RED_MANA,
   CHECK_GREEN_MANA,
   CHECK_BLUE_MANA,
-  CHECK_EXACT_COLORS
+  CHECK_EXACT_COLORS,
+  CHECK_EXCLUDE_COLORS
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -56,6 +57,11 @@ export function checkBlue() {
 export function checkExact() {
   return {
     type: CHECK_EXACT_COLORS
+  };
+}
+export function checkExclude() {
+  return {
+    type: CHECK_EXCLUDE_COLORS
   };
 }
 

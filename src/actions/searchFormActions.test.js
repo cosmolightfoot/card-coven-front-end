@@ -7,9 +7,10 @@ import {
   checkRed, 
   checkGreen,
   checkBlue,
-  checkExact
+  checkExact,
+  checkExclude
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -58,6 +59,11 @@ describe('search form actions tests', () => {
   it('returns exact checkbox type', () => {
     expect(checkExact()).toEqual({
       type: CHECK_EXACT_COLORS
+    });
+  });
+  it('returns exclude checkbox type', () => {
+    expect(checkExclude()).toEqual({
+      type: CHECK_EXCLUDE_COLORS
     });
   });
 });

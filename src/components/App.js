@@ -10,6 +10,7 @@ import RedMana from './search-components/colors/RedMana';
 import GreenMana from './search-components/colors/GreenMana';
 import BlueMana from './search-components/colors/BlueMana';
 import MatchExact from './search-components/colors/MatchExact';
+import ExcludeUnselected from './search-components/colors/ExcludeUnselected';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <GreenMana />
       <BlueMana />
       <MatchExact />
+      <ExcludeUnselected />
     </section>
   );
 }
