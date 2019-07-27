@@ -1,5 +1,5 @@
 import searchFormReducer from './searchFormReducer';
-import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed } from '../actions/searchFormActions';
+import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue } from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
   it('changes name value when action is called', () => {
@@ -56,6 +56,22 @@ describe('search form reducer tests', () => {
     };
     expect(searchFormReducer(state, checkRed())).toEqual({
       red: true
+    });
+  });
+  it('changes green value when action is called', () => {
+    const state = {
+      green: false
+    };
+    expect(searchFormReducer(state, checkGreen())).toEqual({
+      green: true
+    });
+  });
+  it('changes blue value when action is called', () => {
+    const state = {
+      blue: false
+    };
+    expect(searchFormReducer(state, checkBlue())).toEqual({
+      blue: true
     });
   });
 });

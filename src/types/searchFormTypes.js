@@ -4,4 +4,6 @@ export const CHANGE_TEXT_VAL = 'CHANGE_TEXT_VAL';
 export const CHECK_BLACK_MANA = 'CHECK_BLACK_MANA';
 export const CHECK_WHITE_MANA = 'CHECK_WHITE_MANA';
 export const CHECK_RED_MANA = 'CHECK_RED_MANA'; 
+export const CHECK_GREEN_MANA = 'CHECK_GREEN_MANA'; 
+export const CHECK_BLUE_MANA = 'CHECK_BLUE_MANA'; 
 
