@@ -6,4 +6,6 @@ export const CHECK_WHITE_MANA = 'CHECK_WHITE_MANA';
 export const CHECK_RED_MANA = 'CHECK_RED_MANA'; 
 export const CHECK_GREEN_MANA = 'CHECK_GREEN_MANA'; 
 export const CHECK_BLUE_MANA = 'CHECK_BLUE_MANA'; 
+export const CHECK_EXACT_COLORS = 'CHECK_EXACT_COLORS';1 
+
 

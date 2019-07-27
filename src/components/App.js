@@ -9,6 +9,8 @@ import WhiteMana from '../components/search-components/colors/WhiteMana';
 import RedMana from './search-components/colors/RedMana';
 import GreenMana from './search-components/colors/GreenMana';
 import BlueMana from './search-components/colors/BlueMana';
+import MatchExact from './search-components/colors/MatchExact';
+
 export default function App() {
   return (
     <section style={{ display: 'flex', flexDirection: 'column' }}>
@@ -21,6 +23,7 @@ export default function App() {
       <RedMana />
       <GreenMana />
       <BlueMana />
+      <MatchExact />
     </section>
   );
 }

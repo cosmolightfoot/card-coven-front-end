@@ -6,8 +6,10 @@ import {
   checkWhite, 
   checkRed, 
   checkGreen,
-  checkBlue 
+  checkBlue,
+  checkExact
 } from './searchFormActions';
+import { CHECK_EXACT_COLORS } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -51,6 +53,11 @@ describe('search form actions tests', () => {
   it('returns blue checkbox type', () => {
     expect(checkBlue()).toEqual({
       type: 'CHECK_BLUE_MANA',
+    });
+  });
+  it('returns exact checkbox type', () => {
+    expect(checkExact()).toEqual({
+      type: CHECK_EXACT_COLORS
     });
   });
 });

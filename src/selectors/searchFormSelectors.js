@@ -7,3 +7,4 @@ export const getWhite = state => getSearchFormState(state).white;
 export const getRed = state => getSearchFormState(state).red;
 export const getGreen = state => getSearchFormState(state).green;
 export const getBlue = state => getSearchFormState(state).blue;
+export const getExact = state => getSearchFormState(state).exact;
