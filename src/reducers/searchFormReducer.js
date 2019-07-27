@@ -1,9 +1,10 @@
-import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL } from '../types/searchFormTypes';
+import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA } from '../types/searchFormTypes';
 
 const init = {
   cardName: '',
   typeLine: '',
-  cardText: ''
+  cardText: '',
+  black: false
 };
 
 export default function searchFormReducer(state = init, action) {
@@ -19,6 +20,10 @@ export default function searchFormReducer(state = init, action) {
     case CHANGE_TEXT_VAL: return {
       ...state,
       cardText: action.payload
+    };
+    case CHECK_BLACK_MANA: return {
+      ...state,
+      black: !state.black
     };
       
     default: return state;

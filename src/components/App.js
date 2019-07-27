@@ -4,6 +4,7 @@ import Header from './Header';
 import NameField from '../components/search-components/NameField';
 import TypesField from '../components/search-components/TypesField';
 import TextField from '../components/search-components/TextField';
+import BlackMana from '../components/search-components/BlackMana';
 export default function App() {
   return (
     <section style={{ display: 'flex', flexDirection: 'column' }}>
@@ -11,6 +12,7 @@ export default function App() {
       <NameField />
       <TypesField />
       <TextField />
+      <BlackMana />
     </section>
   );
 }

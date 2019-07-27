@@ -20,7 +20,7 @@ class TextField extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  typeLine: getCardText(state)
+  cardText: getCardText(state)
 });
 
 const mapDispatchToProps = dispatch => ({
