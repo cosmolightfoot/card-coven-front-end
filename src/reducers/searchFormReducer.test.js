@@ -1,8 +1,8 @@
 import searchFormReducer from './searchFormReducer';
-import { changeName, changeTypeLine, changeText, checkBlack } from '../actions/searchFormActions';
+import { changeName, changeTypeLine, changeText, checkBlack, checkWhite } from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
-  it('changes name value when reducer is called', () => {
+  it('changes name value when action is called', () => {
     const state = {
       cardName: 'Animar'
     };
@@ -10,7 +10,7 @@ describe('search form reducer tests', () => {
       cardName: 'Bloodline Keeper'
     });
   });
-  it('changes name value when reducer is called', () => {
+  it('changes name value when action is called', () => {
     const state = {
       typeLine: 'Vampire'
     };
@@ -18,7 +18,7 @@ describe('search form reducer tests', () => {
       typeLine: 'Elemental'
     });
   });
-  it('changes text value when reducer is called', () => {
+  it('changes text value when action is called', () => {
     const state = {
       cardText: 'destroy'
     };
@@ -26,7 +26,7 @@ describe('search form reducer tests', () => {
       cardText: 'draw card'
     });
   });
-  it('changes black value when reducer is called', () => {
+  it('changes black value when action is called', () => {
     const state = {
       cardText: 'destroy'
     };
@@ -34,12 +34,20 @@ describe('search form reducer tests', () => {
       cardText: 'draw card'
     });
   });
-  it('changes black value when reducer is called', () => {
+  it('changes black value when action reducer is called', () => {
     const state = {
       black: false
     };
     expect(searchFormReducer(state, checkBlack())).toEqual({
       black: true
+    });
+  });
+  it('changes white value when action is called', () => {
+    const state = {
+      white: false
+    };
+    expect(searchFormReducer(state, checkWhite())).toEqual({
+      white: true
     });
   });
 });

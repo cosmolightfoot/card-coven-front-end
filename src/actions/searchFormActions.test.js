@@ -1,4 +1,4 @@
-import { changeName, changeTypeLine, changeText, checkBlack } from './searchFormActions';
+import { changeName, changeTypeLine, changeText, checkBlack, checkWhite } from './searchFormActions';
 
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -22,6 +22,11 @@ describe('search form actions tests', () => {
   it('returns black checkbox payload', () => {
     expect(checkBlack()).toEqual({
       type: 'CHECK_BLACK_MANA',
+    });
+  });
+  it('returns black checkbox payload', () => {
+    expect(checkWhite()).toEqual({
+      type: 'CHECK_WHITE_MANA',
     });
   });
 });

@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import blackMana from '../../assets/b-mana.svg';
-import { checkBlack } from '../../actions/searchFormActions';
-import { getBlack } from '../../selectors/searchFormSelectors'; 
+import blackManaSymbol from '../../../assets/b-mana.svg';
+import { checkBlack } from '../../../actions/searchFormActions';
+import { getBlack } from '../../../selectors/searchFormSelectors'; 
 
 class BlackMana extends PureComponent {
   static propTypes = {
@@ -14,8 +14,8 @@ class BlackMana extends PureComponent {
   render() {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignSelf: 'flex-start' }}>
-        <img src={blackMana} style={{ width: '20px' }} />
-        <input type="checkbox" name="black" value={this.props.black} onChange={() => {this.props.handleChange()}} />
+        <img src={blackManaSymbol} style={{ width: '20px' }} />
+        <input type="checkbox" name="black" value={this.props.black} onChange={() => this.props.handleChange()} />
       </div>
     );
   }

@@ -2,7 +2,8 @@ import {
   CHANGE_NAME_VAL,
   CHANGE_TYPE_VAL,
   CHANGE_TEXT_VAL,
-  CHECK_BLACK_MANA
+  CHECK_BLACK_MANA,
+  CHECK_WHITE_MANA
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -29,6 +30,12 @@ export function changeText(text) {
 export function checkBlack() {
   return {
     type: CHECK_BLACK_MANA
+  };
+}
+
+export function checkWhite() {
+  return {
+    type: CHECK_WHITE_MANA
   };
 }
 
