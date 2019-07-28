@@ -13,9 +13,14 @@ import {
   selectFormat,
   pushFormat,
   removeAvailFormat,
-  removeCardFormat
+  removeCardFormat,
+  pushAvailFormat,
+  initAvailSets,
+  selectCardSet,
+  pushCardSet,
+  removeAvailSet
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -103,6 +108,28 @@ describe('search form actions tests', () => {
     expect(pushAvailFormat('test')).toEqual({
       type: PUSH_AVAIL_FORMAT,
       payload: 'test'
+    });
+  });
+  it('initializes avail sets', () => {
+    expect(initAvailSets(['test'])).toEqual({
+      type: INIT_AVAIL_SETS,
+      payload: ['test']
+    });
+  });
+  it('select set action', () => {
+    expect(selectCardSet('test')).toEqual({
+      type: SELECT_CARD_SET,
+      payload: 'test'
+    });
+  });
+  it('push set action', () => {
+    expect(pushCardSet()).toEqual({
+      type: PUSH_CARD_SET,
+    });
+  });
+  it('remove avail set action', () => {
+    expect(removeAvailSet()).toEqual({
+      type: REMOVE_AVAIL_SET
     });
   });
 });

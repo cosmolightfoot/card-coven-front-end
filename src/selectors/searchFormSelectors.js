@@ -12,3 +12,5 @@ export const getExclude = state => getSearchFormState(state).exclude;
 export const getSelectedFormat = state => getSearchFormState(state).selectedFormat;
 export const getAvailGameFormats = state => getSearchFormState(state).availGameFormats;
 export const getFormats = state => getSearchFormState(state).formats;
+export const getAvailSets = state => getSearchFormState(state).availSets;
+export const getSelectedSet = state => getSearchFormState(state).selectedSet;

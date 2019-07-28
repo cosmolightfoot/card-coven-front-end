@@ -14,7 +14,12 @@ import {
   INIT_AVAIL_FORMATS,
   REMOVE_AVAIL_FORMAT,
   REMOVE_CARD_FORMAT,
-  PUSH_AVAIL_FORMAT
+  PUSH_AVAIL_FORMAT,
+  INIT_AVAIL_SETS,
+  SELECT_CARD_SET,
+  PUSH_CARD_SET,
+  REMOVE_CARD_SET,
+  REMOVE_AVAIL_SET
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -102,6 +107,28 @@ export function pushAvailFormat(format) {
   return {
     type: PUSH_AVAIL_FORMAT,
     payload: format
+  };
+}
+export function initAvailSets(sets) {
+  return {
+    type: INIT_AVAIL_SETS,
+    payload: sets
+  };
+}
+export function selectCardSet(set) {
+  return {
+    type: SELECT_CARD_SET,
+    payload: set
+  };
+}
+export function pushCardSet() {
+  return {
+    type: PUSH_CARD_SET
+  };
+}
+export function removeAvailSet() {
+  return {
+    type: REMOVE_AVAIL_SET
   };
 }
 

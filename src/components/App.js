@@ -13,6 +13,7 @@ import MatchExact from './search-components/colors/MatchExact';
 import ExcludeUnselected from './search-components/colors/ExcludeUnselected';
 import FormatSelector from './search-components/formats/FormatSelector';
 import FormatTags from './search-components/formats/FormatTags';
+import SetSelector from './search-components/sets/SetSelector';
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
       <ExcludeUnselected />
       <FormatTags />
       <FormatSelector />
+      <SetSelector />
     </section>
   );
 }
