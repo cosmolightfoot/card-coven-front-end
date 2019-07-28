@@ -15,6 +15,8 @@ import FormatSelector from './search-components/formats/FormatSelector';
 import FormatTags from './search-components/formats/FormatTags';
 import SetSelector from './search-components/sets/SetSelector';
 import SetTags from './search-components/sets/SetTags';
+import SortSelector from './search-components/sort/SortSelector';
+
 
 export default function App() {
   return (
@@ -34,6 +36,7 @@ export default function App() {
       <FormatSelector />
       <SetTags />
       <SetSelector />
+      <SortSelector />
     </section>
   );
 }

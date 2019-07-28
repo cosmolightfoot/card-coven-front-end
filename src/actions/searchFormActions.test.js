@@ -20,9 +20,14 @@ import {
   pushCardSet,
   removeAvailSet,
   removeCardSet,
-  pushAvailSet
+  pushAvailSet,
+  initAvailSort,
+  selectSortFilter,
+  selectSortDirection,
+  pushSortFilter,
+  removeAvailSortFilter
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, PUSH_AVAIL_SET } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, PUSH_AVAIL_SET, INIT_AVAIL_SORT, SELECT_SORT_FILTER, SELECT_SORT_DIRECTION, PUSH_SORT_FILTER, REMOVE_AVAIL_SORT } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -144,6 +149,34 @@ describe('search form actions tests', () => {
     expect(pushAvailSet('test')).toEqual({
       type: PUSH_AVAIL_SET,
       payload: 'test'
+    });
+  });
+  it('init avail sort action', () => {
+    expect(initAvailSort(['test'])).toEqual({
+      type: INIT_AVAIL_SORT,
+      payload: ['test']
+    });
+  });
+  it('select sort filter action', () => {
+    expect(selectSortFilter('test')).toEqual({
+      type: SELECT_SORT_FILTER,
+      payload: 'test'
+    });
+  });
+  it('select sort direction action', () => {
+    expect(selectSortDirection('1')).toEqual({
+      type: SELECT_SORT_DIRECTION,
+      payload: '1'
+    });
+  });
+  it('push sort filter action', () => {
+    expect(pushSortFilter()).toEqual({
+      type: PUSH_SORT_FILTER
+    });
+  });
+  it('remove avail sort action', () => {
+    expect(removeAvailSortFilter()).toEqual({
+      type: REMOVE_AVAIL_SORT
     });
   });
 });

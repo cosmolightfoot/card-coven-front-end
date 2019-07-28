@@ -1,4 +1,4 @@
-import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_AVAIL_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET } from '../types/searchFormTypes';
+import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_AVAIL_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, INIT_AVAIL_SORT, SELECT_SORT_FILTER, SELECT_SORT_DIRECTION, PUSH_SORT_FILTER, REMOVE_AVAIL_SORT } from '../types/searchFormTypes';
 
 const init = {
   cardName: '',
@@ -16,7 +16,11 @@ const init = {
   formats: [],
   availSets: [],
   selectedSet: '',
-  sets: []
+  sets: [],
+  availSortFilters: [],
+  selectedFilter: '',
+  sortDirection: '1',
+  sortFilters: []
 };
 
 export default function searchFormReducer(state = init, action) {
@@ -108,6 +112,26 @@ export default function searchFormReducer(state = init, action) {
     case REMOVE_CARD_SET: return {
       ...state,
       sets: state.sets.filter(set => set !== action.payload)
+    };
+    case INIT_AVAIL_SORT: return {
+      ...state,
+      availSortFilters: action.payload
+    };
+    case SELECT_SORT_FILTER: return {
+      ...state,
+      selectedFilter: action.payload
+    };
+    case SELECT_SORT_DIRECTION: return {
+      ...state,
+      sortDirection: action.payload
+    };
+    case PUSH_SORT_FILTER: return {
+      ...state,
+      sortFilters: [...state.sortFilters, { filter: state.selectedFilter, direction: state.sortDirection }]
+    };
+    case REMOVE_AVAIL_SORT: return {
+      ...state,
+      availSortFilters: state.availSortFilters.filter(filter => filter !== state.selectedFilter)
     };
       
     default: return state;

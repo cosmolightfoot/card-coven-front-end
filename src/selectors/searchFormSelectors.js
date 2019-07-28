@@ -15,3 +15,7 @@ export const getFormats = state => getSearchFormState(state).formats;
 export const getAvailSets = state => getSearchFormState(state).availSets;
 export const getSelectedSet = state => getSearchFormState(state).selectedSet;
 export const getSets = state => getSearchFormState(state).sets;
+export const getAvailSortFilters = state => getSearchFormState(state).availSortFilters;
+export const getSelectedFilter = state => getSearchFormState(state).selectedFilter;
+export const getSortDirection = state => getSearchFormState(state).sortDirection;
+export const getSortFilters = state => getSearchFormState(state).sortFilters;

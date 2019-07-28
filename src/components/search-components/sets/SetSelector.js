@@ -6,7 +6,7 @@ import setsData from '../../../data/setData';
 import { getAvailSets, getSelectedSet } from '../../../selectors/searchFormSelectors';
 import { initAvailSets, selectCardSet, pushCardSet, removeAvailSet } from '../../../actions/searchFormActions';
 
-class FormatSelector extends PureComponent {
+class SetSelector extends PureComponent {
   static propTypes = {
     loadSets: PropTypes.func.isRequired,
     availSets: PropTypes.array.isRequired,
@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FormatSelector);
+)(SetSelector);

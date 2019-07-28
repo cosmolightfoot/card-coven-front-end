@@ -1,5 +1,33 @@
 import searchFormReducer from './searchFormReducer';
-import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat, pushFormat, initAvailFormats, removeAvailFormat, removeCardFormat, pushAvailFormat, initAvailSets, selectCardSet, pushCardSet, removeAvailSet, pushAvailSet, removeCardSet } from '../actions/searchFormActions';
+import {
+  changeName, 
+  changeTypeLine, 
+  changeText, 
+  checkBlack, 
+  checkWhite, 
+  checkRed, 
+  checkGreen, 
+  checkBlue, 
+  checkExact, 
+  checkExclude, 
+  selectFormat, 
+  pushFormat, 
+  initAvailFormats, 
+  removeAvailFormat, 
+  removeCardFormat, 
+  pushAvailFormat, 
+  initAvailSets,
+  selectCardSet, 
+  pushCardSet, 
+  removeAvailSet, 
+  pushAvailSet, 
+  removeCardSet, 
+  initAvailSort, 
+  selectSortFilter, 
+  selectSortDirection, 
+  pushSortFilter, 
+  removeAvailSortFilter 
+} from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
   it('changes name value when action is called', () => {
@@ -213,6 +241,52 @@ describe('search form reducer tests', () => {
     };
     expect(searchFormReducer(state, removeCardSet('test'))).toEqual({
       sets: ['test2']
+    });
+  });
+  it('init avail sort reducer', () => {
+    const state = {
+      availSortFilters: [],
+    };
+    expect(searchFormReducer(state, initAvailSort(['test']))).toEqual({
+      availSortFilters: ['test']
+    });
+  });
+  it('select sort filter reducer', () => {
+    const state = {
+      selectedFilter: [],
+    };
+    expect(searchFormReducer(state, selectSortFilter('test'))).toEqual({
+      selectedFilter: 'test'
+    });
+  });
+  it('select sort direction reducer', () => {
+    const state = {
+      sortDirection: '',
+    };
+    expect(searchFormReducer(state, selectSortDirection('1'))).toEqual({
+      sortDirection: '1'
+    });
+  });
+  it('select sort direction reducer', () => {
+    const state = {
+      sortDirection: '1',
+      selectedFilter: 'test',
+      sortFilters: []
+    };
+    expect(searchFormReducer(state, pushSortFilter())).toEqual({
+      sortDirection: '1',
+      selectedFilter: 'test',
+      sortFilters: [{ filter: 'test', direction: '1' }]
+    });
+  });
+  it('select sort direction reducer', () => {
+    const state = {
+      selectedFilter: 'test',
+      availSortFilters: ['test', 'test2']
+    };
+    expect(searchFormReducer(state, removeAvailSortFilter())).toEqual({
+      selectedFilter: 'test',
+      availSortFilters: ['test2']
     });
   });
 });

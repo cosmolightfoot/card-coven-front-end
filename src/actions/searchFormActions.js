@@ -20,7 +20,12 @@ import {
   PUSH_CARD_SET,
   REMOVE_CARD_SET,
   REMOVE_AVAIL_SET,
-  PUSH_AVAIL_SET
+  PUSH_AVAIL_SET,
+  INIT_AVAIL_SORT,
+  SELECT_SORT_FILTER,
+  SELECT_SORT_DIRECTION,
+  PUSH_SORT_FILTER,
+  REMOVE_AVAIL_SORT
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -142,6 +147,34 @@ export function pushAvailSet(set) {
   return {
     type: PUSH_AVAIL_SET,
     payload: set
+  };
+}
+export function initAvailSort(sortFilter) {
+  return {
+    type: INIT_AVAIL_SORT,
+    payload: sortFilter
+  };
+}
+export function selectSortFilter(sortFilter) {
+  return {
+    type: SELECT_SORT_FILTER,
+    payload: sortFilter
+  };
+}
+export function selectSortDirection(sortDirection) {
+  return {
+    type: SELECT_SORT_DIRECTION,
+    payload: sortDirection
+  };
+}
+export function pushSortFilter() {
+  return {
+    type: PUSH_SORT_FILTER
+  };
+}
+export function removeAvailSortFilter() {
+  return {
+    type: REMOVE_AVAIL_SORT
   };
 }
 
