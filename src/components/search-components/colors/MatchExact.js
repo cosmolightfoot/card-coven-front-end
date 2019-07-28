@@ -12,7 +12,7 @@ class MatchExact extends PureComponent {
 
   render() {
     return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', margin: '0px', border: '1px solid red', height: '25px' }}>
         <input type="checkbox" name="exact" value={this.props.exact} onChange={() => this.props.handleChange()} />
         <h4>Match Colors Exactly</h4>
       </div>

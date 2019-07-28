@@ -17,7 +17,7 @@ import SetSelector from './search-components/sets/SetSelector';
 import SetTags from './search-components/sets/SetTags';
 import SortSelector from './search-components/sort/SortSelector';
 import SortTags from './search-components/sort/SortTags';
-
+import CardColors from './search-components/colors/CardColors';
 
 export default function App() {
   return (
@@ -26,13 +26,7 @@ export default function App() {
       <NameField />
       <TypesField />
       <TextField />
-      <BlackMana />
-      <WhiteMana />
-      <RedMana />
-      <GreenMana />
-      <BlueMana />
-      <MatchExact />
-      <ExcludeUnselected />
+      <CardColors />
       <FormatTags />
       <FormatSelector />
       <SetTags />

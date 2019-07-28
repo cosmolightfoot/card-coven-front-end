@@ -12,7 +12,7 @@ class ExcludeUnselected extends PureComponent {
 
   render() {
     return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', margin: '0px', border: '1px solid red', height: '25px'  }}>
         <input type="checkbox" name="exclude" value={this.props.exclude} onChange={() => this.props.handleChange()} />
         <h4>Exclude Unselected Colors</h4>
       </div>
