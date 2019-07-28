@@ -18,9 +18,11 @@ import {
   initAvailSets,
   selectCardSet,
   pushCardSet,
-  removeAvailSet
+  removeAvailSet,
+  removeCardSet,
+  pushAvailSet
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, PUSH_AVAIL_SET } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -130,6 +132,18 @@ describe('search form actions tests', () => {
   it('remove avail set action', () => {
     expect(removeAvailSet()).toEqual({
       type: REMOVE_AVAIL_SET
+    });
+  });
+  it('remove card set action', () => {
+    expect(removeCardSet('test')).toEqual({
+      type: REMOVE_CARD_SET,
+      payload: 'test'
+    });
+  });
+  it('push avail set action', () => {
+    expect(pushAvailSet('test')).toEqual({
+      type: PUSH_AVAIL_SET,
+      payload: 'test'
     });
   });
 });

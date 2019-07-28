@@ -1,4 +1,4 @@
-import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_AVAIL_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET } from '../types/searchFormTypes';
+import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_AVAIL_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET } from '../types/searchFormTypes';
 
 const init = {
   cardName: '',
@@ -20,7 +20,6 @@ const init = {
 };
 
 export default function searchFormReducer(state = init, action) {
-  console.log(action);
   switch(action.type) {
     case CHANGE_NAME_VAL: return {
       ...state,
@@ -101,6 +100,14 @@ export default function searchFormReducer(state = init, action) {
     case REMOVE_AVAIL_SET: return {
       ...state,
       availSets: state.availSets.filter(set => set !== state.selectedSet)
+    };
+    case PUSH_AVAIL_SET: return {
+      ...state,
+      availSets: [...state.availSets, action.payload]
+    };
+    case REMOVE_CARD_SET: return {
+      ...state,
+      sets: state.sets.filter(set => set !== action.payload)
     };
       
     default: return state;

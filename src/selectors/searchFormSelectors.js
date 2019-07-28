@@ -14,3 +14,4 @@ export const getAvailGameFormats = state => getSearchFormState(state).availGameF
 export const getFormats = state => getSearchFormState(state).formats;
 export const getAvailSets = state => getSearchFormState(state).availSets;
 export const getSelectedSet = state => getSearchFormState(state).selectedSet;
+export const getSets = state => getSearchFormState(state).sets;

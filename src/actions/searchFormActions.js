@@ -19,7 +19,8 @@ import {
   SELECT_CARD_SET,
   PUSH_CARD_SET,
   REMOVE_CARD_SET,
-  REMOVE_AVAIL_SET
+  REMOVE_AVAIL_SET,
+  PUSH_AVAIL_SET
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -129,6 +130,18 @@ export function pushCardSet() {
 export function removeAvailSet() {
   return {
     type: REMOVE_AVAIL_SET
+  };
+}
+export function removeCardSet(set) {
+  return {
+    type: REMOVE_CARD_SET,
+    payload: set
+  };
+}
+export function pushAvailSet(set) {
+  return {
+    type: PUSH_AVAIL_SET,
+    payload: set
   };
 }
 

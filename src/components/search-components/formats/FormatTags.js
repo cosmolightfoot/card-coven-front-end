@@ -6,6 +6,10 @@ import { getFormats } from '../../../selectors/searchFormSelectors';
 import { removeCardFormat, pushAvailFormat } from '../../../actions/searchFormActions';
 
 class FormatTags extends PureComponent {
+  static propTypes = {
+    formats: PropTypes.array.isRequired,
+    handleDelete: PropTypes.func.isRequired
+  }
   render() {
     return (
       <Tags options={this.props.formats} handleDelete={this.props.handleDelete} />
@@ -19,7 +23,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleDelete(format) {
-    console.log('TRUE');
     dispatch(removeCardFormat(format));
     dispatch(pushAvailFormat(format));
   }

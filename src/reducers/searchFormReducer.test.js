@@ -1,5 +1,5 @@
 import searchFormReducer from './searchFormReducer';
-import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat, pushFormat, initAvailFormats, removeAvailFormat, removeCardFormat, pushAvailFormat, initAvailSets, selectCardSet, pushCardSet, removeAvailSet } from '../actions/searchFormActions';
+import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat, pushFormat, initAvailFormats, removeAvailFormat, removeCardFormat, pushAvailFormat, initAvailSets, selectCardSet, pushCardSet, removeAvailSet, pushAvailSet, removeCardSet } from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
   it('changes name value when action is called', () => {
@@ -190,12 +190,29 @@ describe('search form reducer tests', () => {
   });
   it('remove avail set reducer', () => {
     const state = {
-      availSets: ['test, test2'],
+      availSets: ['test', 'test2'],
       selectedSet: 'test'
     };
     expect(searchFormReducer(state, removeAvailSet())).toEqual({
       availSets: ['test2'],
       selectedSet: 'test'
+    });
+  });
+  it('push avail set reducer', () => {
+    const state = {
+      availSets: []
+    };
+    console.log('TEST', searchFormReducer(state, pushAvailSet('test')));
+    expect(searchFormReducer(state, pushAvailSet('test'))).toEqual({
+      availSets: ['test']
+    });
+  });
+  it('remove card set reducer', () => {
+    const state = {
+      sets: ['test', 'test2'],
+    };
+    expect(searchFormReducer(state, removeCardSet('test'))).toEqual({
+      sets: ['test2']
     });
   });
 });

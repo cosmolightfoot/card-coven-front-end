@@ -48,7 +48,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(initAvailSets(array));
   },
   handlePush() {
-    console.log('TRUE');
     dispatch(pushCardSet());
     dispatch(removeAvailSet());
     dispatch(selectCardSet(''));

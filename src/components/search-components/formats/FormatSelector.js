@@ -48,7 +48,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(initAvailFormats(array));
   },
   handlePush() {
-    console.log('TRUE');
     dispatch(pushFormat());
     dispatch(removeAvailFormat());
     dispatch(selectFormat(''));
