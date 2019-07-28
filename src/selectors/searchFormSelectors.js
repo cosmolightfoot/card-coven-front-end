@@ -11,3 +11,4 @@ export const getExact = state => getSearchFormState(state).exact;
 export const getExclude = state => getSearchFormState(state).exclude;
 export const getSelectedFormat = state => getSearchFormState(state).selectedFormat;
 export const getAvailGameFormats = state => getSearchFormState(state).availGameFormats;
+export const getFormats = state => getSearchFormState(state).formats;

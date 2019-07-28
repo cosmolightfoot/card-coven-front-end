@@ -12,7 +12,9 @@ import {
   SELECT_CARD_FORMAT,
   PUSH_CARD_FORMAT,
   INIT_AVAIL_FORMATS,
-  REMOVE_AVAIL_FORMAT
+  REMOVE_AVAIL_FORMAT,
+  REMOVE_CARD_FORMAT,
+  PUSH_AVAIL_FORMAT
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -88,6 +90,18 @@ export function pushFormat() {
 export function removeAvailFormat() {
   return {
     type: REMOVE_AVAIL_FORMAT
+  };
+}
+export function removeCardFormat(format) {
+  return {
+    type: REMOVE_CARD_FORMAT,
+    payload: format
+  };
+}
+export function pushAvailFormat(format) {
+  return {
+    type: PUSH_AVAIL_FORMAT,
+    payload: format
   };
 }
 

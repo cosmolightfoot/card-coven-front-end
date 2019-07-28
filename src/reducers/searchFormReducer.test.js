@@ -1,5 +1,5 @@
 import searchFormReducer from './searchFormReducer';
-import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat, pushFormat, initAvailFormats, removeAvailFormat } from '../actions/searchFormActions';
+import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat, pushFormat, initAvailFormats, removeAvailFormat, removeCardFormat, pushAvailFormat } from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
   it('changes name value when action is called', () => {
@@ -126,6 +126,14 @@ describe('search form reducer tests', () => {
       selectedFormat: 'test2'
     });
   });
+  it('pushes avail format value on action call', () => {
+    const state = {
+      availGameFormats: ['test'],
+    };
+    expect(searchFormReducer(state, pushAvailFormat('test2'))).toEqual({
+      availGameFormats: ['test', 'test2'],
+    });
+  });
   it('removes avail format by payload', () => {
     const state = {
       availGameFormats: ['test'],
@@ -144,6 +152,14 @@ describe('search form reducer tests', () => {
     expect(searchFormReducer(state, removeAvailFormat())).toEqual({
       availGameFormats: ['test2'],
       selectedFormat: 'test'
+    });
+  });
+  it('removes card format by payload', () => {
+    const state = {
+      formats: ['test', 'test2'],
+    };
+    expect(searchFormReducer(state, removeCardFormat('test'))).toEqual({
+      formats: ['test2']
     });
   });
 });

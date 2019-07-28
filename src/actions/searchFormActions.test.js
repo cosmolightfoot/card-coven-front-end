@@ -12,9 +12,10 @@ import {
   initAvailFormats,
   selectFormat,
   pushFormat,
-  removeAvailFormat
+  removeAvailFormat,
+  removeCardFormat
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -89,7 +90,19 @@ describe('search form actions tests', () => {
   });
   it('returns remove avail format payload', () => {
     expect(removeAvailFormat()).toEqual({
-      type: REMOVE_AVAIL_FORMAT,
+      type: REMOVE_AVAIL_FORMAT
+    });
+  });
+  it('returns remove card format payload', () => {
+    expect(removeCardFormat('test')).toEqual({
+      type: REMOVE_CARD_FORMAT,
+      payload: 'test'
+    });
+  });
+  it('returns push avail format payload', () => {
+    expect(pushAvailFormat('test')).toEqual({
+      type: PUSH_AVAIL_FORMAT,
+      payload: 'test'
     });
   });
 });

@@ -12,6 +12,7 @@ import BlueMana from './search-components/colors/BlueMana';
 import MatchExact from './search-components/colors/MatchExact';
 import ExcludeUnselected from './search-components/colors/ExcludeUnselected';
 import FormatSelector from './search-components/formats/FormatSelector';
+import FormatTags from './search-components/formats/FormatTags';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
       <BlueMana />
       <MatchExact />
       <ExcludeUnselected />
+      <FormatTags />
       <FormatSelector />
     </section>
   );
