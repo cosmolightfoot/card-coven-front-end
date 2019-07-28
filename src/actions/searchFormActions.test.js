@@ -8,9 +8,10 @@ import {
   checkGreen,
   checkBlue,
   checkExact,
-  checkExclude
+  checkExclude,
+  selectFormat
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -64,6 +65,11 @@ describe('search form actions tests', () => {
   it('returns exclude checkbox type', () => {
     expect(checkExclude()).toEqual({
       type: CHECK_EXCLUDE_COLORS
+    });
+  });
+  it('returns select format payload', () => {
+    expect(selectFormat()).toEqual({
+      type: SELECT_CARD_FORMAT
     });
   });
 });

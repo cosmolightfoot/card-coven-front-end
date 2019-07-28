@@ -8,7 +8,8 @@ import {
   CHECK_GREEN_MANA,
   CHECK_BLUE_MANA,
   CHECK_EXACT_COLORS,
-  CHECK_EXCLUDE_COLORS
+  CHECK_EXCLUDE_COLORS,
+  SELECT_CARD_FORMAT
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -62,6 +63,12 @@ export function checkExact() {
 export function checkExclude() {
   return {
     type: CHECK_EXCLUDE_COLORS
+  };
+}
+export function selectFormat(format) {
+  return {
+    type: SELECT_CARD_FORMAT,
+    payload: format
   };
 }
 

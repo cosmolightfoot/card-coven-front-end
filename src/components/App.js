@@ -11,6 +11,7 @@ import GreenMana from './search-components/colors/GreenMana';
 import BlueMana from './search-components/colors/BlueMana';
 import MatchExact from './search-components/colors/MatchExact';
 import ExcludeUnselected from './search-components/colors/ExcludeUnselected';
+import FormatSelector from './search-components/formats/FormatSelector';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <BlueMana />
       <MatchExact />
       <ExcludeUnselected />
+      <FormatSelector />
     </section>
   );
 }

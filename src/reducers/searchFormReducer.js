@@ -1,4 +1,4 @@
-import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS } from '../types/searchFormTypes';
+import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT } from '../types/searchFormTypes';
 
 const init = {
   cardName: '',
@@ -10,7 +10,8 @@ const init = {
   green: false,
   blue: false,
   exact: false,
-  exclude: false
+  exclude: false,
+  selectedFormat: ''
 };
 
 export default function searchFormReducer(state = init, action) {
@@ -54,6 +55,10 @@ export default function searchFormReducer(state = init, action) {
     case CHECK_EXCLUDE_COLORS: return {
       ...state,
       exclude: !state.exclude
+    };
+    case SELECT_CARD_FORMAT: return {
+      ...state,
+      selectedFormat: action.payload
     };
       
     default: return state;
