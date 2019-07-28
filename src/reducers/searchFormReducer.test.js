@@ -1,5 +1,5 @@
 import searchFormReducer from './searchFormReducer';
-import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat } from '../actions/searchFormActions';
+import { changeName, changeTypeLine, changeText, checkBlack, checkWhite, checkRed, checkGreen, checkBlue, checkExact, checkExclude, selectFormat, pushFormat, initAvailFormats, removeAvailFormat } from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
   it('changes name value when action is called', () => {
@@ -90,11 +90,59 @@ describe('search form reducer tests', () => {
       exclude: true
     });
   });
+  it('initializes avail formats state', () => {
+    const state = {
+      availGameFormats: []
+    };
+    expect(searchFormReducer(state, initAvailFormats(['test']))).toEqual({
+      availGameFormats: ['test']
+    });
+  });
   it('changes selected format value on action call', () => {
     const state = {
       selectedFormat: ''
     };
     expect(searchFormReducer(state, selectFormat('test'))).toEqual({
+      selectedFormat: 'test'
+    });
+  });
+  it('pushes selected format value to state on action call', () => {
+    const state = {
+      formats: [],
+      selectedFormat: 'test'
+    };
+    expect(searchFormReducer(state, pushFormat())).toEqual({
+      formats: ['test'],
+      selectedFormat: 'test'
+    });
+  });
+  it('pushes selected format value to existing state on action call', () => {
+    const state = {
+      formats: ['test'],
+      selectedFormat: 'test2'
+    };
+    expect(searchFormReducer(state, pushFormat())).toEqual({
+      formats: ['test', 'test2'],
+      selectedFormat: 'test2'
+    });
+  });
+  it('removes avail format by payload', () => {
+    const state = {
+      availGameFormats: ['test'],
+      selectedFormat: 'test'
+    };
+    expect(searchFormReducer(state, removeAvailFormat())).toEqual({
+      availGameFormats: [],
+      selectedFormat: 'test'
+    });
+  });
+  it('removes avail format by payload', () => {
+    const state = {
+      availGameFormats: ['test', 'test2'],
+      selectedFormat: 'test'
+    };
+    expect(searchFormReducer(state, removeAvailFormat())).toEqual({
+      availGameFormats: ['test2'],
       selectedFormat: 'test'
     });
   });

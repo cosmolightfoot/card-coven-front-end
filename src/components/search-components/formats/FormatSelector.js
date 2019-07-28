@@ -2,19 +2,25 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FaPlusSquare } from 'react-icons/fa';
-import availGameFormats from '../../../data/formatData';
-import { getSelectedFormat } from '../../../selectors/searchFormSelectors';
-import { selectFormat } from '../../../actions/searchFormActions';
+import formatData from '../../../data/formatData';
+import { getSelectedFormat, getAvailGameFormats } from '../../../selectors/searchFormSelectors';
+import { selectFormat, initAvailFormats, pushFormat, removeAvailFormat } from '../../../actions/searchFormActions';
 
 class FormatSelector extends PureComponent {
   static propTypes = {
+    loadFormats: PropTypes.func.isRequired,
+    availGameFormats: PropTypes.array.isRequired,
     selectedFormat: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
     handlePush: PropTypes.func.isRequired
   }
 
+  componentDidMount() {
+    this.props.loadFormats(formatData);
+  }
+
   render() {
-    const formatsList = availGameFormats.map((format, i) => (
+    const formatsList = this.props.availGameFormats.map((format, i) => (
       <option key={i} value={format}>{format}</option>
     ));
     return (
@@ -30,12 +36,22 @@ class FormatSelector extends PureComponent {
 }
 
 const mapStateToProps = state => ({
+  availGameFormats: getAvailGameFormats(state),
   selectedFormat: getSelectedFormat(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   handleChange({ target }) {
     dispatch(selectFormat(target.value));
+  },
+  loadFormats(array) {
+    dispatch(initAvailFormats(array));
+  },
+  handlePush() {
+    console.log('TRUE');
+    dispatch(pushFormat());
+    dispatch(removeAvailFormat());
+    dispatch(selectFormat(''));
   }
 });
 
