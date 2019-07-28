@@ -25,7 +25,9 @@ import {
   SELECT_SORT_FILTER,
   SELECT_SORT_DIRECTION,
   PUSH_SORT_FILTER,
-  REMOVE_AVAIL_SORT
+  REMOVE_AVAIL_SORT,
+  REMOVE_SORT_FILTER,
+  PUSH_AVAIL_SORT
 } from '../types/searchFormTypes';
 
 export function changeName(text) {
@@ -175,6 +177,18 @@ export function pushSortFilter() {
 export function removeAvailSortFilter() {
   return {
     type: REMOVE_AVAIL_SORT
+  };
+}
+export function removeSortFilter(filter) {
+  return {
+    type: REMOVE_SORT_FILTER,
+    payload: filter
+  };
+}
+export function pushAvailSortFilter(filter) {
+  return {
+    type: PUSH_AVAIL_SORT,
+    payload: filter
   };
 }
 

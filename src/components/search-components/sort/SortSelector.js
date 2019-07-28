@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { FaPlusSquare, FaWindowClose, FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
+import { FaPlusSquare } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import sortFilterData from '../../../data/sortData';
 import { getAvailSortFilters, getSortDirection, getSelectedFilter } from '../../../selectors/searchFormSelectors';

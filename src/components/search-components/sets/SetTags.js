@@ -24,7 +24,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleDelete(set) {
     dispatch(removeCardSet(set));
-    dispatch(pushAvailSet(set));
+    // dispatch(pushAvailSet(set));
   }
 });
 

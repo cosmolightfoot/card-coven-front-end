@@ -26,7 +26,9 @@ import {
   selectSortFilter, 
   selectSortDirection, 
   pushSortFilter, 
-  removeAvailSortFilter 
+  removeAvailSortFilter, 
+  removeSortFilter,
+  pushAvailSortFilter
 } from '../actions/searchFormActions';
 
 describe('search form reducer tests', () => {
@@ -287,6 +289,24 @@ describe('search form reducer tests', () => {
     expect(searchFormReducer(state, removeAvailSortFilter())).toEqual({
       selectedFilter: 'test',
       availSortFilters: ['test2']
+    });
+  });
+  it('remove sort filter reducer', () => {
+    const state = {
+      sortFilters: [{ filter: 'test', direction: '1' }],
+    };
+    expect(searchFormReducer(state, removeSortFilter('test'))).toEqual({
+      sortFilters: []
+    });
+  });
+  it('push avail sort reducer', () => {
+    const state = {
+      availSortFilters: [],
+      sortFilters: [{ filter: 'test', direction: '1' }]
+    };
+    expect(searchFormReducer(state, pushAvailSortFilter('test'))).toEqual({
+      availSortFilters: [{ filter: 'test', direction: '1' }],
+      sortFilters: [{ filter: 'test', direction: '1' }]
     });
   });
 });

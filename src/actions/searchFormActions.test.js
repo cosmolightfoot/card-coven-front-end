@@ -25,9 +25,11 @@ import {
   selectSortFilter,
   selectSortDirection,
   pushSortFilter,
-  removeAvailSortFilter
+  removeAvailSortFilter,
+  removeSortFilter,
+  pushAvailSortFilter
 } from './searchFormActions';
-import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, PUSH_AVAIL_SET, INIT_AVAIL_SORT, SELECT_SORT_FILTER, SELECT_SORT_DIRECTION, PUSH_SORT_FILTER, REMOVE_AVAIL_SORT } from '../types/searchFormTypes';
+import { CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, PUSH_AVAIL_SET, INIT_AVAIL_SORT, SELECT_SORT_FILTER, SELECT_SORT_DIRECTION, PUSH_SORT_FILTER, REMOVE_AVAIL_SORT, REMOVE_SORT_FILTER, PUSH_AVAIL_SORT } from '../types/searchFormTypes';
   
 describe('search form actions tests', () => {
   it('returns name change payload', () => {
@@ -177,6 +179,18 @@ describe('search form actions tests', () => {
   it('remove avail sort action', () => {
     expect(removeAvailSortFilter()).toEqual({
       type: REMOVE_AVAIL_SORT
+    });
+  });
+  it('remove sort filter action', () => {
+    expect(removeSortFilter('filter')).toEqual({
+      type: REMOVE_SORT_FILTER,
+      payload: 'filter'
+    });
+  });
+  it('push avail sort action', () => {
+    expect(pushAvailSortFilter('filter')).toEqual({
+      type: PUSH_AVAIL_SORT,
+      payload: 'filter'
     });
   });
 });
