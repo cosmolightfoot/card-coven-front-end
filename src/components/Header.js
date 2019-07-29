@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header>
+    <header style={{ alignSelf: 'flex-start' }}>
       <h1>CardCoven</h1>
       <a>Main</a>
       <a>Search Cards</a>

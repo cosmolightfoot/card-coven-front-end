@@ -8,7 +8,12 @@ export const FormSectionTitle = styled.h4`
     margin-left: 0px;
     margin-bottom: 12px;
     font-family: 'Rokkitt', serif;
-`; 
+`;
+
+export const SearchFormStyle = styled.form`
+  border: 3px solid black;
+  align-self: center;
+`;
 
 export const TextSearch = styled.input`
   width: 275px;
@@ -20,7 +25,6 @@ export const FormSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 3px solid blue;
   padding: 5px;
   width: ${({ width }) => width ? width : '360px'};
   height: ${({ height }) => height ? height : '120px'};
@@ -71,6 +75,16 @@ export const SortFilterTag = styled.li`
   width: ${({ width }) => width ? width : null };
   padding: 3px;
   border-radius: 2px;
+`;
+
+export const SubmitSearch = styled.button`
+  width: 140px;
+  height: 40px;
+  font-family: 'Rokkitt', serif;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: lightcyan;
 `;
 
 
