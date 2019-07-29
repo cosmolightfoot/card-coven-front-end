@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {  getTypeLine, getCardText } from '../../selectors/searchFormSelectors';
-import {  changeTypeLine, changeText } from '../../actions/searchFormActions';
+import { getCardText } from '../../../selectors/searchFormSelectors';
+import { changeText } from '../../../actions/searchFormActions';
+import { TextSearch } from '../../../styled-components/search-form';
 
 class TextField extends PureComponent {
   static propTypes = {
@@ -12,9 +13,7 @@ class TextField extends PureComponent {
 
   render() {
     return (
-      <main>
-        <input value={this.props.cardText} placeholder="Search by Card Text" onChange={this.props.handleChange} style={{ marginLeft: '12px', width: '50%', height: '1.5em' }}></input>
-      </main>
+      <TextSearch value={this.props.cardText} placeholder="Search by Card Text" onChange={this.props.handleChange} />
     );
   }
 }

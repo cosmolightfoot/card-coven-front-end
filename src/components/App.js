@@ -1,38 +1,27 @@
 import React from 'react';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Header';
-import NameField from '../components/search-components/NameField';
-import TypesField from '../components/search-components/TypesField';
-import TextField from '../components/search-components/TextField';
-import BlackMana from '../components/search-components/colors/BlackMana';
-import WhiteMana from '../components/search-components/colors/WhiteMana';
-import RedMana from './search-components/colors/RedMana';
-import GreenMana from './search-components/colors/GreenMana';
-import BlueMana from './search-components/colors/BlueMana';
-import MatchExact from './search-components/colors/MatchExact';
-import ExcludeUnselected from './search-components/colors/ExcludeUnselected';
-import FormatSelector from './search-components/formats/FormatSelector';
-import FormatTags from './search-components/formats/FormatTags';
-import SetSelector from './search-components/sets/SetSelector';
-import SetTags from './search-components/sets/SetTags';
-import SortSelector from './search-components/sort/SortSelector';
-import SortTags from './search-components/sort/SortTags';
+import CardName from './search-components/name/CardName';
 import CardColors from './search-components/colors/CardColors';
-
+import CardType from './search-components/types/CardTypes';
+import CardText from './search-components/text/CardText';
+import CardFormats from './search-components/formats/CardFormats';
 export default function App() {
   return (
-    <section style={{ display: 'flex', flexDirection: 'column' }}>
+    <main>
       <Header />
-      <NameField />
-      <TypesField />
-      <TextField />
-      <CardColors />
-      <FormatTags />
-      <FormatSelector />
-      <SetTags />
-      <SetSelector />
-      <SortTags />
-      <SortSelector />
-    </section>
+      <section style={{ display: 'flex' }}>
+        <section style={{ display: 'flex', flexDirection: 'column' }}>
+          <CardName />
+          <CardColors />
+        </section>
+        <section>
+          <CardType />
+          <CardText />
+          <CardFormats />
+        </section>
+      </section>
+
+    </main>
   );
 }

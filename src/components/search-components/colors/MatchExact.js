@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { checkExact } from '../../../actions/searchFormActions';
 import { getExact } from '../../../selectors/searchFormSelectors'; 
+import { CheckBoxSection } from '../../../styled-components/search-form';
 
 class MatchExact extends PureComponent {
   static propTypes = {
@@ -12,10 +13,10 @@ class MatchExact extends PureComponent {
 
   render() {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', margin: '0px', border: '1px solid red', height: '25px' }}>
+      <CheckBoxSection>
         <input type="checkbox" name="exact" value={this.props.exact} onChange={() => this.props.handleChange()} />
         <h4>Match Colors Exactly</h4>
-      </div>
+      </CheckBoxSection>
     );
   }
 }

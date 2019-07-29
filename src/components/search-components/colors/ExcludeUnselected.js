@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { checkExclude } from '../../../actions/searchFormActions';
 import { getExclude } from '../../../selectors/searchFormSelectors'; 
+import { CheckBoxSection } from '../../../styled-components/search-form';
 
 class ExcludeUnselected extends PureComponent {
   static propTypes = {
@@ -12,10 +13,10 @@ class ExcludeUnselected extends PureComponent {
 
   render() {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', margin: '0px', border: '1px solid red', height: '25px'  }}>
+      <CheckBoxSection>
         <input type="checkbox" name="exclude" value={this.props.exclude} onChange={() => this.props.handleChange()} />
         <h4>Exclude Unselected Colors</h4>
-      </div>
+      </CheckBoxSection>
     );
   }
 }

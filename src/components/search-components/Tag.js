@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaWindowClose } from 'react-icons/fa';
+import { FormTag } from '../../styled-components/search-form';
 
 function Tag({ handleDelete, option, field }) {
   return (
-    <li style={{ display: 'flex', listStyleType: 'none', alignItems: 'center', flexGrow: 0, width: '15%', height: '20px', padding: '3px' }}>
+    <FormTag width={`${option.length * 11}px`}>
       <h5>{option}</h5>
       <FaWindowClose size="15" onClick={() => handleDelete(option)} />
-    </li>
+    </FormTag>
   );
 }
 
