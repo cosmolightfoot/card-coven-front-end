@@ -13,7 +13,7 @@ import CardFormats from '../../components/search-components/formats/CardFormats'
 import CardSort from '../../components/search-components/sort/CardSort';
 import CardSet from '../../components/search-components/sets/CardSets';
 import { getCardName, getBlack, getWhite, getRed, getBlue, getGreen, getExact, getExclude, getFormats, getSets, getCardText, getTypeLine, getSortFilters } from '../../selectors/searchFormSelectors';
-import { SearchFormStyle, SubmitSearch } from '../../styled-components/search-form';
+import { SearchFormStyle, SubmitSearch } from '../../styled-components/search-form-styles';
 
 
 class SearchForm extends PureComponent {

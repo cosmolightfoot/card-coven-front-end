@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { checkExclude } from '../../../actions/searchFormActions';
 import { getExclude } from '../../../selectors/searchFormSelectors'; 
-import { CheckBoxSection } from '../../../styled-components/search-form';
+import { CheckBoxSection } from '../../../styled-components/search-form-styles';
 
 class ExcludeUnselected extends PureComponent {
   static propTypes = {

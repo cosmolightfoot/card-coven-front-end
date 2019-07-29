@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CardWrapper, CardImg, CardTitle } from '../../styled-components/card-styles';
 
 function Card({ card }) {
-  const { image_uris } = card;
   return (
-    <li style={{ listStyleType: 'none' }}>
-      <h1>{card.name}</h1>
-      <img src={image_uris.large || image_uris.normal || image} />
-    </li>
+    <CardWrapper style={{ listStyleType: 'none' }}>
+      <CardTitle>{card.name}</CardTitle>
+      <CardImg src={ card.image_uris.normal } />
+    </CardWrapper>
   );
 }
 

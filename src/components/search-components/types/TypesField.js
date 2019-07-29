@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getTypeLine } from '../../../selectors/searchFormSelectors';
 import { changeTypeLine } from '../../../actions/searchFormActions';
-import { TextSearch } from '../../../styled-components/search-form';
+import { TextSearch } from '../../../styled-components/search-form-styles';
 
 class TypesField extends PureComponent {
   static propTypes = {

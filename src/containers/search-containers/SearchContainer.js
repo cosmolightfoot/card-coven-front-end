@@ -8,27 +8,25 @@ import { getSearchResults, getSearchCurrentPage, getSearchTotalPages, getSearchL
 class SearchContainer extends PureComponent {
   static propTypes = {
     results: PropTypes.array,
-    currentPage: PropTypes.string.isRequired,
-    totalPages: PropTypes.string.isRequired,
-    perPage: PropTypes.string.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    totalPages: PropTypes.number.isRequired,
+    perPage: PropTypes.number.isRequired,
     hasResults: PropTypes.bool.isRequired,
     displaying: PropTypes.string.isRequired,
     hasMore: PropTypes.bool.isRequired,
     hasLess: PropTypes.bool.isRequired,
-    totalCount: PropTypes.string.isRequired,
+    totalCount: PropTypes.number.isRequired,
     loading: PropTypes.bool.isRequired,
     fulfilled: PropTypes.bool.isRequired,
     noSearches: PropTypes.bool.isRequired
   }
 
   render() {
-    const { results, noSearches, hasResults } = this.props;
+    const { results, noSearches, hasResults,  } = this.props;
     return (
       <main>
         <SearchForm />
-        {/* {noSearches ? (<h1>Use the Form Above to Search for Cards</h1>) : <Cards cardListData={results || [] }/>} */}
-        {/* {hasResults ? <Cards cardListData={results || [] }/> : (<h1>Your Search Returned No Results</h1>)} */}
-        <Cards cards={results || [] }/>
+        { hasResults ? <Cards cards={results} /> : []}
       </main>
     );
   }

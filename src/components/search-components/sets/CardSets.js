@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormSection, FormSectionTitle } from '../../../styled-components/search-form';
+import { FormSection, FormSectionTitle } from '../../../styled-components/search-form-styles';
 import SetTags from './SetTags';
 import SetSelector from './SetSelector';
 function CardFormats() {

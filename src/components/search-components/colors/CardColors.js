@@ -7,8 +7,8 @@ import GreenMana from './GreenMana';
 import BlueMana from './BlueMana';
 import MatchExact from './MatchExact';
 import ExcludeUnselected from './ExcludeUnselected';
-import { FormSectionTitle } from '../../../styled-components/search-form';
-import { FormSection } from '../../../styled-components/search-form';
+import { FormSectionTitle } from '../../../styled-components/search-form-styles';
+import { FormSection } from '../../../styled-components/search-form-styles';
 
 function CardColors() {
   const colorsStyle = { 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FaWindowClose, FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
 import { getSortFilters } from '../../../selectors/searchFormSelectors';
 import { removeSortFilter, pushAvailSortFilter } from '../../../actions/searchFormActions';
-import { SortFilterTag, TagList } from '../../../styled-components/search-form';
+import { SortFilterTag, TagList } from '../../../styled-components/search-form-styles';
 
 class SortTags extends PureComponent {
   static propTypes = {

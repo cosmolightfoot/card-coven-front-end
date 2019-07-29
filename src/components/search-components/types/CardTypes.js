@@ -1,6 +1,6 @@
 import React from 'react';
 import TypesField from './TypesField';
-import { FormSection, FormSectionTitle } from '../../../styled-components/search-form';
+import { FormSection, FormSectionTitle } from '../../../styled-components/search-form-styles';
 
 function CardTypes() {
   return (

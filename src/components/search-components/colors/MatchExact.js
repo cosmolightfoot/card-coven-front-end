@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { checkExact } from '../../../actions/searchFormActions';
 import { getExact } from '../../../selectors/searchFormSelectors'; 
-import { CheckBoxSection } from '../../../styled-components/search-form';
+import { CheckBoxSection } from '../../../styled-components/search-form-styles';
 
 class MatchExact extends PureComponent {
   static propTypes = {

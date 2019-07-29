@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SetTag from './SetTag';
-import { TagList } from '../../../styled-components/search-form'; 
+import { TagList } from '../../../styled-components/search-form-styles'; 
 
 function SetTags({ handleDelete, options }) {
   const tagsList = options.map((option, i) => {

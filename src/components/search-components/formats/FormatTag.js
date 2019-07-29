@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaWindowClose } from 'react-icons/fa';
-import { FormTag } from '../../../styled-components/search-form';
+import { FormTag } from '../../../styled-components/search-form-styles';
 
 function Tag({ handleDelete, option }) {
   return (

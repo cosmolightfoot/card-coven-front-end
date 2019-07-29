@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCardName } from '../../../selectors/searchFormSelectors';
 import { changeName } from '../../../actions/searchFormActions';
-import { TextSearch } from '../../../styled-components/search-form';
+import { TextSearch } from '../../../styled-components/search-form-styles';
 
 class NameField extends PureComponent {
   static propTypes = {

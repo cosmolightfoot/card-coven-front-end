@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormatTag from './FormatTag';
-import { TagList } from '../../../styled-components/search-form'; 
+import { TagList } from '../../../styled-components/search-form-styles'; 
 
 function Tags({ handleDelete, options }) {
   const tagsList = options.map((option, i) => {
