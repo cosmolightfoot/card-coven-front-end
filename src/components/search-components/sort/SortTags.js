@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { FaWindowClose, FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
 import { getSortFilters } from '../../../selectors/searchFormSelectors';
 import { removeSortFilter, pushAvailSortFilter } from '../../../actions/searchFormActions';
+import { SortFilterTag, TagList } from '../../../styled-components/search-form';
 
 class SortTags extends PureComponent {
   static propTypes = {
@@ -24,18 +25,18 @@ class SortTags extends PureComponent {
           break;
       }
       return (
-        <li key={i} style={{ display: 'flex', listStyleType: 'none', alignItems: 'center', flexGrow: 0, width: '50px%', height: '20px', padding: '3px' }}>
+        <SortFilterTag key={i} style={{ display: 'flex', listStyleType: 'none', alignItems: 'center', flexGrow: 0, width: '50px%', height: '20px', padding: '3px' }}>
           {direction}
           <h5>{filterName}</h5>
           <FaWindowClose size="15" onClick={() => this.props.handleDelete(filter)} />
-        </li>
+        </SortFilterTag>
       );
     });
 
     return (
-      <ul style={{ width: '93%' }}>
+      <TagList style={{ width: '93%' }}>
         {taggedFiltersList}
-      </ul>
+      </TagList>
     );
   }
 }

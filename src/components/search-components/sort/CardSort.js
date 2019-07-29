@@ -1,16 +1,15 @@
 import React from 'react';
 import { FormSection, FormSectionTitle } from '../../../styled-components/search-form';
-import FormatSelector from './FormatSelector';
-import FormatTags from './FormatTags';
-
+import SortTags from './SortTags';
+import SortSelector from './SortSelector';
 function CardFormats() {
   return (
-    <FormSection>
+    <FormSection height="160px" width="1112px">
       <FormSectionTitle>
-        Formats:
+        Sort Results:
       </FormSectionTitle>
-      <FormatTags />
-      <FormatSelector />
+      <SortTags />
+      <SortSelector />
     </FormSection>
   );
 }

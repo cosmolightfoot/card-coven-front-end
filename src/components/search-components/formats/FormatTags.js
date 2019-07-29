@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Tags from '../Tags';
+import FormatTagList from './FormatTagList';
 import { connect } from 'react-redux';
 import { getFormats } from '../../../selectors/searchFormSelectors';
 import { removeCardFormat, pushAvailFormat } from '../../../actions/searchFormActions';
@@ -12,7 +12,7 @@ class FormatTags extends PureComponent {
   }
   render() {
     return (
-      <Tags options={this.props.formats} handleDelete={this.props.handleDelete} />
+      <FormatTagList options={this.props.formats} handleDelete={this.props.handleDelete} />
     );
   }
 }

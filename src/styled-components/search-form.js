@@ -39,7 +39,7 @@ export const TagList = styled.ul`
   flex-wrap: wrap;
   box-sizing: content-box;
   width: 315px;
-  height: 100px;
+  height: ${({ height }) => height ? height : '100px'};
   margin-bottom: 5px;
   margin-top: 5px;
 `;
@@ -50,11 +50,27 @@ export const FormTag = styled.li`
   align-items: center;
   font-family: 'Rokkitt', serif;
   font-size: 20px;
-  margin: 3px;
+  margin: 2px;
   border: 2px solid black;
   height: 18px;
   width: ${({ width }) => width ? width : null };
   padding: 3px;
   border-radius: 2px;
-
 `;
+
+
+export const SortFilterTag = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Rokkitt', serif;
+  font-size: 20px;
+  margin: 2px;
+  border: 2px solid black;
+  height: 18px;
+  width: ${({ width }) => width ? width : null };
+  padding: 3px;
+  border-radius: 2px;
+`;
+
+

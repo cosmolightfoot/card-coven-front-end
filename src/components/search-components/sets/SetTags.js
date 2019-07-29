@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Tags from '../Tags';
+import Tags from './SetTagList';
 import { connect } from 'react-redux';
 import { getSets } from '../../../selectors/searchFormSelectors';
 import { removeCardSet, pushAvailSet } from '../../../actions/searchFormActions';

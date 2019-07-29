@@ -24,7 +24,7 @@ class FormatSelector extends PureComponent {
       <option key={i} value={format}>{format}</option>
     ));
     return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
         <select value={this.props.selectedFormat} name="selectedFormat" onChange={this.props.handleChange}>
           <option value="">--Filter By Format--</option>
           {formatsList}
