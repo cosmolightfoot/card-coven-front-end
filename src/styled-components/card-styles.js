@@ -30,6 +30,8 @@ export const GalleryWrapper = styled.div`
 export const CardGallery = styled.ul`
   border: 3px solid black;
   width: 95%;
+  display: flex;
+  justify-content: space-around;
   padding: 15px;
   display: flex;
   flex-wrap: wrap;

@@ -6,7 +6,7 @@ import About from './About';
 export default function App() {
   return (
     <Router>
-      <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '98vw' }}>
         <Header />
         <Switch>
           <Route exact path="/" component={SearchContainer} />
