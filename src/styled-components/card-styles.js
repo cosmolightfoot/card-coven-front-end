@@ -9,13 +9,15 @@ export const CardWrapper = styled.li`
   height: 400px;
   list-style-type: none;
   margin: 5px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   ${props => props.transform && css`
     
   `};
 `;
 
 export const CardImg = styled.img`
-  width: 100%;
+  width: 90%;
   border-radius: 14px;
 `;
 
@@ -28,6 +30,7 @@ export const GalleryWrapper = styled.div`
 export const CardGallery = styled.ul`
   border: 3px solid black;
   width: 95%;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   align-self: center;
