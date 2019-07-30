@@ -1,14 +1,15 @@
 import React from 'react';
+import { MainHeader, MainLogo, MainNav } from '../styled-components/header-styles';
 // import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <header style={{ alignSelf: 'flex-start' }}>
-      <h1>CardCoven</h1>
-      <a>Main</a>
-      <a>Search Cards</a>
-      <a>DeckBuilder</a>
-      <a>Login/SignUp</a>
-    </header>
+    <MainHeader>
+      <MainLogo>CardCoven</MainLogo>
+      <MainNav>
+        <a style={{ padding: '5px' }}>Cards</a>
+        <a>About</a>
+      </MainNav>
+    </MainHeader>
   );
 }

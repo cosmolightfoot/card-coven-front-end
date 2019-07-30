@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { CardImg, CardWrapper } from '../../styled-components/card-styles';
+import { CardImg, CardWrapper, CardTitle } from '../../styled-components/card-styles';
 
 class TransformCard extends PureComponent {
   static propTypes = {
@@ -17,7 +17,7 @@ class TransformCard extends PureComponent {
     return (
 
       <CardWrapper>
-        <h1>{card_faces[0].name}</h1>
+        <CardTitle>{card_faces[0].name}</CardTitle>
         <CardImg src={card_faces[0].image_uris.normal} />
       </CardWrapper>
     );
