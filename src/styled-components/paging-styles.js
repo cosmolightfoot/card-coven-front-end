@@ -21,6 +21,12 @@ export const PagingButton = styled.button`
   border: none;
   font-family: 'Rokkitt', serif;
   font-size: 40px;
+  :focus {
+    outline: none !important;
+  }
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const DisplayP = styled.p`
