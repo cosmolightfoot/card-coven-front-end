@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import Cards from '../../components/card-components/Cards';
 import { getSearchResults, getSearchCurrentPage, getSearchTotalPages, getSearchLoading, getSearchFulfilled, getSearchNoSearches, getSearchPerPage, getSearchHasResults, getSearchDisplaying, getSearchHasMore, getSearchHasLess, getSearchTotalCount, getCurrentSearchOptions } from '../../selectors/searchSelectors';
 import { SearchMain, FormWrapper } from '../../styled-components/search-form-styles';
-import { GalleryWrapper } from '../../styled-components/card-styles';
-import { PagingNav, PagingButton, DisplayP } from '../../styled-components/paging-styles';
+import { PagingNav, PagingButton, DisplayP, Rotate } from '../../styled-components/paging-styles';
 import { newSearch } from '../../actions/cardSearchActions';
-import { log } from 'util';
+import loadingCircle from '../../assets/loading-circle.png';
+
 
 class SearchContainer extends PureComponent {
   static propTypes = {
@@ -38,7 +38,7 @@ class SearchContainer extends PureComponent {
   }
 
   render() {
-    const { results, displaying, noSearches, totalCount, hasResults, hasLess, hasMore } = this.props;
+    const { results, displaying, noSearches, totalCount, hasResults, hasLess, hasMore, loading } = this.props;
     return (
       <SearchMain>
         <FormWrapper>
@@ -47,7 +47,14 @@ class SearchContainer extends PureComponent {
         { !noSearches ? 
           <PagingNav>
             { hasResults && hasLess ? <PagingButton onClick={() => this.paging((parseInt(this.props.currentPage)) - 1)}>&#60;</PagingButton> : null }
+            {
+              loading ? <Rotate src={loadingCircle}></Rotate> : null
+            }
+            
             <DisplayP>
+              {
+                loading ? 'Loading...' : null
+              }
               { 
                 hasResults ? `Displaying ${displaying} of ${totalCount} results`
                   : 'Your Search Returned No Results' 
