@@ -25,7 +25,13 @@ const preloadedState = {
   }
 };
 
+
 export default createStore(
   reducers, preloadedState, 
-  compose(applyMiddleware(promiseMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  compose(applyMiddleware(promiseMiddleware))
 );
+
+// export default createStore(
+//   reducers, preloadedState, 
+//   compose(applyMiddleware(promiseMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// );

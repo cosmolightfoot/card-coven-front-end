@@ -33,24 +33,6 @@ export const DisplayP = styled.p`
   font-family: 'Rokkitt', serif;
 `;
 
-// const rotated = keyframes`
-//   from {
-//     transform: rotate(0deg);
-//   }
-
-//   to: {
-//     transform: rotate(270deg);
-//   }
-// `;
-
-// export const LoadingCircle = styled.img`
-//   display: inline-block;
-//   height: 45px;
-//   margin: 10px;
-//   animation: ${rotated} 5s linear infinite;
-// `;
-
-// Create the keyframes
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -59,7 +41,7 @@ const rotate = keyframes`
     transform: rotate(360deg);
   }
 `;
-// Here we create a component that will rotate everything we pass in over two seconds
+
 export const Rotate = styled.img`
   display: inline-block;
   animation: ${rotate} 1.2s linear infinite;
