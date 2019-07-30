@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const CardWrapper = styled.li`
   /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 18%;
+  height: 400px;
   list-style-type: none;
   margin: 5px;
   ${props => props.transform && css`
@@ -16,11 +20,19 @@ export const CardImg = styled.img`
 `;
 
 
+export const GalleryWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+  `;
+
 export const CardGallery = styled.ul`
-  width: 90vw;
+  border: 3px solid black;
+  width: 95%;
   display: flex;
   flex-wrap: wrap;
+  align-self: center;
 `;
+
 
 
 export const CardTitle = styled.h2`

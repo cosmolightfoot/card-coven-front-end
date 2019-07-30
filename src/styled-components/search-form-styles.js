@@ -10,8 +10,25 @@ export const FormSectionTitle = styled.h4`
     font-family: 'Rokkitt', serif;
 `;
 
+export const SearchMain = styled.main`
+  background-color: oldlace;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+`;
+
+export const FormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  border-bottom: 10px solid black;
+`;
+
 export const SearchFormStyle = styled.form`
-  border: 3px solid black;
+  background-color: oldlace;
   align-self: center;
 `;
 
@@ -19,6 +36,11 @@ export const TextSearch = styled.input`
   width: 275px;
   height: 20px;
   margin: 5px;
+  :focus {
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 3px #719ECE;
+}
 `;
 
 export const FormSection = styled.section`
@@ -32,13 +54,16 @@ export const FormSection = styled.section`
 
 export const CheckBoxSection = styled.div`
   display: flex;
-  align-items: center; 
+  align-items: center;
+  font-family: Rokkitt, serif; 
   margin: 0px; 
   height: 25px; 
 `;
 
 export const TagList = styled.ul`
-  border: 3px solid red;
+  border: 3px solid #AA2020;
+  border-radius: 2px;
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   box-sizing: content-box;

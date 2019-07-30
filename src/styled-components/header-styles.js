@@ -4,16 +4,19 @@ export const MainHeader = styled.header`
   align-self: stretch;
   display: flex;
   justify-content: space-between; 
-  width: 101vw;
+  width: 100vw;
   height: 80px;
   position: relative;
   top: -10px;
   left: -10px;
   background-color: red;
+  margin-bottom: -7px;
+  box-shadow: 2px 2px 5px;
 `;
 
 export const MainLogo = styled.h1`
   @import url('https://fonts.googleapis.com/css?family=Aclonica|Condiment|Economica|Fanwood+Text|Julius+Sans+One|Macondo+Swash+Caps|PT+Serif+Caption|Staatliches|Yatra+One&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Rokkitt&display=swap');
   /* font-family: 'Economica', sans-serif; */
   /* font-family: 'Staatliches', cursive; */
   font-family: 'Julius Sans One', sans-serif;
@@ -30,7 +33,7 @@ export const MainLogo = styled.h1`
 
 export const MainNav = styled.nav`
   font-family: 'Julius Sans One', sans-serif;
-  margin: 0px 1.7vw 3px 0vw;
+  margin: 0px 7vw 3px 0vw;
   align-self: flex-end;
 `;
 

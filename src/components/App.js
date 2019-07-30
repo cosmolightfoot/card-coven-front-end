@@ -1,12 +1,18 @@
 import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import SearchContainer from '../containers/search-containers/SearchContainer';
+import About from './About';
 export default function App() {
   return (
-    <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <Header />
-      <SearchContainer />
-    </main>
+    <Router>
+      <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={SearchContainer} />
+          <Route exact path="/about" component={About} />
+        </Switch>
+      </main>
+    </Router>
   );
 }

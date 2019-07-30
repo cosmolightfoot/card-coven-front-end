@@ -23,6 +23,7 @@ export function makeSearchUrl(searchOptions) {
   if(searchOptions === initSearchState) return searchQuery;
   const {
     cardName,
+    page = 1,
     colors,
     exact,
     exclude,
@@ -46,5 +47,6 @@ export function makeSearchUrl(searchOptions) {
   sets.length > 0 && searchQuery.searchParams.set('sets', sets.join(','));
   layout && searchQuery.searchParams.set('layout', layout);
   sortFilters.length > 0 && searchQuery.searchParams.set('sort', sortToString(sortFilters));
+  page && searchQuery.searchParams.set('page', page);
   return searchQuery;
 }

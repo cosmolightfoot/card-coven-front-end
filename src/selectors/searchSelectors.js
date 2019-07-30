@@ -12,4 +12,4 @@ export const getSearchLoading = state => getSearchState(state).loading;
 export const getSearchFulfilled = state => getSearchState(state).fulfilled;
 export const getSearchNoSearches = state => getSearchState(state).noSearches;
 export const getSearchError = state => getSearchState(state).error;
-
+export const getCurrentSearchOptions = state => getSearchState(state).currentSearchOptions;
