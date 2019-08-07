@@ -1,8 +1,10 @@
 import { NEW_SEARCH, NEW_SEARCH_FULFILLED, NEW_SEARCH_LOADING, NEW_SEARCH_ERROR } from '../actions/cardSearchActions';
+import { SELECT_CARD_DETAIL } from '../types/card-search-types';
 
 const initState = {
   currentSearchOptions: {},
   recentSearchOptions: [],
+  selectedCard: {},
   results: [],
   currentPage: 0,
   count: 0,
@@ -45,6 +47,9 @@ export default function searchReducer(state = initState, action) {
 
     case NEW_SEARCH_ERROR: 
       return { ...state, error: action.payload };
+
+    case SELECT_CARD_DETAIL: 
+      return { ...state, selectedCard: action.payload };
     
     default: 
       return state;

@@ -291,22 +291,20 @@ describe('search form reducer tests', () => {
       availSortFilters: ['test2']
     });
   });
-  it('remove sort filter reducer', () => {
-    const state = {
-      sortFilters: [{ filter: 'test', direction: '1' }],
-    };
-    expect(searchFormReducer(state, removeSortFilter('test'))).toEqual({
-      sortFilters: []
-    });
-  });
+  // it('remove sort filter reducer', () => {
+  //   const state = {
+  //     sortFilters: [{ filter: 'test', direction: '1' }],
+  //   };
+  //   expect(searchFormReducer(state, removeSortFilter({ filter: 'test', direction: '1' }))).toEqual({
+  //     sortFilters: []
+  //   });
+  // });
   it('push avail sort reducer', () => {
     const state = {
-      availSortFilters: [],
-      sortFilters: [{ filter: 'test', direction: '1' }]
+      availSortFilters: []
     };
-    expect(searchFormReducer(state, pushAvailSortFilter('test'))).toEqual({
-      availSortFilters: [{ filter: 'test', direction: '1' }],
-      sortFilters: [{ filter: 'test', direction: '1' }]
+    expect(searchFormReducer(state, pushAvailSortFilter({ filter: 'test', direction: '1' }))).toEqual({
+      availSortFilters: ['test'],
     });
   });
 });
