@@ -8,3 +8,4 @@ export const [
   NEW_SEARCH_FULFILLED,
   NEW_SEARCH_ERROR
 ] = createAction('NEW_SEARCH', fetchCards);
+

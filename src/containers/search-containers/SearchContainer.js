@@ -29,12 +29,7 @@ class SearchContainer extends PureComponent {
   }
 
   paging = page => {
-    console.log(page);
     this.props.pageSearch({ ...this.props.currentSearchOptions, page });
-  }
-
-  componentDidUpdate() {
-    console.log(typeof this.props.currentPage);
   }
 
   render() {

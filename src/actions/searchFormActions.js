@@ -28,7 +28,7 @@ import {
   REMOVE_AVAIL_SORT,
   REMOVE_SORT_FILTER,
   PUSH_AVAIL_SORT
-} from '../types/searchFormTypes';
+} from '../types/search-form-types';
 
 export function changeName(text) {
   return {

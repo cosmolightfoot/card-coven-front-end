@@ -23,7 +23,7 @@ export function makeSearchUrl(searchOptions) {
   if(searchOptions === initSearchState) return searchQuery;
   const {
     cardName,
-    page = 1,
+    page,
     colors,
     exact,
     exclude,
