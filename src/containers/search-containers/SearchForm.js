@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } fromatu 'react';
 import PropTypes from 'prop-types';
 // import ErrorBoundary from '../../utilities/ErrorBoundary';
 
