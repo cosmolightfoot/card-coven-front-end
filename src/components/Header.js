@@ -11,7 +11,21 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   cardCoven: {
-
+    [theme.breakpoints.down('xs')]: {
+      color: 'white'
+    },
+    [theme.breakpoints.up('sm')]: {
+      color: 'green'
+    },
+    [theme.breakpoints.up('md')]: {
+      color: 'yellow'
+    },
+    [theme.breakpoints.up('lg')]: {
+      color: 'pink'
+    },
+    [theme.breakpoints.up('xl')]: {
+      color: 'orange'
+    },
   }
 }));
 
@@ -22,7 +36,10 @@ export default function Header() {
       <Typography className={classes.cardCoven} variant="h2">Card Coven</Typography>
       <MainNav>
         <Link to="/" style={{ padding: '8px' }}>Cards</Link>
-        <Link to="/about">About</Link>
+        <Link to="/decks" style={{ padding: '8px' }}>Decks</Link>
+        <Link to="/synergies" style={{ padding: '8px' }}>Synergies</Link>
+        <Link to="/" style={{ padding: '8px' }}>Cards</Link>
+        {/* <Link to="/about">About</Link> */}
       </MainNav>
     </AppBar>
   );
