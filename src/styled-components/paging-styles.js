@@ -5,7 +5,6 @@ export const PagingNav = styled.nav`
   width: 100%;
   height: 60px;
   border-bottom: 4px solid #707070;
-  background-color: oldlace;
   display: flex;
   justify-content: center;
   align-items: center;

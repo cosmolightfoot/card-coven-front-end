@@ -11,7 +11,6 @@ export const FormSectionTitle = styled.h4`
 `;
 
 export const SearchMain = styled.main`
-  background-color: oldlace;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -28,7 +27,6 @@ export const FormWrapper = styled.div`
 `;
 
 export const SearchFormStyle = styled.form`
-  background-color: oldlace;
   align-self: center;
 `;
 
