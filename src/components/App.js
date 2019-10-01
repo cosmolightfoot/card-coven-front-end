@@ -15,8 +15,9 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={SearchContainer} />
-          <Route path="/:id" component={CardDetails} />
+          <Route exact path="/search" component={SearchContainer} />
           <Route exact path="/about" component={About} />
+          <Route path="/:id" component={CardDetails} />
         </Switch>
       </ThemeProvider>
     </Router>

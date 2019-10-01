@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     height: '90%',
     width: '90%',
     padding: '5px',
-    fontSize: '1.2rem'
+    fontSize: '1.2rem',
+    // color: theme.palette.primary.contrastText
   },
   searchIcon: {
     margin: '2.5%'
@@ -48,19 +49,6 @@ function SearchBar() {
   return (
     <Box className={classes.container}>
       <form className={classes.form}>
-        {/* <TextField
-          id="header-search"
-          label="Search Cards"
-          className={classes.textField}
-          value={text}
-          onChange={handleChange}
-          variant="filled"
-          color="secondary"
-          margin="normal"
-          layout="dense"
-          disableUnderline
-          InputLabelProps={{ shrink: true }}
-        /> */}
         <Input 
           onChange={handleChange}
           value={text}

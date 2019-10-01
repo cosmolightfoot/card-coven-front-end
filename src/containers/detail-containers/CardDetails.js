@@ -9,7 +9,7 @@ class CardDetail extends PureComponent {
 
   render() {
     return (
-      <h1>Hello World</h1>
+      <h1>Hello Bananana</h1>
     );
   }
 }

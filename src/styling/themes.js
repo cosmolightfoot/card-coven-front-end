@@ -20,7 +20,7 @@ export const mainTheme = createMuiTheme({
   },
   typography: {
     h2: {
-      fontSize: '3rem'
+      fontSize: '2.6rem'
     }
   }
 });
