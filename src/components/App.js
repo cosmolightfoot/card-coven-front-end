@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
-import { mainTheme } from '../material-ui/themes';
+import { mainTheme } from '../styling/themes';
 import { Header } from './';
 import SearchContainer from '../containers/search-containers/SearchContainer';
 import About from './About';

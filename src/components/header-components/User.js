@@ -5,7 +5,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   container: {
     display: 'flex',
-    width: '15%'
+    width: '15%',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   mockEllipse: {
     width: '60px',

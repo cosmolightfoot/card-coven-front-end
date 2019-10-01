@@ -1,7 +1,9 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import { headerHeight } from '../../styling/styling-vars';
 
 import Search from '@material-ui/icons/Search';
 
@@ -19,13 +21,18 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     alignItems: 'center',
     width: '60%',
+    height: '50px',
+    padding: '5px',
     borderRadius: '5px',
-    backgroundColor: theme.palette.grey.main
+    backgroundColor: theme.palette.primary.dark
   },
   textField: {
-    backgroundColor: theme.palette.grey.main,
+    backgroundColor: theme.palette.primary.light,
     borderRadius: '5px',
-    width: '90%'
+    height: '90%',
+    width: '90%',
+    padding: '5px',
+    fontSize: '1.2rem'
   },
   searchIcon: {
     margin: '2.5%'
@@ -41,7 +48,7 @@ function SearchBar() {
   return (
     <Box className={classes.container}>
       <form className={classes.form}>
-        <TextField
+        {/* <TextField
           id="header-search"
           label="Search Cards"
           className={classes.textField}
@@ -49,6 +56,16 @@ function SearchBar() {
           onChange={handleChange}
           variant="filled"
           color="secondary"
+          margin="normal"
+          layout="dense"
+          disableUnderline
+          InputLabelProps={{ shrink: true }}
+        /> */}
+        <Input 
+          onChange={handleChange}
+          value={text}
+          className={classes.textField}
+          disableUnderline
         />
         <Search className={classes.searchIcon} />
       </form>

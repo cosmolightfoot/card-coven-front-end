@@ -3,10 +3,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { SearchBar, UserAvatar } from './index';
+import { headerHeight } from '../../styling/styling-vars';
 
 const useStyles = makeStyles(theme => ({
   header: {
     backgroundColor: theme.palette.primary.main,
+    height: `${headerHeight}px`,
     padding: theme.spacing(2),
     display: 'flex',
     flexDirection: 'row',

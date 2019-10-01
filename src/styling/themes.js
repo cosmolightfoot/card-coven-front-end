@@ -17,5 +17,10 @@ export const mainTheme = createMuiTheme({
     grey: {
       main: '#E0E0E0'
     }
+  },
+  typography: {
+    h2: {
+      fontSize: '3rem'
+    }
   }
 });
