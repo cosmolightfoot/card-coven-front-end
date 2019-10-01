@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { SearchBar } from './index';
+import { SearchBar, UserAvatar } from './index';
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   cardCoven: {
     [theme.breakpoints.down('xs')]: {
@@ -40,6 +40,7 @@ export default function Header() {
         Card Coven
       </Typography>
       <SearchBar />
+      <UserAvatar /> 
     </AppBar>
   );
 }

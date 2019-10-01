@@ -1,16 +1,34 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+
+import Search from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
-  container: {  
+  container: {
     display: 'flex',
+    padding: '0',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     flexGrow: 1
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '60%',
+    borderRadius: '5px',
+    backgroundColor: theme.palette.grey.main
   },
   textField: {
     backgroundColor: theme.palette.grey.main,
-    borderRadius: '5px'
+    borderRadius: '5px',
+    width: '90%'
+  },
+  searchIcon: {
+    margin: '2.5%'
   }
 }));
 
@@ -21,17 +39,20 @@ function SearchBar() {
     setText(event.target.value);
   };
   return (
-    <form className={classes.container}>
-      <TextField
-        id="header-search"
-        label="Search Cards"
-        className={classes.textField}
-        value={text}
-        onChange={handleChange}
-        variant="filled"
-        color="secondary"
-      />
-    </form>
+    <Box className={classes.container}>
+      <form className={classes.form}>
+        <TextField
+          id="header-search"
+          label="Search Cards"
+          className={classes.textField}
+          value={text}
+          onChange={handleChange}
+          variant="filled"
+          color="secondary"
+        />
+        <Search className={classes.searchIcon} />
+      </form>
+    </Box>
   );
 }
 
