@@ -18,7 +18,7 @@ function SimpleText(props) {
   const classes = useStyles();
   return (
     <Input
-      onChange={() => handleChange()}
+      onChange={event => handleChange(event.target.value)}
       value={text}
       className={classes.input}
       placeholder="Search for Cards by Name, Type, or Text"

@@ -1,4 +1,4 @@
-import { SIMPLE_BLACK_MANA, SIMPLE_BLUE_MANA, SIMPLE_GREEN_MANA, SIMPLE_RED_MANA, SIMPLE_WHITE_MANA, CHANGE_TEXT_FIELD } from "../types/simple-search-types";
+import { SIMPLE_BLACK_MANA, SIMPLE_BLUE_MANA, SIMPLE_GREEN_MANA, SIMPLE_RED_MANA, SIMPLE_WHITE_MANA, SIMPLE_NAME_VAL } from "../types/simple-search-types";
 
 export function simpleBlackMana() {
   return {
@@ -26,9 +26,9 @@ export function simpleWhiteMana() {
   }; 
 }
 
-export function changeTextField(payload) {
+export function changeTextField(text) {
   return {
-    type: CHANGE_TEXT_FIELD,
-    payload
+    type: SIMPLE_NAME_VAL,
+    payload: text
   };
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { SimpleText } from './';
+import { SimpleText, SimpleColors } from './';
 
 const useStyles = makeStyles({
   form: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 });
 
@@ -17,6 +18,7 @@ function SimpleSearch() {
   return (
     <form className={classes.form}>
       <SimpleText />
+      <SimpleColors />
     </form>
   );
 }

@@ -1,4 +1,4 @@
-import { SIMPLE_WHITE_MANA, SIMPLE_BLACK_MANA, SIMPLE_RED_MANA, SIMPLE_GREEN_MANA, SIMPLE_BLUE_MANA, CHANGE_TEXT_FIELD } from '../types/simple-search-types';
+import { SIMPLE_WHITE_MANA, SIMPLE_BLACK_MANA, SIMPLE_RED_MANA, SIMPLE_GREEN_MANA, SIMPLE_BLUE_MANA, SIMPLE_NAME_VAL } from '../types/simple-search-types';
 
 const init = {
   black: false,
@@ -46,7 +46,7 @@ export default function simpleFormReducer(state = init, action) {
       };
     }
 
-    case CHANGE_TEXT_FIELD: {
+    case SIMPLE_NAME_VAL: {
       return {
         ...state, text: action.payload
       };
