@@ -59,9 +59,6 @@ const linkList = [
   }
 ];
 
-const Link1 = React.forwardRef((props, ref) => (
-  <RouterLink innerRef={ref} {...props} />
-));
 
 function SideBarLink(props) {
   const classes = useStyles();
@@ -86,12 +83,6 @@ function SideBar() {
   const classes = useStyles();
   return (
     <nav className={classes.sidebar}>
-      {/* <Button className={classes.button} component={Link1} to="/search">
-        <div className={classes.item}>
-          <Search />
-          <Typography variant="button">Search</Typography>
-        </div>
-      </Button> */}
       {linkList.map(link => {
         return (
           <SideBarLink
@@ -103,7 +94,7 @@ function SideBar() {
         );
       })}
     </nav>
-  );
+  );  
 }
 
 export default SideBar;

@@ -2,9 +2,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
+import { getNavMenuDrawerState } from '../../selectors/drawerSelectors';
 import Drawer from '@material-ui/core/Drawer';
+import { connect } from 'react-redux';
 
 import { DrawerNav } from './';
+import { openNavMenuDrawer, closeDrawers } from '../../actions/drawerActions';
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -19,18 +22,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MenuDrawer() {
+function MenuDrawer(props) {
+  const { navMenu, openNav, closeNav } = props;
   const classes = useStyles();
-  const [drawerState, setDrawer] = React.useState(false);
+  // const [drawerState, setDrawer] = React.useState(false);
 
-  const toggleDrawer = open => event => {
+  const toggleDrawer = () => event => {
     if(
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
-    setDrawer(open);
+    openNav();
   };
 
 
@@ -42,8 +46,8 @@ function MenuDrawer() {
         <Menu className={classes.icon} fontSize="large" />
       </IconButton>
       <Drawer
-        open={drawerState}
-        onClose={toggleDrawer(false)}
+        open={navMenu}
+        onClose={closeNav}
         className={classes.drawer}
       >
         <DrawerNav />
@@ -52,4 +56,21 @@ function MenuDrawer() {
   );
 }
 
-export default MenuDrawer;
+const mapStateToProps = state => ({
+  navMenu: getNavMenuDrawerState(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  openNav() {
+    dispatch(openNavMenuDrawer());
+  },
+  closeNav() {
+    dispatch(closeDrawers());
+  }
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MenuDrawer);
