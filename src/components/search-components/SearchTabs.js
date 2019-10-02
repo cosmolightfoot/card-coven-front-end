@@ -40,10 +40,19 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: '50%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  tab: {
+    width: '100%'
+  },
+  simpleTab: {
+    width: '100%',
+  },
+  advancedTab: {
+
   }
 }));
 
@@ -66,13 +75,13 @@ function FullWidthTabs() {
         variant="fullWidth"
         aria-label="full width tabs example"
       >
-        <Tab label="Simple" {...a11yProps(0)} />
-        <Tab label="Advanced" {...a11yProps(1)} />
+        <Tab label="Simple" {...a11yProps(0)} className={classes.tab} />
+        <Tab label="Advanced" {...a11yProps(1)} className={classes.tab} />
       </Tabs>
-      <TabPanel value={value} index={0} dir={theme.direction}>
+      <TabPanel value={value} index={0} dir={theme.direction} className={classes.simpleTab}>
         <SimpleSearch />
       </TabPanel>
-      <TabPanel value={value} index={1} dir={theme.direction}>
+      <TabPanel value={value} index={1} dir={theme.direction} className={classes.advancedTab}>
         <AdvancedSearch />
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>

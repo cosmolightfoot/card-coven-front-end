@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     height: '500px',  
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 });
 

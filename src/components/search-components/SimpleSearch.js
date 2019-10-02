@@ -1,17 +1,23 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { SimpleText } from './';
 
 const useStyles = makeStyles({
-  root: {
-
+  form: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   }
-
 });
 
 function SimpleSearch() {
   const classes = useStyles();
   return (
-    <h1>Simple Search</h1>
+    <form className={classes.form}>
+      <SimpleText />
+    </form>
   );
 }
 

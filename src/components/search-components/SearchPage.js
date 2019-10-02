@@ -6,7 +6,7 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   }
 
 });
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 function SearchPage() {
   const classes = useStyles();
   return (
-    <main>
+    <main className={classes.root}> 
       <SearchDrawer />
       {/* <SearchFade /> */}
     </main>
