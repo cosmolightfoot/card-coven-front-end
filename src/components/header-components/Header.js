@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: 10000000
   },
   cardCoven: {
     [theme.breakpoints.down('xs')]: {

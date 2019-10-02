@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
 import { mainTheme } from '../styling/themes';
-import { Header, Sidebar } from './';
-import SearchContainer from '../containers/search-containers/SearchContainer';
+import { Header, Sidebar, SearchPage } from './';
+// import SearchContainer from '../containers/search-containers/SearchContainer';
 import About from './About';
 import AppWrapper from './AppWrapper';
 import CardDetails from '../containers/detail-containers/CardDetails';
@@ -17,8 +17,8 @@ export default function App() {
         <Sidebar />
         <AppWrapper>
           <Switch>
-            <Route exact path="/" component={SearchContainer} />
-            <Route exact path="/search" component={SearchContainer} />
+            <Route exact path="/" component={SearchPage} />
+            <Route exact path="/search" component={SearchPage} />
             <Route exact path="/about" component={About} />
             <Route path="/:id" component={CardDetails} />
           </Switch>

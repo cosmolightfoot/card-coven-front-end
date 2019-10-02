@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 function MenuDrawer(props) {
   const { navMenu, openNav, closeNav } = props;
   const classes = useStyles();
-  // const [drawerState, setDrawer] = React.useState(false);
 
   const toggleDrawer = () => event => {
     if(
@@ -41,7 +40,7 @@ function MenuDrawer(props) {
   return (
     <>
       <IconButton className={classes.button}
-        onClick={toggleDrawer(true)}
+        onClick={toggleDrawer()}
       >
         <Menu className={classes.icon} fontSize="large" />
       </IconButton>
