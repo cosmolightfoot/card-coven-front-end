@@ -1,5 +1,13 @@
-import { NEW_SEARCH, NEW_SEARCH_FULFILLED, NEW_SEARCH_LOADING, NEW_SEARCH_ERROR } from '../actions/cardSearchActions';
-import { SELECT_CARD_DETAIL } from '../types/card-search-types';
+import {
+  SELECT_CARD_DETAIL,
+  NEW_SIMPLE_SEARCH_LOADING,
+  NEW_SEARCH,
+  NEW_SEARCH_FULFILLED,
+  NEW_SEARCH_LOADING,
+  NEW_SEARCH_ERROR,
+  NEW_SIMPLE_SEARCH,
+  NEW_SIMPLE_SEARCH_ERROR
+} from '../types/card-search-types';
 
 const initState = {
   currentSearchOptions: {},
@@ -22,11 +30,14 @@ const initState = {
 export default function searchReducer(state = initState, action) {
   switch(action.type) {
     case NEW_SEARCH: {
-      return { 
+      return {
         ...state,
         loading: false,
         currentSearchOptions: action.payload.searchOptions,
-        recentSearchOptions: [...state.recentSearchOptions, action.payload.searchOptions],
+        recentSearchOptions: [
+          ...state.recentSearchOptions,
+          action.payload.searchOptions
+        ],
         results: action.payload.results,
         currentPage: action.payload.page,
         totalPages: action.payload.totalPages,
@@ -42,16 +53,45 @@ export default function searchReducer(state = initState, action) {
     case NEW_SEARCH_LOADING:
       return { ...state, loading: true };
 
-    case NEW_SEARCH_FULFILLED: 
+    case NEW_SEARCH_FULFILLED:
       return { ...state, loading: false };
 
-    case NEW_SEARCH_ERROR: 
+    case NEW_SEARCH_ERROR:
       return { ...state, error: action.payload };
 
-    case SELECT_CARD_DETAIL: 
+    case SELECT_CARD_DETAIL:
       return { ...state, selectedCard: action.payload };
-    
-    default: 
+
+    case NEW_SIMPLE_SEARCH:
+      return {
+        ...state,
+        loading: false,
+        currentSearchOptions: action.payload.searchOptions,
+        recentSearchOptions: [
+          ...state.recentSearchOptions,
+          action.payload.searchOptions
+        ],
+        results: action.payload.results,
+        currentPage: action.payload.page,
+        totalPages: action.payload.totalPages,
+        totalCount: action.payload.totalCount,
+        displaying: action.payload.displaying,
+        hasResults: action.payload.hasResults,
+        hasLess: action.payload.hasLess,
+        hasMore: action.payload.hasMore,
+        noSearches: false
+      };
+
+    case NEW_SIMPLE_SEARCH_LOADING:
+      return { ...state, loading: true };
+
+    case NEW_SIMPLE_SEARCH_ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
+
+    default:
       return state;
   }
 }

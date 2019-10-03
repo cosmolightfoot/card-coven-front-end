@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { connect } from 'react-redux';
 import { SimpleBlack, SimpleWhite, SimpleRed, SimpleBlue, SimpleGreen } from '../';
 
 const useStyles = makeStyles({

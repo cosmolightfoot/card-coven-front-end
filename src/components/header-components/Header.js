@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    zIndex: 10000000
   },
   cardCoven: {
     [theme.breakpoints.down('xs')]: {

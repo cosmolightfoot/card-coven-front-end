@@ -1,7 +1,7 @@
-import { makeSearchUrl } from '../utilities/makeSearchUrl';
+import { makeSimpleSearchUrl } from '../utilities/makeSimpleSearchUrl';
 
-export default function fetchCards(searchOptions) {
-  const query = makeSearchUrl(searchOptions).toString();
+export default function simpleFetchCards(searchOptions) {
+  const query = makeSimpleSearchUrl(searchOptions).toString();
   return fetch(query)
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
