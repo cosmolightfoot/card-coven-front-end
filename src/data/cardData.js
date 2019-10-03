@@ -1,134 +1,68 @@
 export default {
-  'name': 'Ambassador Laquatus',
-  'manaCost': '{1}{U}{U}',
-  'cmc': 3,
-  'colors': [
-    'Blue'
+  _id: '5d930de1f5885b0edf96344e',
+  multiverse_ids: [
+    466859
   ],
-  'colorIdentity': [
-    'U'
+  colors: [
+    'B'
   ],
-  'type': 'Legendary Creature — Merfolk Wizard',
-  'supertypes': [
-    'Legendary'
+  color_identity: [
+    'B'
   ],
-  'types': [
-    'Creature'
-  ],
-  'subtypes': [
-    'Merfolk',
-    'Wizard'
-  ],
-  'rarity': 'Rare',
-  'set': '10E',
-  'setName': 'Tenth Edition',
-  'text': '{3}: Target player puts the top three cards of their library into their graveyard.',
-  'flavor': '"Life is a game. The only thing that matters is whether you\'re a pawn or a player."',
-  'artist': 'Jim Murray',
-  'number': '65',
-  'power': '1',
-  'toughness': '3',
-  'layout': 'normal',
-  'multiverseid': 129913,
-  'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129913&type=card',
-  'rulings': [],
-  'foreignNames': [
-    {
-      'name': 'Botschafter Laquatus',
-      'text': '{3}: Ein Spieler deiner Wahl legt die obersten drei Karten seiner Bibliothek auf seinen Friedhof.',
-      'flavor': '„Das ganze Leben ist ein Spiel. Nur eines interessiert: ob du eine Spielfigur oder ein Spieler bist."',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=148409&type=card',
-      'language': 'German',
-      'multiverseid': 148409
-    },
-    {
-      'name': 'Embajador Laquatus',
-      'text': '{3}: El jugador objetivo pone las tres primeras cartas de su biblioteca en su cementerio.',
-      'flavor': '"La vida es un juego. Lo único que importa es si eres un peón o un jugador."',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=150381&type=card',
-      'language': 'Spanish',
-      'multiverseid': 150381
-    },
-    {
-      'name': 'Ambassadeur Laquatus',
-      'text': '{3} : Le joueur ciblé met les trois cartes du dessus de sa bibliothèque dans son cimetière.',
-      'flavor': '« La vie est un jeu. Tout ce qui importe, c\'est de savoir ce que vous êtes : un pion ou un joueur. »',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=149998&type=card',
-      'language': 'French',
-      'multiverseid': 149998
-    },
-    {
-      'name': 'Ambasciatore Laquatus',
-      'text': '{3}: Un giocatore bersaglio mette nel suo cimitero le prime tre carte del suo grimorio.',
-      'flavor': '"La vita è un gioco. L\'unica cosa che conta è se sei una pedina o un giocatore."',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=148792&type=card',
-      'language': 'Italian',
-      'multiverseid': 148792
-    },
-    {
-      'name': 'ラクァタス大使',
-      'text': '{3}：プレイヤー１人を対象とする。そのプレイヤーは、自分のライブラリーの一番上のカード３枚を自分の墓地に置く。',
-      'flavor': '人生はゲームさ。 重要なのは、君がプレイヤーなのか駒なのかってことだけだ。',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=148026&type=card',
-      'language': 'Japanese',
-      'multiverseid': 148026
-    },
-    {
-      'name': 'Embaixador Laquatus',
-      'text': '{3}: O jogador alvo coloca os três primeiros cards de seu próprio grimório em seu próprio cemitério.',
-      'flavor': '"A vida é um jogo. A única coisa que importa é se você é um peão ou um jogador."',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=149615&type=card',
-      'language': 'Portuguese (Brazil)',
-      'multiverseid': 149615
-    },
-    {
-      'name': 'Посол Лакватус',
-      'text': '{3}: Целевой игрок кладет три верхних карты своей библиотеки на свое кладбище.',
-      'flavor': '"Жизнь игра. Главное в ней это кем вы являетесь, пешкой или ферзем".',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=149232&type=card',
-      'language': 'Russian',
-      'multiverseid': 149232
-    },
-    {
-      'name': '大使拉夸塔',
-      'text': '{3}：目标牌手将其牌库顶的三张牌置入其坟墓场。',
-      'flavor': '「生命有如一盘棋。 重点在于你是棋手或棋子。」',
-      'imageUrl': 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=147643&type=card',
-      'language': 'Chinese Simplified',
-      'multiverseid': 147643
-    }
-  ],
-  'printings': [
-    '10E',
-    'TOR'
-  ],
-  'originalText': '{3}: Target player puts the top three cards of his or her library into his or her graveyard.',
-  'originalType': 'Legendary Creature - Merfolk Wizard',
-  'legalities': [
-    {
-      'format': 'Commander',
-      'legality': 'Legal'
-    },
-    {
-      'format': 'Duel',
-      'legality': 'Legal'
-    },
-    {
-      'format': 'Legacy',
-      'legality': 'Legal'
-    },
-    {
-      'format': 'Modern',
-      'legality': 'Legal'
-    },
-    {
-      'format': 'Penny',
-      'legality': 'Legal'
-    },
-    {
-      'format': 'Vintage',
-      'legality': 'Legal'
-    }
-  ],
-  'id': 'f9db3498-1b48-5877-8cef-d07c65c6cc20'
-};
+  card_faces: [],
+  id: '29425426-7bf2-4872-aa35-c12c22801edd',
+  oracle_id: '3b4eaa50-dff6-4825-97da-42b2f5554218',
+  name: 'Knight of the Ebon Legion',
+  released_at: '2019-07-12',
+  layout: 'normal',
+  image_uris: {
+    small: 'https://img.scryfall.com/cards/small/front/2/9/29425426-7bf2-4872-aa35-c12c22801edd.jpg?1563898947',
+    normal: 'https://img.scryfall.com/cards/normal/front/2/9/29425426-7bf2-4872-aa35-c12c22801edd.jpg?1563898947',
+    png: 'https://img.scryfall.com/cards/png/front/2/9/29425426-7bf2-4872-aa35-c12c22801edd.png?1563898947',
+    art_crop: 'https://img.scryfall.com/cards/art_crop/front/2/9/29425426-7bf2-4872-aa35-c12c22801edd.jpg?1563898947',
+    border_crop: 'https://img.scryfall.com/cards/border_crop/front/2/9/29425426-7bf2-4872-aa35-c12c22801edd.jpg?1563898947'
+  },
+  mana_cost: '{B}',
+  cmc: 1,
+  type_line: 'Creature — Vampire Knight',
+  oracle_text: '{2}{B}: Knight of the Ebon Legion gets +3/+3 and gains deathtouch until end of turn.\nAt the beginning of your end step, if a player lost 4 or more life this turn, put a +1/+1 counter on Knight of the Ebon Legion. (Damage causes loss of life.)',
+  power: '1',
+  toughness: '2',
+  legalities: {
+    standard: 'legal',
+    future: 'legal',
+    historic: 'legal',
+    modern: 'legal',
+    legacy: 'legal',
+    pauper: 'not_legal',
+    vintage: 'legal',
+    penny: 'not_legal',
+    commander: 'legal',
+    brawl: 'legal',
+    duel: 'legal',
+    oldschool: 'not_legal'
+  },
+  reprint: false,
+  set_name: 'Core Set 2020',
+  set_uri: 'https://api.scryfall.com/sets/4a787360-9767-4f44-80b1-2405dc5e39c7',
+  rulings_uri: 'https://api.scryfall.com/cards/29425426-7bf2-4872-aa35-c12c22801edd/rulings',
+  rarity: 'rare',
+  artist: 'Alex Konstad',
+  prices: {
+    usd: '8.89',
+    usd_foil: '4.29',
+    eur: '3.41',
+    tix: '1.63'
+  },
+  related_uris: {
+    gatherer: 'https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=466859',
+    tcgplayer_decks: 'https://decks.tcgplayer.com/magic/deck/search?contains=Knight+of+the+Ebon+Legion&page=1&partner=Scryfall&utm_campaign=affiliate&utm_medium=scryfall&utm_source=scryfall',
+    edhrec: 'https://edhrec.com/route/?cc=Knight+of+the+Ebon+Legion',
+    mtgtop8: 'https://mtgtop8.com/search?MD_check=1&SB_check=1&cards=Knight+of+the+Ebon+Legion'
+  },
+  purchase_uris: {
+    tcgplayer: 'https://shop.tcgplayer.com/product/productsearch?id=192642&partner=Scryfall&utm_campaign=affiliate&utm_medium=scryfall&utm_source=scryfall',
+    cardmarket: 'https://www.cardmarket.com/en/Magic/Products/Singles/Core-2020/Knight-of-the-Ebon-Legion?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall',
+    cardhoarder: 'https://www.cardhoarder.com/cards/73109?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall'
+  }
+}

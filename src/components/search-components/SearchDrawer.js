@@ -23,16 +23,6 @@ function SearchDrawer(props) {
   const { searchDrawer, openSearch, closeSearch } = props;
   const classes = useStyles();
 
-  // const toggleDrawer = () => event => {
-  //   if(
-  //     event.type === 'keydown' &&
-  //     (event.key === 'Tab' || event.key === 'Shift')
-  //   ) {
-  //     return;
-  //   }
-  //   openSearch();
-  // };
-
   useEffect(() => {
     openSearch();
   }, []);

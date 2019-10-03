@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   cardCoven: {
     [theme.breakpoints.down('xs')]: {
@@ -44,7 +44,7 @@ export default function Header() {
         Card Coven
       </Typography>
       <SearchBar />
-      <UserAvatar /> 
+      <UserAvatar />
     </AppBar>
   );
 }
