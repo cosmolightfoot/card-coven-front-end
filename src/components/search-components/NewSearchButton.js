@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
 import Add from '@material-ui/icons/Add';
 import { openSearchDrawer } from '../../actions/drawerActions';
 
@@ -29,6 +29,10 @@ function NewSearchButton({ newSearch }) {
     </Button>
   );
 }
+
+NewSearchButton.propTypes = {
+  newSearch: PropTypes.func.isRequired
+};
 
 const mapDispatchToProps = dispatch => ({
   newSearch() {
