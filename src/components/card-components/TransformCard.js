@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import { cardWidth } from '../../styling/styling-vars';
+import { cardWidth, cardMargin } from '../../styling/styling-vars';
 import { CardImage } from './';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -14,7 +14,9 @@ import ScatterPlot from '@material-ui/icons/ScatterPlot';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: cardWidth,
+    maxWidth: `${cardWidth}px`,
+    margin: cardMargin,
+    height: '385px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

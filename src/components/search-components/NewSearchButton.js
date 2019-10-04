@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   button: {
     position: 'fixed',
     bottom: '80px',
-    right: '120px',
+    right: '5vw',
     borderRadius: '100%',
     width: '70px',
     height: '70px', 

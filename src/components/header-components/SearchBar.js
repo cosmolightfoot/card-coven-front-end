@@ -14,13 +14,16 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    flexGrow: 1
+    flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none  '
+    }
   },
   form: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    width: '60%',
+    width: '500px',
     height: '50px',
     padding: '5px',
     borderRadius: '5px',
