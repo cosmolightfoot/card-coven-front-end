@@ -47,14 +47,14 @@ const linkList = [
     icon: <Search />,
     primary: 'Search',
     link: React.forwardRef((props, ref) => (
-      <RouterLink innerRef={ref} to="/search" {...props} />
+      <RouterLink to="/search" {...props} />
     ))
   },
   {
     icon: <AccountCircle />,
     primary: 'About',
     link: React.forwardRef((props, ref) => (
-      <RouterLink innerRef={ref} to="/about" {...props} />
+      <RouterLink to="/about" {...props} />
     ))
   }
 ];
