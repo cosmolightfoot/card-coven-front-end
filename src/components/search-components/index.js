@@ -11,3 +11,4 @@ export { default as SimpleWhite } from './simple-search/SimpleWhite';
 export { default as SimpleRed } from './simple-search/SimpleRed';
 export { default as SimpleBlue } from './simple-search/SimpleBlue';
 export { default as SimpleGreen } from './simple-search/SimpleGreen';
+export { default as NewSearchButton } from './NewSearchButton';

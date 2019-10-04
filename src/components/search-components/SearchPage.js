@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { SearchDrawer } from './';
+import { SearchDrawer, NewSearchButton } from './';
 import { Card, TransformCard } from '../';
 import { headerHeight } from '../../styling/styling-vars';
 import { getSearchResults } from '../../selectors/searchSelectors';
@@ -36,6 +36,7 @@ function SearchPage({ results }) {
           }
         })}
       </ul>
+      <NewSearchButton />
     </main>
   );
 }
