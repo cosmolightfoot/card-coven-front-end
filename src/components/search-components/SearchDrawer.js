@@ -4,8 +4,9 @@ import Drawer from '@material-ui/core/Drawer';
 import { connect } from 'react-redux';
 import { getSearchDrawerState } from '../../selectors/drawerSelectors';
 import { openSearchDrawer, closeDrawers } from '../../actions/drawerActions';
-import { headerHeight, sidebarWidth } from '../../styling/styling-vars';
+import { headerHeight } from '../../styling/styling-vars';
 import { SearchTabs } from './index';
+import { getSearchNoSearches } from '../../selectors/searchSelectors';
 
 const useStyles = makeStyles({
   drawerPaper: {
@@ -20,11 +21,11 @@ const useStyles = makeStyles({
 });
 
 function SearchDrawer(props) {
-  const { searchDrawer, openSearch, closeSearch } = props;
+  const { searchDrawer, openSearch, closeSearch, noSearches } = props;
   const classes = useStyles();
 
   useEffect(() => {
-    openSearch();
+    if(noSearches) openSearch();
   }, []);
 
   return (
@@ -42,7 +43,8 @@ function SearchDrawer(props) {
 }
 
 const mapStateToProps = state => ({
-  searchDrawer: getSearchDrawerState(state)
+  searchDrawer: getSearchDrawerState(state),
+  noSearches: getSearchNoSearches(state)
 });
 
 const mapDispatchToProps = dispatch => ({
