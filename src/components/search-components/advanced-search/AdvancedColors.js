@@ -12,17 +12,29 @@ const useStyles = makeStyles({
   }  
 });
 
+const checkBoxStyles = makeStyles({
+  checkbox: {},
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  symbol: {
+    width: '30px'
+  }
+});
+
 function AdvancedColors() {
   const classes = useStyles();
   const { AdvancedBlack, AdvancedBlue, AdvancedGreen, AdvancedRed, AdvancedWhite } = manaCheckboxes;
 
   return (
     <section className={classes.colors}>
-      <AdvancedBlue />
-      <AdvancedBlack />
-      <AdvancedRed />
-      <AdvancedWhite />
-      <AdvancedGreen />
+      <AdvancedBlue insertStyles={checkBoxStyles} />
+      <AdvancedBlack insertStyles={checkBoxStyles} />
+      <AdvancedRed insertStyles={checkBoxStyles} />
+      <AdvancedWhite insertStyles={checkBoxStyles} />
+      <AdvancedGreen insertStyles={checkBoxStyles} />
     </section>
   );
 }

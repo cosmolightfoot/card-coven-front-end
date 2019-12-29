@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AdvancedColors } from './';
+import { AdvancedColors } from '..';
 
 const useStyles = makeStyles({
   className: {

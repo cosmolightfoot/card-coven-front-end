@@ -1,35 +1,34 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getCardText } from '../../../selectors/searchFormSelectors';
-import { changeText } from '../../../actions/searchFormActions';
-import { TextSearch } from '../../../styled-components/search-form-styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
 
-class TextField extends PureComponent {
-  static propTypes = {
-    cardText: PropTypes.string.isRequired,
-    handleChange: PropTypes.func.isRequired
+const defaultStyles = makeStyles({
+  input: {
+    width: '100%',
+    margin: '10px'
   }
+});
 
-  render() {
-    return (
-      <TextSearch value={this.props.cardText} placeholder="Search by Card Text" onChange={this.props.handleChange} />
-    );
-  }
+function TextField(props) {
+  const { text, handleChange, placeholderText, insertStyles = defaultStyles } = props;
+  const classes = insertStyles();
+  return (
+    <Input
+      onChange={event => handleChange(event.target.value)}
+      value={text}
+      className={classes.input}
+      placeholder={placeholderText}
+      inputProps={{ style: { textAlign: 'center' } }}
+    />
+  );
 }
 
-const mapStateToProps = state => ({
-  cardText: getCardText(state)
-});
+TextField.propTypes = {
+  text: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  placeholderText: PropTypes.string,
+  insertStyles: PropTypes.func
+};
 
-const mapDispatchToProps = dispatch => ({
-  handleChange({ target }) {
-    dispatch(changeText(target.value));
-  }
-});
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TextField);
+export default TextField;

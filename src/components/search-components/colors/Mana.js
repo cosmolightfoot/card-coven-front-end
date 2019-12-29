@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
-const useStyles = makeStyles({
+const defaultStyles = makeStyles({
   checkbox: {},
   container: {
     display: 'flex',
@@ -17,8 +17,8 @@ const useStyles = makeStyles({
 });
 
 function Mana(props) {
-  const { color, handleChange, symbol } = props;
-  const classes = useStyles();
+  const { color, handleChange, symbol, insertStyles = defaultStyles } = props;
+  const classes = insertStyles();
   return (
     <div className={classes.container}>
       <img src={symbol} className={classes.symbol} />
@@ -30,7 +30,8 @@ function Mana(props) {
 Mana.propTypes = {
   color: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
-  symbol: PropTypes.string.isRequired
+  symbol: PropTypes.string.isRequired,
+  insertStyles: PropTypes.func
 };
 
 export default Mana;

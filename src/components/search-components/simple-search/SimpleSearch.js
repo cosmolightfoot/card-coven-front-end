@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { SimpleText, SimpleColors } from './';
-import { newSimpleSearch } from '../../actions/cardSearchActions';
-import { resetSimpleForm } from '../../actions/simpleSearchActions';
-import { closeDrawers } from '../../actions/drawerActions';
+import { SimpleText, SimpleColors } from '..';
+import { newSimpleSearch } from '../../../actions/cardSearchActions';
+import { resetSimpleForm } from '../../../actions/simpleSearchActions';
+import { closeDrawers } from '../../../actions/drawerActions';
 import {
   getSimpleBlack,
   getSimpleWhite,
@@ -14,7 +14,7 @@ import {
   getSimpleBlue,
   getSimpleGreen,
   getSimpleText
-} from '../../selectors/simpleFormSelectors';
+} from '../../../selectors/simpleFormSelectors';
 
 const useStyles = makeStyles({
   form: {
