@@ -1,10 +1,6 @@
 import { connect } from 'react-redux';
 import Mana from './Mana';
 
-// import React from 'react';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import { makeStyles } from '@material-ui/core/styles';
-
 import blackManaSymbol from '../../../assets/b-mana.svg';
 import blueManaSymbol from '../../../assets/u-mana.svg';
 import redManaSymbol from '../../../assets/r-mana.svg';
@@ -33,7 +29,7 @@ const manaColorConstructor = [
   {
     id: 'SimpleBlue',
     symbol: blueManaSymbol,
-    selector: getSimpleBlack,
+    selector: getSimpleBlue,
     action: simpleBlueMana
   },
   {
@@ -58,7 +54,7 @@ const manaColorConstructor = [
     id: 'SimpleGreen',
     symbol: greenManaSymbol,
     selector: getSimpleGreen,
-    action: greenManaSymbol
+    action: simpleGreenMana
   },
   {
     id: 'AdvancedGreen',
@@ -70,7 +66,7 @@ const manaColorConstructor = [
     id: 'SimpleWhite',
     symbol: whiteManaSymbol,
     selector: getSimpleWhite,
-    action: whiteManaSymbol
+    action: simpleWhiteMana
   },
   {
     id: 'AdvancedWhite',
