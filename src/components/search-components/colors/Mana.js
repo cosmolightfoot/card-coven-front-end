@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 
+
 const useStyles = makeStyles({
   checkbox: {},
   container: {
@@ -21,7 +22,7 @@ function Mana(props) {
   return (
     <div className={classes.container}>
       <img src={symbol} className={classes.symbol} />
-      <Checkbox value={color} onChange={() => handleChange()} color="secondary"/>
+      <Checkbox checked={color} onChange={() => handleChange()} color="secondary"/>
     </div>
   );
 }
