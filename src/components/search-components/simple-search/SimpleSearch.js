@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { SimpleText, SimpleColors } from '..';
+import { SimpleColors } from '..';
+import textFields from '../text/textFields';
 import { newSimpleSearch } from '../../../actions/cardSearchActions';
 import { resetSimpleForm } from '../../../actions/simpleSearchActions';
 import { closeDrawers } from '../../../actions/drawerActions';
@@ -27,6 +28,13 @@ const useStyles = makeStyles({
   submitButton: {}
 });
 
+const textStyles = makeStyles({
+  input: {
+    width: '50%',
+    margin: '40px'
+  }
+});
+
 function SimpleSearch(props) {
   const {
     black,
@@ -40,6 +48,7 @@ function SimpleSearch(props) {
     resetForm
   } = props;
   const searchOptions = { black, white, blue, green, red, text };
+  const { SimpleText } = textFields;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -53,7 +62,7 @@ function SimpleSearch(props) {
   const classes = useStyles();
   return (
     <form className={classes.form} onSubmit={event => handleSubmit(event)}>
-      <SimpleText />
+      <SimpleText insertStyles={textStyles} />
       <SimpleColors />
       <Button type="submit" color="primary" size="large" variant="outlined">
         Search

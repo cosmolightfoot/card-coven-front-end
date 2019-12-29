@@ -11,14 +11,14 @@ const defaultStyles = makeStyles({
 });
 
 function TextField(props) {
-  const { text, handleChange, placeholderText, insertStyles = defaultStyles } = props;
+  const { text, handleChange, placeholder, insertStyles = defaultStyles } = props;
   const classes = insertStyles();
   return (
     <Input
       onChange={event => handleChange(event.target.value)}
       value={text}
       className={classes.input}
-      placeholder={placeholderText}
+      placeholder={placeholder}
       inputProps={{ style: { textAlign: 'center' } }}
     />
   );
@@ -27,7 +27,7 @@ function TextField(props) {
 TextField.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  placeholderText: PropTypes.string,
+  placeholder: PropTypes.string,
   insertStyles: PropTypes.func
 };
 
