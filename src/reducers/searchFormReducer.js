@@ -1,4 +1,4 @@
-import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_AVAIL_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, INIT_AVAIL_SORT, SELECT_SORT_FILTER, SELECT_SORT_DIRECTION, PUSH_SORT_FILTER, REMOVE_AVAIL_SORT, REMOVE_SORT_FILTER, PUSH_AVAIL_SORT } from '../types/search-form-types';
+import { CHANGE_NAME_VAL, CHANGE_TYPE_VAL, CHANGE_TEXT_VAL, CHECK_BLACK_MANA, CHECK_WHITE_MANA, CHECK_RED_MANA, CHECK_GREEN_MANA, CHECK_BLUE_MANA, CHECK_EXACT_COLORS, CHECK_EXCLUDE_COLORS, SELECT_CARD_FORMAT, PUSH_CARD_FORMAT, INIT_AVAIL_FORMATS, REMOVE_AVAIL_FORMAT, REMOVE_CARD_FORMAT, PUSH_AVAIL_FORMAT, INIT_AVAIL_SETS, SELECT_CARD_SET, PUSH_AVAIL_SET, PUSH_CARD_SET, REMOVE_AVAIL_SET, REMOVE_CARD_SET, INIT_AVAIL_SORT, SELECT_SORT_FILTER, SELECT_SORT_DIRECTION, PUSH_SORT_FILTER, REMOVE_AVAIL_SORT, REMOVE_SORT_FILTER, PUSH_AVAIL_SORT, UPDATE_SELECTED_SETS } from '../types/search-form-types';
 
 const init = {
   cardName: '',
@@ -14,9 +14,7 @@ const init = {
   availGameFormats: [],
   selectedFormat: '',
   formats: [],
-  availSets: [],
-  selectedSet: '',
-  sets: [],
+  selectedSets: [],
   availSortFilters: [],
   selectedFilter: '',
   sortDirection: '1',
@@ -89,30 +87,6 @@ export default function searchFormReducer(state = init, action) {
       ...state,
       availGameFormats: [...state.availGameFormats, action.payload]
     };
-    case INIT_AVAIL_SETS: return {
-      ...state,
-      availSets: action.payload
-    };
-    case SELECT_CARD_SET: return {
-      ...state,
-      selectedSet: action.payload
-    };
-    case PUSH_CARD_SET: return {
-      ...state,
-      sets: [...state.sets, state.selectedSet]
-    };
-    case REMOVE_AVAIL_SET: return {
-      ...state,
-      availSets: state.availSets.filter(set => set !== state.selectedSet)
-    };
-    case PUSH_AVAIL_SET: return {
-      ...state,
-      availSets: [...state.availSets, action.payload]
-    };
-    case REMOVE_CARD_SET: return {
-      ...state,
-      sets: state.sets.filter(set => set !== action.payload)
-    };
     case INIT_AVAIL_SORT: return {
       ...state,
       availSortFilters: action.payload
@@ -141,6 +115,10 @@ export default function searchFormReducer(state = init, action) {
     case PUSH_AVAIL_SORT: return {
       ...state,
       availSortFilters: [...state.availSortFilters, action.payload.filter]
+    };
+    case UPDATE_SELECTED_SETS: return {
+      ...state,
+      selectedSets: action.payload
     };
       
     default: return state;

@@ -27,7 +27,8 @@ import {
   PUSH_SORT_FILTER,
   REMOVE_AVAIL_SORT,
   REMOVE_SORT_FILTER,
-  PUSH_AVAIL_SORT
+  PUSH_AVAIL_SORT,
+  UPDATE_SELECTED_SETS
 } from '../types/search-form-types';
 
 export function changeName(text) {
@@ -117,40 +118,6 @@ export function pushAvailFormat(format) {
     payload: format
   };
 }
-export function initAvailSets(sets) {
-  return {
-    type: INIT_AVAIL_SETS,
-    payload: sets
-  };
-}
-export function selectCardSet(set) {
-  return {
-    type: SELECT_CARD_SET,
-    payload: set
-  };
-}
-export function pushCardSet() {
-  return {
-    type: PUSH_CARD_SET
-  };
-}
-export function removeAvailSet() {
-  return {
-    type: REMOVE_AVAIL_SET
-  };
-}
-export function removeCardSet(set) {
-  return {
-    type: REMOVE_CARD_SET,
-    payload: set
-  };
-}
-export function pushAvailSet(set) {
-  return {
-    type: PUSH_AVAIL_SET,
-    payload: set
-  };
-}
 export function initAvailSort(sortFilter) {
   return {
     type: INIT_AVAIL_SORT,
@@ -191,5 +158,10 @@ export function pushAvailSortFilter(filter) {
     payload: filter
   };
 }
-
+export function updateSelectedSets(sets) {
+  return { 
+    type: UPDATE_SELECTED_SETS,
+    payload: sets
+  };
+}
 

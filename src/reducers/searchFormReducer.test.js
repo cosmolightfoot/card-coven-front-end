@@ -16,12 +16,6 @@ import {
   removeAvailFormat, 
   removeCardFormat, 
   pushAvailFormat, 
-  initAvailSets,
-  selectCardSet, 
-  pushCardSet, 
-  removeAvailSet, 
-  pushAvailSet, 
-  removeCardSet, 
   initAvailSort, 
   selectSortFilter, 
   selectSortDirection, 
@@ -192,59 +186,6 @@ describe('search form reducer tests', () => {
       formats: ['test2']
     });
   });
-  it('initializes avail sets', () => {
-    const state = {
-      availSets: [],
-    };
-    expect(searchFormReducer(state, initAvailSets(['test']))).toEqual({
-      availSets: ['test']
-    });
-  });
-  it('select card set reducer', () => {
-    const state = {
-      selectedSet: '',
-    };
-    expect(searchFormReducer(state, selectCardSet('test'))).toEqual({
-      selectedSet: 'test'
-    });
-  });
-  it('push card set reducer', () => {
-    const state = {
-      sets: [],
-      selectedSet: 'test'
-    };
-    expect(searchFormReducer(state, pushCardSet())).toEqual({
-      sets: ['test'],
-      selectedSet: 'test'
-    });
-  });
-  it('remove avail set reducer', () => {
-    const state = {
-      availSets: ['test', 'test2'],
-      selectedSet: 'test'
-    };
-    expect(searchFormReducer(state, removeAvailSet())).toEqual({
-      availSets: ['test2'],
-      selectedSet: 'test'
-    });
-  });
-  it('push avail set reducer', () => {
-    const state = {
-      availSets: []
-    };
-    console.log('TEST', searchFormReducer(state, pushAvailSet('test')));
-    expect(searchFormReducer(state, pushAvailSet('test'))).toEqual({
-      availSets: ['test']
-    });
-  });
-  it('remove card set reducer', () => {
-    const state = {
-      sets: ['test', 'test2'],
-    };
-    expect(searchFormReducer(state, removeCardSet('test'))).toEqual({
-      sets: ['test2']
-    });
-  });
   it('init avail sort reducer', () => {
     const state = {
       availSortFilters: [],
@@ -291,14 +232,6 @@ describe('search form reducer tests', () => {
       availSortFilters: ['test2']
     });
   });
-  // it('remove sort filter reducer', () => {
-  //   const state = {
-  //     sortFilters: [{ filter: 'test', direction: '1' }],
-  //   };
-  //   expect(searchFormReducer(state, removeSortFilter({ filter: 'test', direction: '1' }))).toEqual({
-  //     sortFilters: []
-  //   });
-  // });
   it('push avail sort reducer', () => {
     const state = {
       availSortFilters: []

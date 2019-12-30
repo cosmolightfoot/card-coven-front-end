@@ -31,7 +31,7 @@ export function makeSearchUrl(searchOptions) {
     typeLine, 
     cardText,
     formats,
-    sets,
+    selectedSets,
     layout,
     sortFilters
   } = searchOptions;
@@ -44,7 +44,7 @@ export function makeSearchUrl(searchOptions) {
   typeLine && searchQuery.searchParams.set('type_line', typeLine);
   cardText && searchQuery.searchParams.set('oracle_text', cardText);
   formats.length > 0 && searchQuery.searchParams.set('formats', formats.join(','));
-  sets.length > 0 && searchQuery.searchParams.set('sets', sets.join(','));
+  selectedSets.length > 0 && searchQuery.searchParams.set('sets', selectedSets.join(','));
   layout && searchQuery.searchParams.set('layout', layout);
   sortFilters.length > 0 && searchQuery.searchParams.set('sort', sortToString(sortFilters));
   page && searchQuery.searchParams.set('page', page);

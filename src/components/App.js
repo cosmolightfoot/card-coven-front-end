@@ -43,7 +43,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateSetNames() {
-    console.log('SUSAN');
     dispatch(retrieveSetNames());
   }
 });

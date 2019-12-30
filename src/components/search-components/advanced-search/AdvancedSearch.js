@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AdvancedColors } from '..';
 import textFields from '../text/textFields';
+import SetSelect from '../selects/SetSelect';
 
 const useStyles = makeStyles({
   className: {
@@ -19,6 +20,7 @@ function AdvancedSearch() {
     <CardName />
     <CardText />
     <CardTypeLine />
+    <SetSelect />
     </>
   );
 }

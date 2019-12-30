@@ -13,7 +13,7 @@ const initialSearchState = {
   exclude: false,
   colorIdentity: false,
   formats: [],
-  sets: [],
+  selectedSets: [],
   cardText: '',
   typeLine: '',
   layout: '',
@@ -83,7 +83,7 @@ describe('make search url test', () => {
     expect(makeSearchUrl({ ...initialSearchState, formats: ['standard', 'commander'] }).toString()).toEqual('http://localhost:7891/api/v1/cards?formats=standard%2Ccommander');
   });
   it('returns a url with a sets query', () => {
-    expect(makeSearchUrl({ ...initialSearchState, sets: ['Core 2020', 'Khans of Tarkir'] }).toString()).toEqual('http://localhost:7891/api/v1/cards?sets=Core+2020%2CKhans+of+Tarkir');
+    expect(makeSearchUrl({ ...initialSearchState, selectedSets: ['Core 2020', 'Khans of Tarkir'] }).toString()).toEqual('http://localhost:7891/api/v1/cards?sets=Core+2020%2CKhans+of+Tarkir');
   });
   it('returns a url with a layout query', () => {
     expect(makeSearchUrl({ ...initialSearchState, layout: 'transform' }).toString()).toEqual('http://localhost:7891/api/v1/cards?layout=transform');
