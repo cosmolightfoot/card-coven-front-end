@@ -6,7 +6,7 @@ export default function fetchSetNames() {
       return response.json();
     })
     .then(sets => {
-      return sets.map(set => set._id);
+      return sets.map(set => set._id).sort();
     })
     .catch(err => console.log(err));
 }

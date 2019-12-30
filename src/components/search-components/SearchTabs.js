@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   advancedTab: {
-
+    width: '100%'
   }
 }));
 

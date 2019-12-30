@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
@@ -15,19 +16,10 @@ import { updateSelectedSets } from '../../../actions/searchFormActions';
 const defaultStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
-    maxWidth: 300,
-  },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  chip: {
-    margin: 2,
-  },
-  noLabel: {
-    marginTop: theme.spacing(3),
-  },
+    minWidth: 400,
+    width: '100%',
+    maxWidth: 500
+  }
 }));
 
 const ITEM_HEIGHT = 48;
@@ -41,16 +33,13 @@ const MenuProps = {
   },
 };
 
-function SetSelect({selectedSets, handleChange, setNames}) {
+function SetSelect({selectedSets, handleChange, setNames }) {
   const classes = defaultStyles();
-  // const handleChange = event => {
-  //   setPersonName(event.target.value);
-  // };
 
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-mutiple-checkbox-label">Tag</InputLabel>
+        <InputLabel id="demo-mutiple-checkbox-label">Filter Cards By Sets</InputLabel>
         <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"
@@ -73,6 +62,12 @@ function SetSelect({selectedSets, handleChange, setNames}) {
   );
 }
 
+SetSelect.propTypes = {
+  selectedSets: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  setNames: PropTypes.arrayOf(PropTypes.string).isRequired
+}
+
 const mapStateToProps = state => ({
   setNames: getSetNames(state),
   selectedSets: getSelectedSets(state)
@@ -88,4 +83,3 @@ export default connect(
   mapStateToProps, 
   mapDispatchToProps
 )(SetSelect);
-

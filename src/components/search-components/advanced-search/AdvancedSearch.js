@@ -1,27 +1,31 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AdvancedColors } from '..';
-import textFields from '../text/textFields';
-import SetSelect from '../selects/SetSelect';
+import LeftColumn from './LeftColumn';
+import MiddleColumn from './MiddleColumn';
+import RightColumn from './RightColumn';
+
 
 const useStyles = makeStyles({
-  className: {
-
+  form: {
+    width: '100%',
+    height: '100%',
+    border: '3px solid red',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around'
   }
-
 });
 
 function AdvancedSearch() {
   const classes = useStyles();
-  const { CardName, CardText, CardTypeLine } = textFields;
+
   return (
-    <>
-    <AdvancedColors />
-    <CardName />
-    <CardText />
-    <CardTypeLine />
-    <SetSelect />
-    </>
+    <form className={classes.form}>
+      <LeftColumn />
+      <MiddleColumn />
+      <RightColumn />
+    </form>
   );
 }
 

@@ -22,7 +22,7 @@ function Mana(props) {
   return (
     <div className={classes.container}>
       <img src={symbol} className={classes.symbol} />
-      <Checkbox checked={color} onChange={() => handleChange()} color="secondary"/>
+      <Checkbox checked={color} onChange={() => handleChange()} color="primary"/>
     </div>
   );
 }
