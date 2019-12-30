@@ -7,4 +7,4 @@ export const [
   RETRIEVE_SET_NAMES_LOADING,
   RETRIEVE_SET_NAMES_FULFILLED,
   RETRIEVE_SET_NAMES_ERROR
-] = createAction('FETCH_SET_NAMES', fetchSetNames);
+] = createAction('RETRIEVE_SET_NAMES', fetchSetNames);

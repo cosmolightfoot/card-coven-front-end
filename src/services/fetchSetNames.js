@@ -1,11 +1,14 @@
 export default function fetchSetNames() {
   const baseUrl = process.env.API_URL;
-  return fetch(`${baseUrl}/cards/sets`)
-    .then(res => ([res.ok, res.json()]))
-    .then(([ok, json]) => {
-      if(!ok) throw 'Unable to Get Sets';
-      return json;
+  console.log('BASE URL', baseUrl);
+  return fetch(`${baseUrl}/api/v1/cards/sets/`)
+    .then(response => {
+      if(!response.ok) throw Error(response.statusText);
+      return response.json();
     })
-    .then(sets => (sets.map(set => set._id)))
+    .then(sets => {
+      console.log(sets.map(set => set._id));
+      return sets.map(set => set._id);
+    })
     .catch(err => console.log(err));
 }
