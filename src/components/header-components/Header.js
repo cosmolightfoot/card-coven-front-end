@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: theme.zIndex.drawer + 1
   },
   cardCoven: {
     [theme.breakpoints.up('md')]: {

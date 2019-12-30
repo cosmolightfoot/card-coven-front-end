@@ -8,17 +8,17 @@ import { headerHeight } from '../../styling/styling-vars';
 import { SearchTabs } from './index';
 import { getSearchNoSearches } from '../../selectors/searchSelectors';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   drawerPaper: {
     position: 'fixed',
     top: `${headerHeight}px`,
-    zIndex: 1000,
+    zIndex: theme.drawer,
     height: '500px',  
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   }
-});
+}));
 
 function SearchDrawer(props) {
   const { searchDrawer, openSearch, closeSearch, noSearches } = props;

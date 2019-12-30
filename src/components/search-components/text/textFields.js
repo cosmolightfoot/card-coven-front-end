@@ -17,19 +17,19 @@ const textFieldConstructor = [
     id: 'CardName',
     selector: getCardName,
     action: changeName,
-    placeholder: 'Search for Cards by Name'
+    placeholder: 'Search Cards by Name'
   },
   {
     id: 'CardTypeLine',
     selector: getTypeLine,
     action: changeTypeLine,
-    placeholder: 'Search for Cards by Type Line'
+    placeholder: 'Search Cards by Type Line'
   },
   {
     id: 'CardText',
     selector: getCardText,
     action: changeText,
-    placeholder: 'Search for Cards by Text'
+    placeholder: 'Search Cards by Text'
   }
 ];
 
