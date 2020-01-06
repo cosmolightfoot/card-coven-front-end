@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '0px',
     minWidth: '450px',
     height: '225px'
-  },
+  },  
   formGroup: {
     display: 'flex',
     justifyContent: 'space-around',

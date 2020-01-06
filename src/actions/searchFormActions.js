@@ -15,13 +15,6 @@ import {
   REMOVE_AVAIL_FORMAT,
   REMOVE_CARD_FORMAT,
   PUSH_AVAIL_FORMAT,
-  INIT_AVAIL_SETS,
-  SELECT_CARD_SET,
-  PUSH_CARD_SET,
-  REMOVE_CARD_SET,
-  REMOVE_AVAIL_SET,
-  PUSH_AVAIL_SET,
-  INIT_AVAIL_SORT,
   SELECT_SORT_FILTER,
   SELECT_SORT_DIRECTION,
   PUSH_SORT_FILTER,
@@ -118,12 +111,12 @@ export function pushAvailFormat(format) {
     payload: format
   };
 }
-export function initAvailSort(sortFilter) {
-  return {
-    type: INIT_AVAIL_SORT,
-    payload: sortFilter
-  };
-}
+// export function initAvailSort(sortFilter) {
+//   return {
+//     type: INIT_AVAIL_SORT,
+//     payload: sortFilter
+//   };
+// }
 export function selectSortFilter(sortFilter) {
   return {
     type: SELECT_SORT_FILTER,

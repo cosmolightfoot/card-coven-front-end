@@ -1,5 +1,6 @@
 import { createAction } from 'promise-middleware-redux';
 import fetchSetNames from '../services/fetchSetNames';
+import { INITIALIZE_FORMATS } from '../types/assorted-data-types';
 
 export const [
   retrieveSetNames,
@@ -8,3 +9,10 @@ export const [
   RETRIEVE_SET_NAMES_FULFILLED,
   RETRIEVE_SET_NAMES_ERROR
 ] = createAction('RETRIEVE_SET_NAMES', fetchSetNames);
+
+export function initializeFormats(types) {
+  return {
+    type: INITIALIZE_FORMATS,
+    payload: types
+  };
+}

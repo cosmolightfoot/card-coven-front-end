@@ -9,7 +9,6 @@ const useStyles = makeStyles({
   form: {
     width: '100%',
     height: '100%',
-    border: '3px solid red',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
