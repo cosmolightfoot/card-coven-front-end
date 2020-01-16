@@ -112,7 +112,7 @@ AdvancedSearch.propTypes = {
     selectedSets: PropTypes.arrayOf(PropTypes.string).isRequired,
     availSortFilters: PropTypes.array,
     selectedFilter: PropTypes.string,
-    sortDirection: PropTypes.number,
+    sortDirection: PropTypes.string,
     sortFilters: PropTypes.array
   }).isRequired,
   resetForm: PropTypes.func.isRequired,
