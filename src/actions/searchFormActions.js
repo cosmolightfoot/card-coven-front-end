@@ -21,7 +21,8 @@ import {
   REMOVE_AVAIL_SORT,
   REMOVE_SORT_FILTER,
   PUSH_AVAIL_SORT,
-  UPDATE_SELECTED_SETS
+  UPDATE_SELECTED_SETS,
+  UPDATE_SELECTED_FORMATS
 } from '../types/search-form-types';
 
 export function changeName(text) {
@@ -77,40 +78,40 @@ export function checkExclude() {
     type: CHECK_EXCLUDE_COLORS
   };
 }
-export function initAvailFormats(formats) {
-  return {
-    type: INIT_AVAIL_FORMATS,
-    payload: formats
-  };
-}
-export function selectFormat(format) {
-  return {
-    type: SELECT_CARD_FORMAT,
-    payload: format
-  };
-}
-export function pushFormat() {
-  return {
-    type: PUSH_CARD_FORMAT
-  };
-}
-export function removeAvailFormat() {
-  return {
-    type: REMOVE_AVAIL_FORMAT
-  };
-}
-export function removeCardFormat(format) {
-  return {
-    type: REMOVE_CARD_FORMAT,
-    payload: format
-  };
-}
-export function pushAvailFormat(format) {
-  return {
-    type: PUSH_AVAIL_FORMAT,
-    payload: format
-  };
-}
+// export function initAvailFormats(formats) {
+//   return {
+//     type: INIT_AVAIL_FORMATS,
+//     payload: formats
+//   };
+// }
+// export function selectFormat(format) {
+//   return {
+//     type: SELECT_CARD_FORMAT,
+//     payload: format
+//   };
+// }
+// export function pushFormat() {
+//   return {
+//     type: PUSH_CARD_FORMAT
+//   };
+// }
+// export function removeAvailFormat() {
+//   return {
+//     type: REMOVE_AVAIL_FORMAT
+//   };
+// }
+// export function removeCardFormat(format) {
+//   return {
+//     type: REMOVE_CARD_FORMAT,
+//     payload: format
+//   };
+// }
+// export function pushAvailFormat(format) {
+//   return {
+//     type: PUSH_AVAIL_FORMAT,
+//     payload: format
+//   };
+// }
 // export function initAvailSort(sortFilter) {
 //   return {
 //     type: INIT_AVAIL_SORT,
@@ -155,6 +156,12 @@ export function updateSelectedSets(sets) {
   return { 
     type: UPDATE_SELECTED_SETS,
     payload: sets
+  };
+}
+export function updateSelectedFormats(formats) {
+  return {
+    type: UPDATE_SELECTED_FORMATS,
+    payload: formats
   };
 }
 

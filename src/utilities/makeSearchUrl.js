@@ -24,26 +24,30 @@ export function makeSearchUrl(searchOptions) {
   const {
     cardName,
     page,
-    colors,
+    black, 
+    red, 
+    white,
+    green, 
+    blue,
     exact,
     exclude,
     colorIdentity,
     typeLine, 
     cardText,
-    formats,
+    selectedFormats,
     selectedSets,
     layout,
     sortFilters
   } = searchOptions;
   
-  const colorQuery = colorsToString(colors);
+  const colorQuery = colorsToString({ black, red, white, green, blue });
   cardName && searchQuery.searchParams.set('name', cardName);
   colorQuery && searchQuery.searchParams.set(colorIdentity ? 'color_identity' : 'colors', colorQuery);
   colorQuery && searchQuery.searchParams.set('exact', exact ? 'yes' : 'no');
   colorQuery && searchQuery.searchParams.set('exclude', exclude ? 'yes' : 'no');
   typeLine && searchQuery.searchParams.set('type_line', typeLine);
   cardText && searchQuery.searchParams.set('oracle_text', cardText);
-  formats.length > 0 && searchQuery.searchParams.set('formats', formats.join(','));
+  selectedFormats.length > 0 && searchQuery.searchParams.set('formats', selectedFormats.join(','));
   selectedSets.length > 0 && searchQuery.searchParams.set('sets', selectedSets.join(','));
   layout && searchQuery.searchParams.set('layout', layout);
   sortFilters.length > 0 && searchQuery.searchParams.set('sort', sortToString(sortFilters));

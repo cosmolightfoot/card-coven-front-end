@@ -9,9 +9,9 @@ import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
-import { getSetNames } from '../../../selectors/assortedDataSelectors';
-import { getSelectedSets } from '../../../selectors/searchFormSelectors';
-import { updateSelectedSets } from '../../../actions/searchFormActions';
+import { getGameFormats } from '../../../selectors/assortedDataSelectors';
+import { getSelectedFormats } from '../../../selectors/searchFormSelectors';
+import { updateSelectedFormats } from '../../../actions/searchFormActions';
 
 const defaultStyles = makeStyles(theme => ({
   formControl: {
@@ -34,27 +34,27 @@ const MenuProps = {
   },
 };
 
-function SetSelect({selectedSets, handleChange, setNames }) {
+function FormatSelect({ selectedFormats, handleChange, formatNames }) {
   const classes = defaultStyles();
 
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-mutiple-checkbox-label">Filter Cards By Sets</InputLabel>
+        <InputLabel id="format-select">Filter Cards By Format</InputLabel>
         <Select
-          labelId="demo-mutiple-checkbox-label"
+          labelId="format-select"
           id="demo-mutiple-checkbox"
           multiple
-          value={selectedSets}
+          value={selectedFormats}
           onChange={handleChange}
           input={<Input />}
           renderValue={selected => selected.join(', ')}
           MenuProps={MenuProps}
         >
-          {setNames.map(setName => (
-            <MenuItem key={setName} value={setName}>
-              <Checkbox checked={selectedSets.indexOf(setName) > -1} />
-              <ListItemText primary={setName} />
+          {formatNames.map(formatName => (
+            <MenuItem key={formatName} value={formatName}>
+              <Checkbox checked={selectedFormats.indexOf(formatName) > -1} />
+              <ListItemText primary={formatName.replace(/^./, formatName[0].toUpperCase())} />
             </MenuItem>
           ))}
         </Select>
@@ -63,24 +63,24 @@ function SetSelect({selectedSets, handleChange, setNames }) {
   );
 }
 
-SetSelect.propTypes = {
-  selectedSets: PropTypes.arrayOf(PropTypes.string).isRequired,
+FormatSelect.propTypes = {
+  selectedFormats: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleChange: PropTypes.func.isRequired,
-  setNames: PropTypes.arrayOf(PropTypes.string).isRequired
-}
+  formatNames: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 const mapStateToProps = state => ({
-  setNames: getSetNames(state),
-  selectedSets: getSelectedSets(state)
+  formatNames: getGameFormats(state),
+  selectedFormats: getSelectedFormats(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   handleChange({ target }) {
-    dispatch(updateSelectedSets(target.value));
+    dispatch(updateSelectedFormats(target.value));
   }
 });
 
 export default connect(
   mapStateToProps, 
   mapDispatchToProps
-)(SetSelect);
+)(FormatSelect);
