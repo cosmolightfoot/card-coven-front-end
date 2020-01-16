@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +12,7 @@ import FormatSelect from '../formats/FormatSelect';
 import { getSearchFormState } from '../../../selectors/searchFormSelectors';
 import { newSearch } from '../../../actions/cardSearchActions';
 import { closeDrawers } from '../../../actions/drawerActions';
-import { resetSimpleForm } from '../../../actions/simpleSearchActions';
+import { resetSearch } from '../../../actions/searchFormActions';
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -96,6 +96,30 @@ function AdvancedSearch({ searchOptions, submitSearch, resetForm, closeSearchDra
   );
 }
 
+AdvancedSearch.propTypes = {
+  searchOptions: PropTypes.shape({
+    cardName: PropTypes.string.isRequired,
+    typeLine: PropTypes.string.isRequired,
+    cardText: PropTypes.string.isRequired,
+    black: PropTypes.bool.isRequired,
+    white: PropTypes.bool.isRequired,
+    red: PropTypes.bool.isRequired,
+    green: PropTypes.bool.isRequired,
+    blue: PropTypes.bool.isRequired,
+    exact: PropTypes.bool.isRequired,
+    exclude: PropTypes.bool.isRequired,
+    selectedFormats: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedSets: PropTypes.arrayOf(PropTypes.string).isRequired,
+    availSortFilters: PropTypes.array,
+    selectedFilter: PropTypes.string,
+    sortDirection: PropTypes.number,
+    sortFilters: PropTypes.array
+  }).isRequired,
+  resetForm: PropTypes.func.isRequired,
+  submitSearch: PropTypes.func.isRequired,
+  closeSearchDrawer: PropTypes.func.isRequired
+}
+
 const mapStateToProps = state => ({
   searchOptions: getSearchFormState(state)
 });
@@ -108,7 +132,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(closeDrawers());
   },
   resetForm() {
-    dispatch(resetSimpleForm());
+    dispatch(resetSearch());
   }
 });
 

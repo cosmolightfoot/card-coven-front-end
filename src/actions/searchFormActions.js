@@ -9,12 +9,6 @@ import {
   CHECK_BLUE_MANA,
   CHECK_EXACT_COLORS,
   CHECK_EXCLUDE_COLORS,
-  SELECT_CARD_FORMAT,
-  PUSH_CARD_FORMAT,
-  INIT_AVAIL_FORMATS,
-  REMOVE_AVAIL_FORMAT,
-  REMOVE_CARD_FORMAT,
-  PUSH_AVAIL_FORMAT,
   SELECT_SORT_FILTER,
   SELECT_SORT_DIRECTION,
   PUSH_SORT_FILTER,
@@ -22,7 +16,8 @@ import {
   REMOVE_SORT_FILTER,
   PUSH_AVAIL_SORT,
   UPDATE_SELECTED_SETS,
-  UPDATE_SELECTED_FORMATS
+  UPDATE_SELECTED_FORMATS,
+  RESET_SEARCH
 } from '../types/search-form-types';
 
 export function changeName(text) {
@@ -78,46 +73,6 @@ export function checkExclude() {
     type: CHECK_EXCLUDE_COLORS
   };
 }
-// export function initAvailFormats(formats) {
-//   return {
-//     type: INIT_AVAIL_FORMATS,
-//     payload: formats
-//   };
-// }
-// export function selectFormat(format) {
-//   return {
-//     type: SELECT_CARD_FORMAT,
-//     payload: format
-//   };
-// }
-// export function pushFormat() {
-//   return {
-//     type: PUSH_CARD_FORMAT
-//   };
-// }
-// export function removeAvailFormat() {
-//   return {
-//     type: REMOVE_AVAIL_FORMAT
-//   };
-// }
-// export function removeCardFormat(format) {
-//   return {
-//     type: REMOVE_CARD_FORMAT,
-//     payload: format
-//   };
-// }
-// export function pushAvailFormat(format) {
-//   return {
-//     type: PUSH_AVAIL_FORMAT,
-//     payload: format
-//   };
-// }
-// export function initAvailSort(sortFilter) {
-//   return {
-//     type: INIT_AVAIL_SORT,
-//     payload: sortFilter
-//   };
-// }
 export function selectSortFilter(sortFilter) {
   return {
     type: SELECT_SORT_FILTER,
@@ -162,6 +117,11 @@ export function updateSelectedFormats(formats) {
   return {
     type: UPDATE_SELECTED_FORMATS,
     payload: formats
+  };
+}
+export function resetSearch() {
+  return {
+    type: RESET_SEARCH
   };
 }
 
