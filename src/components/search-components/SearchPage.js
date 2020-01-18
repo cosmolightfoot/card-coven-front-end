@@ -29,8 +29,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     justifyContent: 'center',
     minHeight: `calc(100vh - ${headerHeight + 40}px)`,
-    margin: '20px',
-    // border:  '3px solid'
+    margin: '20px'
   },
   message: {
     position: 'relative',
@@ -46,7 +45,9 @@ function SearchPage({ results, noSearches }) {
   return (
     <>
       <main className={classes.root}>
-        {noSearches ? null : results.length > 0 ? (
+        {noSearches ? (<Typography className={classes.message} variant="h5">
+          Search For Cards By Pressing the Green Plus
+        </Typography>) : results.length > 0 ? (
           <ul className={classes.gallery}>
             {results.map(card => {
               if(card.layout === 'transform') {
@@ -58,12 +59,12 @@ function SearchPage({ results, noSearches }) {
           </ul>
         ) : (
           <Typography className={classes.message} variant="h5">
-              Your Search Returned No Results
+            Your Search Returned No Results
           </Typography>
         )}
         <SearchDrawer />
         <NewSearchButton />
-        <PageResults />
+        {noSearches || results.length === 0 ? null : <PageResults />}
       </main>
     </>
   );
