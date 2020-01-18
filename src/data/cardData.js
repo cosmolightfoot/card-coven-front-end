@@ -65,4 +65,4 @@ export default {
     cardmarket: 'https://www.cardmarket.com/en/Magic/Products/Singles/Core-2020/Knight-of-the-Ebon-Legion?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall',
     cardhoarder: 'https://www.cardhoarder.com/cards/73109?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall'
   }
-}
+};

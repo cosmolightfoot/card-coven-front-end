@@ -11,7 +11,6 @@ import { Header, SearchPage } from './';
 import Sidebar from './sidebar-components/SideBar';
 import About from './About';
 import AppWrapper from './AppWrapper';
-import CardDetails from '../containers/detail-containers/CardDetails';
 import { getSetNames, getGameFormats } from '../selectors/assortedDataSelectors';
 import { retrieveSetNames, initializeFormats } from '../actions/assortedDataActions';
 import formatData from '../data/formatData';
@@ -34,7 +33,7 @@ function App({ updateSetNames, updateGameFormats }) {
             <Route exact path="/" component={SearchPage} />
             <Route exact path="/search" component={SearchPage} />
             <Route exact path="/about" component={About} />
-            <Route path="/:id" component={CardDetails} />
+            {/* <Route path="/:id" component={CardDetails} /> */}
           </Switch>
         </AppWrapper>
       </ThemeProvider>
