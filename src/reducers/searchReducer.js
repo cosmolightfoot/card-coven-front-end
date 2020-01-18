@@ -10,8 +10,8 @@ import {
 } from '../types/card-search-types';
 
 const initState = {
-  currentSearchOptions: {},
-  recentSearchOptions: [],
+  currentSearch: {},
+  recentSearches: [],
   selectedCard: {},
   results: [],
   currentPage: 0,
@@ -28,15 +28,16 @@ const initState = {
 };
 
 export default function searchReducer(state = initState, action) {
+  console.log('ACTION', action);
   switch(action.type) {
     case NEW_SEARCH: {
       return {
         ...state,
         loading: false,
-        currentSearchOptions: action.payload.searchOptions,
-        recentSearchOptions: [
+        currentSearch: { searchOptions: action.payload.searchOptions, searchType: 'advanced' },
+        recentSearches: [
           ...state.recentSearchOptions,
-          action.payload.searchOptions
+          { searchOptions: action.payload.searchOptions, searchType: 'advanced' }
         ],
         results: action.payload.results,
         currentPage: action.payload.page,
@@ -66,10 +67,10 @@ export default function searchReducer(state = initState, action) {
       return {
         ...state,
         loading: false,
-        currentSearchOptions: action.payload.searchOptions,
-        recentSearchOptions: [
+        currentSearch: { searchOptions: action.payload.searchOptions, searchType: 'simple' },
+        recentSearches: [
           ...state.recentSearchOptions,
-          action.payload.searchOptions
+          { searchOptions: action.payload.searchOptions, searchType: 'simple' }
         ],
         results: action.payload.results,
         currentPage: action.payload.page,

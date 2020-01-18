@@ -10,6 +10,8 @@ const preloadedState = {
   searches: {
     currentSearchOptions: {},
     recentSearchOptions: [],
+    currentSearch: {},
+    recentSearches: [],
     results: [],
     currentPage: 0,
     totalCount: 0,
@@ -32,6 +34,6 @@ const preloadedState = {
 // );
 
 export default createStore(
-  reducers, preloadedState, 
+  reducers, preloadedState,
   compose(applyMiddleware(promiseMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );

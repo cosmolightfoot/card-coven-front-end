@@ -1,5 +1,5 @@
 import searchReducer from './searchReducer';
-import { newSearch, selectCardDetail } from '../actions/cardSearchActions';
+import { selectCardDetail } from '../actions/cardSearchActions';
 
 
 describe('search reducer tests', () => {

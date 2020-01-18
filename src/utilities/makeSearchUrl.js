@@ -18,6 +18,7 @@ function sortToString(filters) {
 }
 
 export function makeSearchUrl(searchOptions) {
+  console.log('IT WORKED');
   const baseUrl = process.env.API_URL || 'http://localhost:7891';
   const searchQuery = new URL(`${baseUrl}/api/v1/cards`);
   if(searchOptions === initSearchState) return searchQuery;
