@@ -3,13 +3,13 @@ import {
   compose,
   applyMiddleware
 } from 'redux';
+import thunk from 'redux-thunk';
 import reducers from './reducers/index';
-import { promiseMiddleware } from 'promise-middleware-redux';
 
 const preloadedState = {
   searches: {
-    currentSearchOptions: {},
-    recentSearchOptions: [],
+    // currentSearchOptions: {},
+    // recentSearchOptions: [],
     currentSearch: {},
     recentSearches: [],
     results: [],
@@ -35,5 +35,5 @@ const preloadedState = {
 
 export default createStore(
   reducers, preloadedState,
-  compose(applyMiddleware(promiseMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );

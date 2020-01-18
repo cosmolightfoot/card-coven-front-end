@@ -1,14 +1,30 @@
-import { createAction } from 'promise-middleware-redux';
 import fetchSetNames from '../services/fetchSetNames';
-import { INITIALIZE_FORMATS } from '../types/assorted-data-types';
+import { 
+  INITIALIZE_FORMATS, 
+  RETRIEVE_SET_NAMES, 
+  RETRIEVE_SET_NAMES_LOADING, 
+  RETRIEVE_SET_NAMES_ERROR 
+} from '../types/assorted-data-types';  
 
-export const [
-  retrieveSetNames,
-  RETRIEVE_SET_NAMES,
-  RETRIEVE_SET_NAMES_LOADING,
-  RETRIEVE_SET_NAMES_FULFILLED,
-  RETRIEVE_SET_NAMES_ERROR
-] = createAction('RETRIEVE_SET_NAMES', fetchSetNames);
+export const retrieveSetNames = () => dispatch => {
+  dispatch({
+    type: RETRIEVE_SET_NAMES_LOADING
+  });
+
+  return fetchSetNames()
+    .then(setNames => {
+      dispatch({
+        type: RETRIEVE_SET_NAMES,
+        payload: setNames
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: RETRIEVE_SET_NAMES_ERROR,
+        payload: error
+      });
+    });
+};
 
 export function initializeFormats(types) {
   return {

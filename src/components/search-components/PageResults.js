@@ -7,7 +7,7 @@ import { newSearch, newSimpleSearch } from '../../actions/cardSearchActions';
 function PageResults({ mostRecentSearch, currentPage, totalPages, displaying, hasMore, hasLess }) {
   return (
     <nav>
-      
+
     </nav>
   );
 }
@@ -30,14 +30,14 @@ const mapStateToProps = state => ({
   currentPage: null,
   totalPages: null,
   displaying: null,
-  hasMore: null, 
+  hasMore: null,
   hasLess: null
 });
 
 const mapDispatchToProps = dispatch => ({
   pageSearch(searchOptions, searchType) {
-    if(searchType === 'advanced') dispatch(newSearch(searchOptions));
-    if(searchType === 'simple') dispatch(newSimpleSearch(searchOptions));
+    if (searchType === 'advanced') dispatch(newSearch(searchOptions));
+    if (searchType === 'simple') dispatch(newSimpleSearch(searchOptions));
   }
 })
 

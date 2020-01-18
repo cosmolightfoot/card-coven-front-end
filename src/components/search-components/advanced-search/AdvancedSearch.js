@@ -10,7 +10,7 @@ import SetSelect from '../selects/SetSelect';
 import AdvancedColors from './AdvancedColors';
 import FormatSelect from '../formats/FormatSelect';
 import { getSearchFormState } from '../../../selectors/searchFormSelectors';
-import { newSearch } from '../../../actions/cardSearchActions';
+import { newAdvancedSearch } from '../../../actions/cardSearchActions';
 import { closeDrawers } from '../../../actions/drawerActions';
 import { resetSearch } from '../../../actions/searchFormActions';
 
@@ -126,7 +126,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   submitSearch(searchOptions) {
-    dispatch(newSearch(searchOptions));
+    dispatch(newAdvancedSearch(searchOptions));
   },
   closeSearchDrawer() {
     dispatch(closeDrawers());

@@ -2,7 +2,6 @@ import {
   SELECT_CARD_DETAIL,
   NEW_SIMPLE_SEARCH_LOADING,
   NEW_SEARCH,
-  NEW_SEARCH_FULFILLED,
   NEW_SEARCH_LOADING,
   NEW_SEARCH_ERROR,
   NEW_SIMPLE_SEARCH,
@@ -28,7 +27,7 @@ const initState = {
 };
 
 export default function searchReducer(state = initState, action) {
-  console.log('ACTION', action);
+  console.log('ACTION',action);
   switch(action.type) {
     case NEW_SEARCH: {
       return {
@@ -36,7 +35,7 @@ export default function searchReducer(state = initState, action) {
         loading: false,
         currentSearch: { searchOptions: action.payload.searchOptions, searchType: 'advanced' },
         recentSearches: [
-          ...state.recentSearchOptions,
+          ...state.recentSearches,
           { searchOptions: action.payload.searchOptions, searchType: 'advanced' }
         ],
         results: action.payload.results,
@@ -54,9 +53,6 @@ export default function searchReducer(state = initState, action) {
     case NEW_SEARCH_LOADING:
       return { ...state, loading: true };
 
-    case NEW_SEARCH_FULFILLED:
-      return { ...state, loading: false };
-
     case NEW_SEARCH_ERROR:
       return { ...state, error: action.payload };
 
@@ -69,7 +65,7 @@ export default function searchReducer(state = initState, action) {
         loading: false,
         currentSearch: { searchOptions: action.payload.searchOptions, searchType: 'simple' },
         recentSearches: [
-          ...state.recentSearchOptions,
+          ...state.recentSearches,
           { searchOptions: action.payload.searchOptions, searchType: 'simple' }
         ],
         results: action.payload.results,
