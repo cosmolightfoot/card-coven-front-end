@@ -11,6 +11,8 @@ export function makeSimpleSearchUrl(searchOptions) {
     page
   } = searchOptions;
 
+  console.log('SEARCH OPTIONS', searchOptions);
+
   const colorString = colorsToString({ black, white, blue, green, red });
   const baseUrl = process.env.API_URL || 'http://localhost:7891';
   

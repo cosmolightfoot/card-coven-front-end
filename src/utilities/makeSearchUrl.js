@@ -18,7 +18,6 @@ function sortToString(filters) {
 }
 
 export function makeSearchUrl(searchOptions) {
-  console.log('IT WORKED');
   const baseUrl = process.env.API_URL || 'http://localhost:7891';
   const searchQuery = new URL(`${baseUrl}/api/v1/cards`);
   if(searchOptions === initSearchState) return searchQuery;
@@ -53,5 +52,6 @@ export function makeSearchUrl(searchOptions) {
   layout && searchQuery.searchParams.set('layout', layout);
   sortFilters.length > 0 && searchQuery.searchParams.set('sort', sortToString(sortFilters));
   page && searchQuery.searchParams.set('page', page);
+  console.log('SEARCH URL', searchQuery);
   return searchQuery;
 }

@@ -2,6 +2,7 @@ import { makeSimpleSearchUrl } from '../utilities/makeSimpleSearchUrl';
 
 export default function simpleFetchCards(searchOptions) {
   const query = makeSimpleSearchUrl(searchOptions).toString();
+  console.log('QUERY', query);
   return fetch(query)
     .then(res => {
       return [res.ok, res.json()];

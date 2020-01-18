@@ -65,22 +65,24 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     width: '330px'
   },
-  prev: {
+  prev: ({ hasLess }) =>  ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
     '&:hover': {
       cursor: 'pointer'
-    }
-  },
-  next: {
+    },
+    visibility: hasLess ? null : 'hidden'
+  }),
+  next: ({ hasMore }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     '&:hover': {
       cursor: 'pointer'
-    }
-  },
+    },
+    visibility: hasMore ? null : 'hidden'
+  }),
   main: {
     display: 'flex',
     flexDirection: 'column',
@@ -89,16 +91,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function PageResults({ currentSearch, currentPage, totalPages, displaying, hasMore, hasLess, pageSearch, totalCount }) {
-  console.log('CURRENT PAGE', currentPage);
-  const classes = useStyles();
+  const classes = useStyles({ hasLess, hasMore });
 
   const handlePaging = page => {
-    pageSearch({ ...currentSearch, page }, currentSearch.searchType);
+    pageSearch({ ...currentSearch.searchOptions, page }, currentSearch.searchType);
   };
 
-  console.log('LESS THAN', totalPages < 9);
-  if(totalPages < 9) {
-    manaIcons.length = totalPages;
+  let iconIterator = null;
+  if(totalPages < manaIcons.length) {
+    iconIterator = [...manaIcons];
+    iconIterator.length = totalPages;
+  } else {
+    iconIterator = [...manaIcons];
   }
 
   return (
@@ -116,7 +120,7 @@ function PageResults({ currentSearch, currentPage, totalPages, displaying, hasMo
         </div>
         <ul className={classes.list}>
           {
-            manaIcons.map((icon, index) => (
+            iconIterator.map((icon, index) => (
               <li key={shortid.generate()} className={classes[currentPage === index + 1 ? 'selectedPage' : 'listItem']} onClick={() => { handlePaging(index + 1); }}>
                 <img src={icon} className={classes.icon} />
                 <a href="#">{currentPage < 9 ? index + 1 : currentPage - 7 + index}</a>
