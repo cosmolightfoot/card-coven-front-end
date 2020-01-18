@@ -7,7 +7,8 @@ export function makeSimpleSearchUrl(searchOptions) {
     blue, 
     green,
     red,
-    text
+    text,
+    page
   } = searchOptions;
 
   const colorString = colorsToString({ black, white, blue, green, red });
@@ -18,6 +19,7 @@ export function makeSimpleSearchUrl(searchOptions) {
 
   const searchQuery = new URL(`${baseUrl}/api/v1/cards`);
   simpleSearch && searchQuery.searchParams.set('simple', simpleSearch);
+  page && searchQuery.searchParams.set('page', page);
 
   return searchQuery;
 }

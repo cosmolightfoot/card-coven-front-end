@@ -27,7 +27,6 @@ const initState = {
 };
 
 export default function searchReducer(state = initState, action) {
-  console.log('ACTION',action);
   switch(action.type) {
     case NEW_SEARCH: {
       return {

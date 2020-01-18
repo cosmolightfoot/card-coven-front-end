@@ -11,12 +11,14 @@ import {
 
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
+import PageResults from './PageResults';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     minHeight: `calc(100vh - ${headerHeight + 40}px)`,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -40,27 +42,30 @@ const useStyles = makeStyles(theme => ({
 
 function SearchPage({ results, noSearches }) {
   const classes = useStyles();
-  
+
   return (
-    <main className={classes.root}>
-      {noSearches ? null : results.length > 0 ? (
-        <ul className={classes.gallery}>
-          {results.map(card => {
-            if(card.layout === 'transform') {
-              return <TransformCard cardData={card} />;
-            } else {
-              return <Card cardData={card} />;
-            }
-          })}
-        </ul>
-      ) : (
-        <Typography className={classes.message} variant="h5">
-          Your Search Returned No Results
-        </Typography>
-      )}
-      <SearchDrawer />
-      <NewSearchButton />
-    </main>
+    <>
+      <main className={classes.root}>
+        {noSearches ? null : results.length > 0 ? (
+          <ul className={classes.gallery}>
+            {results.map(card => {
+              if(card.layout === 'transform') {
+                return <TransformCard cardData={card} />;
+              } else {
+                return <Card cardData={card} />;
+              }
+            })}
+          </ul>
+        ) : (
+          <Typography className={classes.message} variant="h5">
+              Your Search Returned No Results
+          </Typography>
+        )}
+        <SearchDrawer />
+        <NewSearchButton />
+        <PageResults />
+      </main>
+    </>
   );
 }
 

@@ -76,7 +76,7 @@ function SideBarLink(props) {
 SideBarLink.propTypes = {
   icon: PropTypes.node.isRequired,
   primary: PropTypes.string.isRequired,
-  link: PropTypes.node.isRequired
+  link: PropTypes.object.isRequired
 };
 
 function SideBar() {
